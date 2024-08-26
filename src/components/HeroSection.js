@@ -36,7 +36,7 @@ function HeroSection() {
 
   return (
     <>
-      <div className="hero-section relative flex items-center justify-center min-h-screen bg-gradient-to-br from-black via-black to-purple-950">
+      <div className="hero-section relative flex items-center justify-center min-h-screen bg-transparent">
         <div className="hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
           <p className="hero-text font-bold mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             <span className="hero-typewriter-wrapper">

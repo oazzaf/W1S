@@ -62,7 +62,7 @@ const FAQs = () => {
   };
 
   return (
-    <div className="p-8 bg-gradient-to-br from-blue-950 to-black via-black">
+    <div className="p-8 bg-transparent">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 " 
           style={{ 
             fontWeight: '300', 

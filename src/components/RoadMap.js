@@ -290,7 +290,7 @@ const ImageGallery = () => {
   };
 
   return (
-    <div className="relative w-full h-auto flex flex-col items-center justify-center bg-gradient-to-br from-black via-black to-pink-950" id="roadmap">
+    <div className="relative w-full h-auto flex flex-col items-center justify-center bg-transparent" id="roadmap">
       <h1 
         style={{
           fontSize: '3rem',

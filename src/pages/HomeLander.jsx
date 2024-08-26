@@ -7,7 +7,7 @@ import Product from '../components/Product';
 import Ecosystem from '../components/Ecosystem';
 import Tokenomics from '../components/Tokenomics';
 import RoadMap from '../components/RoadMap';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 import FAQs from '../components/FAQs';
 import Loading from '../components/Loading';
 
@@ -26,7 +26,7 @@ function HomeLander() {
     <div
       className="HomeLander"
       style={{
-        backgroundColor: '#000000',
+        backgroundColor: '#222222',
         minHeight: '100vh',
         backgroundRepeat: 'repeat-y',
       }}

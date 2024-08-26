@@ -40,7 +40,7 @@ const getStyles = (width) => {
       alignItems: 'center',
       width: '100vw',
       height: '100vh',
-      backgroundColor: '#000',
+      backgroundColor: '#222222',
       overflow: 'hidden'
     },
     loadingGif: loadingGifStyle

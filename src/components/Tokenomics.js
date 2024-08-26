@@ -86,7 +86,7 @@ function Tokenomics() {
                     }
                 `}
             </style>
-            <div className="text-white text-center px-12 py-16 bg-gradient-to-bl from-black via-black to-blue-950" id="tokenomics">
+            <div className="text-white text-center px-12 py-16 bg-transparent" id="tokenomics">
                 <h1 className="text-4xl md:text-7xl lg:text-8xl font-extrabold leading-tight mx-auto reveal-top"
                     style={{ 
                         fontWeight: '300', 

@@ -74,7 +74,7 @@ const Economy = () => {
           }
         `}
       </style>
-      <section className="economy-section  bg-gradient-to-bl from-black via-black to-orange-950 text-white p-8" id="economy">
+      <section className="economy-section  bg-transparent text-white p-8" id="economy">
         <div className="economy-section-container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left" style={{ marginBottom: '100px' }}>
           <div className="economy-img-container w-full md:w-1/2 mt-8 md:mt-0">
             <img

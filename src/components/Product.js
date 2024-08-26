@@ -53,7 +53,7 @@ const GridComponent = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-orange-950 to-black via-black py-20" id="product">
+    <div className="bg-transparent py-20" id="product">
       <div className="container mx-auto px-6">
         <div className="text-center text-white mb-12">
           <p className="mt-3 text-6xl responsive-text" style={{ fontFamily: 'Orbitron', textShadow: '0px 0px 8px #000' }}>

@@ -51,7 +51,12 @@ const Footer = () => {
 
                 footer {
                     font-family: 'Orbitron', sans-serif;
-                    background-color: black;
+                    background-color: rgba(0, 0, 0, 0); /* Make footer background transparent */
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center; /* Center text content */
                 }
 
                 .footer-heading {
@@ -70,13 +75,18 @@ const Footer = () => {
                 }
 
                 .footer-container {
-                    background-color: black;
+                    background-color: rgba(0, 0, 0, 0); /* Transparent background */
                     padding: 20px 8px;
                     border-radius: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
                 }
 
                 .footer-bottom {
-                    background-color: black;
+                    background-color: rgba(0, 0, 0, 0); /* Transparent background */
                     padding: 10px 8px;
                     text-align: center;
                 }
@@ -100,7 +110,7 @@ const Footer = () => {
                 {/* Other content of your app */}
             </div>
             <footer className="footer-container text-white" id="footer">
-                <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-center">
                     <div className="space-y-4 reveal-bottom">
                         <h2 className="footer-heading">About Wesafar</h2>
                         <p className="footer-text">

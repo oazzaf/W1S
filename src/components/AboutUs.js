@@ -134,7 +134,7 @@ const SocialEngagementSection = () => {
           }
         `}
       </style>
-      <section className="text-white p-8 min-h-screen bg-gradient-to-bl from-purple-950 to-black via-black" id="aboutus">
+      <section className="text-white p-8 min-h-screen bg-transparent">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left">
           <div className="fade-top w-full md:w-1/2 mt-8 md:mt-0">
             <img
