@@ -1,0 +1,97 @@
+.App {
+  min-height: 100vh;
+  text-align: center;
+  width: 100%;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #fffbfb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.piko {
+ color: #31b2fd,rgb(0, 0, 0), rgb(18, 6, 42), #dddddd, deeppink, #000000, rgb(26, 165, 215),#f7b338, darkgoldenrod
+  #f47e37,
+  #e6433e,
+  #cf2351,
+  #b01a62,
+  #872871,
+  #9450a8,
+  #593582,
+  #3c3f8f, rgb(255, 255, 255);
+
+}
+
+.bg-gradient {
+  background: linear-gradient(to bottom right, black, #b45309, black);
+}
+
+.bg-image {
+  background-size: cover;
+}
+
+.background-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+}
+
+.shape.rounded-full {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 20%;
+}
+
+.shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid rgba(180, 83, 9, 0.7);
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+#roadmap {
+  margin-top: 50px;
+}
