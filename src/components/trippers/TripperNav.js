@@ -16,7 +16,7 @@ const TripperNav = () => {
   ];
 
   return (
-    <nav className="bg-[#121212] py-10 relative">
+    <nav className="bg-[#222222] py-10 relative">
       <div className="container mx-auto flex justify-between items-center relative">
         {/* Left Section (Menu) */}
         <div className="flex items-center space-x-4">
@@ -33,31 +33,27 @@ const TripperNav = () => {
               key={item.name}
               onClick={() => setSelected(item.name)}
               className={`flex flex-col items-center relative ${
-                selected === item.name
-                  ? 'text-pink-500'
-                  : 'text-gray-500'
+                selected === item.name ? 'text-gray-900' : 'text-gray-500'
               }`}
             >
               <FontAwesomeIcon
                 icon={item.icon}
                 size="2x"
                 className={`${
-                  selected === item.name
-                    ? 'text-pink-500'
-                    : 'text-gray-500'
+                  selected === item.name ? 'text-[#bf3655]' : 'text-gray-500'
                 }`}
               />
               <span
                 className={`mt-1 text-sm ${
                   selected === item.name
-                    ? 'text-pink-500'
+                    ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775]'
                     : 'text-gray-500'
                 }`}
               >
                 {item.name}
               </span>
               {selected === item.name && (
-                <div className="absolute bottom-[-41px] border-b-2 border-pink-500 w-full"></div>
+                <div className="absolute bottom-[-41.5px] w-full h-[2px] bg-gradient-to-r from-[#ff8a7a] via-[#ff6a5c] to-[#d93775] z-10"></div>
               )}
             </button>
           ))}
@@ -67,7 +63,7 @@ const TripperNav = () => {
         <div className="flex items-center space-x-4">
           <button className="text-gray-500 relative">
             <FontAwesomeIcon icon={faBell} size="lg" />
-            <span className="absolute top-0 right-0 h-2 w-2 bg-pink-500 rounded-full"></span>
+            <span className="absolute top-0 right-0 h-2 w-2 bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775] rounded-full"></span>
           </button>
           <button className="text-gray-500">
             <FontAwesomeIcon icon={faSearch} size="lg" />

@@ -116,9 +116,9 @@ function Navbar() {
           isMenuOpen ? 'translate-y-0' : 'translate-y-full'
         } transition-transform duration-500 ease-in-out`}
         style={{
-          backgroundColor: '#19072cd1',
+          backgroundColor: '#22222',
           backgroundImage: `url(${navbarStarsGif})`,
-          backdropFilter: 'blur(10px)',
+          backdropFilter: 'blur(15px)',
           WebkitBackdropFilter: 'blur(10px)',
         }}
       >
@@ -152,7 +152,7 @@ function Navbar() {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-40 bg-black bg-opacity-70 overflow-y-auto">
+        <div className="fixed inset-0 flex items-center justify-center z-40 bg-gray bg-opacity-70 overflow-y-auto">
           <div
             className={`p-8 rounded-lg shadow-lg w-full max-w-sm ${
               isTripper ? 'bg-tripper-container' : 'bg-business-container'
@@ -286,7 +286,7 @@ function Navbar() {
         .menu-icon .bar {
           width: 33px;
           height: 4px;
-          background-color: #fff;
+          background-color: gray;
           margin: 6px 0;
           transition: all 0.4s ease-in-out;
         }

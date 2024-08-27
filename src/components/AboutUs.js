@@ -150,7 +150,7 @@ const SocialEngagementSection = () => {
             />
           </div>
           <div className="fade-top w-full md:w-1/2 mt-4 md:mt-8">
-            <h1 className='' style={{fontSize: '3rem', color: '#fff', textShadow: '0px 0px 8px #b64aa8',}}>New Travel Era</h1>
+            <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775]' style={{fontSize: '3rem', textShadow: '0px 0px 8px #d93775',}}>New Travel Era</h1>
             <p style={{color: '#fff', fontFamily: 'Poppins' }}>
               Welcome to Wesafar, the catalyst for responsible and committed tourism. Discover new destinations, share your travel stories, and earn rewards with WER tokens. Join our community of Trippers and local businesses striving for a sustainable and enriching travel experience.
             </p>

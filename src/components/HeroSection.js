@@ -40,16 +40,29 @@ function HeroSection() {
         <div className="hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
           <p className="hero-text font-bold mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             <span className="hero-typewriter-wrapper">
-              <span className="hero-typewriter italic" ref={typewriterRef}>Next Adventure</span>
-              <span className="hero-caret" ref={caretRef}>|</span>
+              <span
+                className="hero-typewriter italic text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#d93775] to-[#9450a8]"
+                ref={typewriterRef}
+              >
+                Next Adventure
+              </span>
+              <span className="hero-caret" ref={caretRef}>
+                |
+              </span>
             </span>
           </p>
           <p className="hero-subtext text-white text-base sm:text-lg md:text-xl lg:text-2xl mb-6 px-2 sm:px-0">
             Explore, connect, and support local communities with Wesafar.
           </p>
-          <div className={`flex justify-center ${logoInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000 ease-in-out transform-gpu`}>
+          <div
+            className={`flex justify-center ${
+              logoInView
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-10'
+            } transition-all duration-1000 ease-in-out transform-gpu`}
+          >
             <button
-              className="hero-button flex items-center justify-center px-8 py-4 rounded-[15px] bg-gradient-to-r from-transparent-400 to-red-500 text-white font-bold text-lg transition-transform duration-500 ease-in-out transform-gpu hover:scale-110 shadow-lg"
+              className="hero-button flex items-center justify-center px-8 py-4 rounded-[15px] bg-gradient-to-r from-[#ff6a5c] via-[#d93775] to-[#9450a8] text-white font-bold text-lg transition-transform duration-500 ease-in-out transform-gpu hover:scale-110 shadow-lg"
               onClick={handleJoinClick}
             >
               <FaMapSigns className="mr-3" /> Join the Adventure
@@ -81,7 +94,10 @@ function HeroSection() {
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-        .hero-section, .hero-text, .hero-subtext, .hero-button {
+        .hero-section,
+        .hero-text,
+        .hero-subtext,
+        .hero-button {
           font-family: 'Orbitron', sans-serif;
         }
 
@@ -96,7 +112,6 @@ function HeroSection() {
         .hero-typewriter {
           display: inline-block;
           font-size: 1.5em;
-          color: deeppink;
           text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.1);
           letter-spacing: 0.15em;
           white-space: normal;
@@ -112,23 +127,37 @@ function HeroSection() {
         }
 
         @keyframes hero-blink-caret {
-          from, to { opacity: 1 }
-          50% { opacity: 0; }
+          from,
+          to {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
         }
 
         @keyframes hero-moveGradient {
-          0% { background-position: 0% 50%; }
-          100% { background-position: 100% 50%; }
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
         }
 
         .hero-animate-bg-move {
-          background-size: 200% 200%;
+          background-size: 300% 200%;
           animation: hero-moveGradient 15s ease infinite;
         }
 
         @keyframes hero-levitate {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
         }
 
         .hero-logo-levitate {
@@ -141,8 +170,12 @@ function HeroSection() {
         }
 
         @keyframes hero-button-gradient {
-          0% { background-position: 0% 50%; }
-          100% { background-position: 100% 50%; }
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
         }
 
         .waitlist-slide-in {
