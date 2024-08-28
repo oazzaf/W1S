@@ -5,14 +5,50 @@ import AiIcon from '../img/2ON.png';
 import MetaverseIcon from '../img/1ON.png';
 import BusinessIcon from '../img/3ON.png';
 
-const Card = ({ iconSrc, title, description, borderColor, textColor, className }) => {
+const Card = ({ iconSrc, title, description, className }) => {
   return (
-    <div 
-      className={`flex flex-col items-center p-6 rounded-lg border-2 shadow-sm bg-transparent ${borderColor} transition-all duration-300 ${className}`}
+    <div
+      className={`relative flex flex-col items-center p-6 rounded-lg border-2 shadow-sm bg-transparent transition-all duration-300 ${className}`}
+      style={{
+        borderImage: 'linear-gradient(45deg, #d93775, #7238b4) 1',
+      }}
     >
-      <img src={iconSrc} alt={title} className="w-26 h-26 mb-4" style={{ width: '150px', height: '150px' }} />
-      <h5 className={`mb-2 text-xl font-bold ${textColor}`} style={{ fontFamily: 'Orbitron' }}>{title}</h5>
-      <p className={`text-base ${textColor}`} style={{ fontFamily: 'Poppins' }}>{description}</p>
+      <div
+        className="w-26 h-26 mb-4"
+        style={{
+          width: '150px',
+          height: '150px',
+          backgroundImage: 'linear-gradient(45deg, #d93775, #7238b4)',
+          WebkitMask: `url(${iconSrc}) center/contain no-repeat`,
+          mask: `url(${iconSrc}) center/contain no-repeat`,
+          WebkitMaskComposite: 'source-in',
+          maskComposite: 'source-in',
+        }}
+      />
+      <h5
+        className="mb-2 text-xl font-bold"
+        style={{
+          fontFamily: 'Orbitron',
+          background: 'linear-gradient(45deg, #d93775, #7238b4)',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          color: 'transparent',
+        }}
+      >
+        {title}
+      </h5>
+      <p
+        className="text-base"
+        style={{
+          fontFamily: 'Poppins',
+          background: 'linear-gradient(45deg, #d93775, #7238b4)',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          color: 'transparent',
+        }}
+      >
+        {description}
+      </p>
     </div>
   );
 };
@@ -72,32 +108,24 @@ const GridComponent = () => {
             iconSrc={EventIcon}
             title="Wesafar Event & 1:1"
             description="Wesafar Events provides a platform where business partners can host physical or live-streamed events, allowing attendees to participate or start their own streams. Wesafar 1:1 offers private, personalized interactions with destinations and local businesses, enhancing the travel experience. The Wesafar app enables business partners to promote their activities directly to users, fostering a direct, enriched connection that allows for effective showcasing of offerings and easy discovery of authentic experiences."
-            borderColor="border-yellow-500"
-            textColor="text-yellow-500"
             className="card-from-bottom"
           />
           <Card 
             iconSrc={AiIcon}
             title="TripWise Ai"
             description="TripWise offers a distinctive experience to trippers and business partners through its sophisticated AI capabilities: personalized trip planning, tailored travel recommendations, and community moderation, interactive travel assistants, engagement metrics, and real-time cultural exchanges. This travel-focused web app leverages cutting-edge technology to make every journey more insightful, connected, and effortlessly enjoyable."
-            borderColor="border-orange-500"
-            textColor="text-orange-500"
             className="card-from-bottom"
           />
           <Card 
             iconSrc={MetaverseIcon}
             title="Wesafar Metaverse"
             description="Dive into a virtual world of travel and adventure. Engage in live virtual events, interactive quests, and explore unique virtual goods to enhance your travel experience. This digital realm offers an immersive gateway to not only see the world from the comfort of your home but to actively participate in its cultures and stories, enriching your real-world travel aspirations with every virtual adventure."
-            borderColor="border-red-500"
-            textColor="text-red-500"
             className="card-from-bottom"
           />
           <Card 
             iconSrc={BusinessIcon}
             title="Business"
             description="The Wesafar app empowers business partners to connect directly with Trippers, promoting their activities on the platform without intermediaries. Transitioning from customer to creator, this direct link fosters a streamlined and enriched engagement, allowing business partners to showcase their offerings more effectively and Trippers to discover authentic experiences with ease."
-            borderColor="border-purple-500"
-            textColor="text-purple-500"
             className="card-from-bottom"
           />
         </div>

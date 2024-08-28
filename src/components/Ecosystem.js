@@ -90,9 +90,10 @@ const Ecosystem = () => {
         `}
       </style>
       <div className="text-white min-h-screen flex flex-col items-center justify-center p-8" id="ecosystem" style={{ backgroundColor: 'rgba(0, 0, 0, 0)', textAlign: 'center' }}>
-        <h1 className="text-4xl md:text-6xl lg:text-8xl mb-6 " style={{ color: 'gold', textShadow: '0px 0px 8px gold' }}>
-          Wesafar's Economic Vitality: <span className='text-white'>The $wer & WER Tokens</span>
+        <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775]' style={{  textShadow: '0px 0px 8px #ff6a5c', fontSize: '3.2rem' }}>
+          Wesafar's Economic Vitality:
         </h1>
+        <span className='text-white' style={{ fontFamily: 'Orbitron', fontSize: '2.2rem' }}>The $wer & WER Tokens</span>
         <p className='' style={{ fontFamily: 'Orbitron', width: '66%', opacity: '80%', marginBottom: '2rem', fontSize: '1.2rem' }}>
           Central to Wesafar's vibrant economy is The Wer, a bustling hub of commerce and innovation...
         </p>
