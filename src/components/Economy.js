@@ -89,9 +89,8 @@ const Economy = () => {
             />
           </div>
           <div className="economy-text-container w-full md:w-1/2 mt-4 md:mt-8">
-            <h1 className='' style={{fontSize: 'auto', color: '#ff9500', textShadow: '0px 0px 8px #ff9500',
-            }}> Travel Innovation</h1>
-            <p style={{fontFamily: 'Poppins'}}>
+            <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775]' style={{fontSize: '3rem', textShadow: '0px 0px 8px #d93775',}}> Travel Innovation</h1>
+            <p style={{fontFamily: 'Poppins', color: 'gray'}}>
             As tourism transforms into a powerful force for change, Wesafar is pioneering a travel economy that fosters responsible tourism. By connecting trippers with local businesses and promoting sustainable practices, Wesafar aims to create a thriving community where every journey counts and every participant benefits.
             </p>
           </div>

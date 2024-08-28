@@ -56,14 +56,14 @@ const GridComponent = () => {
     <div className="bg-transparent py-20" id="product">
       <div className="container mx-auto px-6">
         <div className="text-center text-white mb-12">
-          <p className="mt-3 text-6xl responsive-text" style={{ fontFamily: 'Orbitron', textShadow: '0px 0px 8px #000' }}>
-            Powerful for <span className='card-from-top1' style={{ color: 'gold', textShadow: '0px 0px 8px gold', fontFamily: 'Orbitron' }}>Trippers.</span>
+          <p className="mt-3 text-6xl responsive-text" style={{ fontFamily: 'Orbitron', textShadow: '0px 0px 8px #000', color: 'gray' }}>
+            Powerful for <span className='card-from-top1' style={{ color: '#d93775', textShadow: '0px 0px 8px #d93775', fontFamily: 'Orbitron' }}>Trippers.</span>
           </p>
-          <p className="mt-3 text-6xl responsive-text" style={{ fontFamily: 'Orbitron', textShadow: '0px 0px 8px #000' }}>
+          <p className="mt-3 text-6xl responsive-text" style={{ fontFamily: 'Orbitron', textShadow: '0px 0px 8px #000', color: 'gray' }}>
             Insightful for <span className='card-from-top2' style={{ color: 'purple', textShadow: '0px 0px 8px purple', fontFamily: 'Orbitron' }}>Partners.</span>
           </p>
-          <p className="mt-3 text-6xl responsive-text" style={{ fontSize: 'auto', fontFamily: 'Orbitron', textShadow: '0px 0px 8px #000' }}>
-            Rewarding for <span className='card-from-top3' style={{ color: 'red', textShadow: '0px 0px 8px red', fontFamily: 'Orbitron' }}>everyone.</span>
+          <p className="mt-3 text-6xl responsive-text" style={{ fontSize: 'auto', fontFamily: 'Orbitron', textShadow: '0px 0px 8px #000', color: 'gray' }}>
+            Rewarding for <span className='card-from-top3' style={{ color: '#7238b4', textShadow: '0px 0px 8px #7238b4', fontFamily: 'Orbitron' }}>everyone.</span>
           </p>
         </div>
 

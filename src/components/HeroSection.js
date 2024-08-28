@@ -51,7 +51,7 @@ function HeroSection() {
               </span>
             </span>
           </p>
-          <p className="hero-subtext text-white text-base sm:text-lg md:text-xl lg:text-2xl mb-6 px-2 sm:px-0">
+          <p className="hero-subtext  text-base sm:text-lg md:text-xl lg:text-2xl mb-6 px-2 sm:px-0">
             Explore, connect, and support local communities with Wesafar.
           </p>
           <div
@@ -99,6 +99,10 @@ function HeroSection() {
         .hero-subtext,
         .hero-button {
           font-family: 'Orbitron', sans-serif;
+        }
+        
+        .hero-subtext{
+          color: gray;
         }
 
         .hero-typewriter-wrapper {
