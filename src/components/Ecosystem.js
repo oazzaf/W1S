@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ScrollReveal from 'scrollreveal';
 
 // Define an array of colors for the card borders and shadows
-const cardColors = ['#f18e2b', '#a50000', '#b64aa8', '#FFD700', '#DA70D6'];
+const cardColors = ['#d93775', '#9450a8', '#7238b4'];
 
 // Card component with dynamic class and style application
 const Card = ({ title, description, colorIndex, className }) => {
