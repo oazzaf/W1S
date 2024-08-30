@@ -87,7 +87,7 @@ function Tokenomics() {
                 `}
             </style>
             <div className="text-white text-center px-12 py-16 bg-transparent" id="tokenomics">
-                <h1 className="text-4xl md:text-7xl lg:text-8xl font-extrabold leading-tight mx-auto reveal-top text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775]"
+                <h1 className="text-4xl md:text-7xl lg:text-8xl font-extrabold leading-tight mx-auto reveal-top text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]"
                     style={{ 
                         fontWeight: '300', 
                         textShadow: '0px 0px 8px #d93775', 
@@ -98,10 +98,10 @@ function Tokenomics() {
                     <div className="space-y-3 hover:scale-115 transition transform duration-300 ease-in-out reveal-top">
                         <h2 className="text-lg md:text-xl lg:text-2xl xl:text-6xl font-bold uppercase tracking-widest "
                             style={{
-                                background: 'linear-gradient(to right, #007cf0, #00dfd8)',
+                                background: 'linear-gradient(to right, #d93775, #ff6a5c)',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
-                                textShadow: '0px 0px 4px rgb(14, 167, 255)'
+                                textShadow: '0px 0px 4px #ff6a5c'
                             }}>
                             Supply
                         </h2>
@@ -117,7 +117,7 @@ function Tokenomics() {
                             }}>
                             Symbol
                         </h2>
-                        <p className="text-xl md:text-2xl lg:text-3xl xl:text-8xl">WER</p>
+                        <p className="text-xl md:text-2xl lg:text-3xl xl:text-8xl">$WER</p>
                     </div>
                     <div className="space-y-3 hover:scale-115 transition transform duration-300 ease-in-out reveal-top">
                         <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold uppercase tracking-widest" style={{ marginBottom: '-12rem', color:'transparent' }}>.</h2>

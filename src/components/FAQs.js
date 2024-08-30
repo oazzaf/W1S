@@ -54,22 +54,21 @@ const FAQs = () => {
 
   const getCategoryGradient = (category) => {
     if (category === 'For Trippers') {
-      return 'linear-gradient(to right, orange, red)';
-    } else if (category === 'For Business Partners') {
       return 'linear-gradient(to right, deeppink, purple)';
+    } else if (category === 'For Business Partners') {
+      return 'linear-gradient(to right, #5723f5, purple)';
     }
     return '';
   };
 
   return (
     <div className="p-8 bg-transparent">
-      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 " 
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775] mb-8 " 
           style={{ 
             fontWeight: '300', 
-            textShadow: '0px 0px 8px rgb(26, 165, 215)', 
-            color: 'rgb(26, 165, 215)' 
+            textShadow: '0px 0px 8px #d93775', 
           }}>
-        Frequently <span className='text-white'>Asked</span> Questions
+        Frequently <span >Asked</span> Questions
       </h1>
       <div className="faq-container flex flex-wrap">
         {faqs.map((faq, index) => (

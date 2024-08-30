@@ -90,7 +90,7 @@ const Ecosystem = () => {
         `}
       </style>
       <div className="text-white min-h-screen flex flex-col items-center justify-center p-8" id="ecosystem" style={{ backgroundColor: 'rgba(0, 0, 0, 0)', textAlign: 'center' }}>
-        <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775]' style={{  textShadow: '0px 0px 8px #ff6a5c', fontSize: '3.2rem' }}>
+        <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]' style={{  textShadow: '0px 0px 8px #d93775', fontSize: '3.2rem' }}>
           Wesafar's Economic Vitality:
         </h1>
         <span className='text-white' style={{ fontFamily: 'Orbitron', fontSize: '2.2rem' }}>The $wer & WER Tokens</span>

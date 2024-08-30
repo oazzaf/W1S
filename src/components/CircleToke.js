@@ -51,8 +51,8 @@ const CircleSegment = ({
 
 const Tokenomics = () => {
   const distributions = [
-    { percentage: 30, title: 'Rewards for trippers', color: '#f47e37', description: 'Rewards.' },
-    { percentage: 25, title: 'Incentives for active users', color: '#e6433e', description: 'User incentives.' },
+    { percentage: 30, title: 'Rewards for trippers', color: '#5723f5', description: 'Rewards.' },
+    { percentage: 25, title: 'Incentives for active users', color: '#e03791', description: 'Incentives.' },
     { percentage: 20, title: 'Development and innovation fund', color: '#b01a62', description: 'Development.' },
     { percentage: 15, title: 'Staking for community governance', color: '#9450a8', description: 'Governance.' },
     { percentage: 10, title: 'Reserve for strategic partnerships', color: '#3c3f8f', description: 'Partnerships.' },
@@ -86,11 +86,9 @@ const Tokenomics = () => {
         color: 'white',
         position: 'relative',
       }}>
-        <h1 className='italic' style={{
-                              background: 'linear-gradient(to right, #f53900, #f5d000)',
-                              WebkitBackgroundClip: 'text',
-                              WebkitTextFillColor: 'transparent',
-                              textShadow: '0px 0px 4px #f5d000'
+        <h1 className='italic text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]' style={{
+                              
+                              textShadow: '0px 0px 4px #ff5cdc'
                           }}>DISTRIBUTION</h1>
         <svg width="90vw" height="90vw" viewBox="0 0 200 200" style={{ maxWidth: '400px', maxHeight: '400px', position: 'relative', zIndex: 0 }}>
           <defs>
