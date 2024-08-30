@@ -27,7 +27,7 @@ function HomeLander() {
       className="HomeLander"
       style={{
         backgroundColor: '#222222',
-        minHeight: '110vh',
+        minHeight: '120vh',
         backgroundRepeat: 'repeat-y',
       }}
     >
