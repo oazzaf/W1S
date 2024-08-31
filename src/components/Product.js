@@ -8,47 +8,53 @@ import BusinessIcon from '../img/3ON.png';
 const Card = ({ iconSrc, title, description, className }) => {
   return (
     <div
-      className={`relative flex flex-col items-center p-6 rounded-lg border-2 shadow-sm bg-transparent transition-all duration-300 ${className}`}
+      className={`relative flex flex-col items-center justify-center p-6 rounded-lg border-2 shadow-sm bg-transparent transition-all duration-300 ${className}`}
       style={{
         borderImage: 'linear-gradient(45deg, #d93775, #7238b4) 1',
+        height: '100%', // Ensures the card takes up the full height of its container
       }}
     >
       <div
-        className="w-26 h-26 mb-4"
-        style={{
-          width: '150px',
-          height: '150px',
-          backgroundImage: 'linear-gradient(45deg, #d93775, #7238b4)',
-          WebkitMask: `url(${iconSrc}) center/contain no-repeat`,
-          mask: `url(${iconSrc}) center/contain no-repeat`,
-          WebkitMaskComposite: 'source-in',
-          maskComposite: 'source-in',
-        }}
-      />
-      <h5
-        className="mb-2 text-xl font-bold"
-        style={{
-          fontFamily: 'Orbitron',
-          background: 'linear-gradient(45deg, #d93775, #7238b4)',
-          WebkitBackgroundClip: 'text',
-          backgroundClip: 'text',
-          color: 'transparent',
-        }}
+        className="flex flex-col items-center justify-center text-center"
+        style={{ height: '100%' }} // Ensures content is centered vertically
       >
-        {title}
-      </h5>
-      <p
-        className="text-base"
-        style={{
-          fontFamily: 'Poppins',
-          background: 'linear-gradient(45deg, #d93775, #7238b4)',
-          WebkitBackgroundClip: 'text',
-          backgroundClip: 'text',
-          color: 'transparent',
-        }}
-      >
-        {description}
-      </p>
+        <div
+          className="w-26 h-26 mb-4"
+          style={{
+            width: '150px',
+            height: '150px',
+            backgroundImage: 'linear-gradient(45deg, #d93775, #7238b4)',
+            WebkitMask: `url(${iconSrc}) center/contain no-repeat`,
+            mask: `url(${iconSrc}) center/contain no-repeat`,
+            WebkitMaskComposite: 'source-in',
+            maskComposite: 'source-in',
+          }}
+        />
+        <h5
+          className="mb-2 text-xl font-bold"
+          style={{
+            fontFamily: 'Orbitron',
+            background: 'linear-gradient(45deg, #d93775, #7238b4)',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent',
+          }}
+        >
+          {title}
+        </h5>
+        <p
+          className="text-base"
+          style={{
+            fontFamily: 'Poppins',
+            background: 'linear-gradient(45deg, #d93775, #7238b4)',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent',
+          }}
+        >
+          {description}
+        </p>
+      </div>
     </div>
   );
 };
