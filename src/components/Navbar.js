@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaGoogle, FaApple, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa';
-import welogo from '../img/wesafa.png';
+import welogo from '../img/transwesafa.png';
 import navbarStarsGif from '../img/navbarStars.gif';
 
 function Navbar() {
@@ -87,7 +87,7 @@ function Navbar() {
             backgroundRepeat: 'no-repeat',
           }}
         ></div>
-        <img src={welogo} alt="Logo" className="h-24 z-10 relative" />
+        <img src={welogo} alt="Logo" className="h-14 z-10 relative" />
         <div className="flex items-center space-x-4 z-10 relative">
           <button
             onClick={() => {

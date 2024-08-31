@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { FaMapSigns } from 'react-icons/fa';
-import welogo from '../img/transwesafa.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import xIcon from '../img/x.png'; // Ensure this path is correct
 import WaitlistPortal from './WaitlistPortal';
 
 function HeroSection() {
-  const { ref: logoRef, inView: logoInView } = useInView({
+  const { ref: iconRef, inView: iconInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -51,12 +53,12 @@ function HeroSection() {
               </span>
             </span>
           </p>
-          <p className="hero-subtext  text-base sm:text-lg md:text-xl lg:text-2xl mb-6 px-2 sm:px-0">
+          <p className="hero-subtext text-base sm:text-lg md:text-xl lg:text-2xl mb-6 px-2 sm:px-0">
             Explore, connect, and support local communities with Wesafar.
           </p>
           <div
             className={`flex justify-center ${
-              logoInView
+              iconInView
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-10'
             } transition-all duration-1000 ease-in-out transform-gpu`}
@@ -68,14 +70,25 @@ function HeroSection() {
               <FaMapSigns className="mr-3" /> Join the Adventure
             </button>
           </div>
-          <img
-            src={welogo}
-            alt="Wesafar Logo"
-            ref={logoRef}
-            className={`hero-logo mx-auto mb-6 transition-all duration-1000 ease-in-out transform-gpu ${
-              logoInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            } w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4`}
-          />
+          <div
+            ref={iconRef}
+            className={`social-icons-container mt-6 transition-all duration-1000 ease-in-out transform-gpu ${
+              iconInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <a href="https://www.youtube.com/@Wesafar" className="social-icon mx-2">
+              <FontAwesomeIcon icon={faYoutube} />
+            </a>
+            <a href="https://x.com/wesafar?s=21&t=gR3jEokFOR3jTIpLFScRUg" className="mx-1">
+              <img src={xIcon} alt="X" className="x-icon" />
+            </a>
+            <a href="https://www.instagram.com/wesafar.app?igsh=dThzbmNhbGI3Yml6" className="social-icon mx-2">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="https://www.tiktok.com/@wesafar?_t=8ngvcvXQJdd&_r=1" className="social-icon mx-2">
+              <FontAwesomeIcon icon={faTiktok} />
+            </a>
+          </div>
         </div>
         <div className="hero-bg absolute inset-0 bg-transparent opacity-10 hero-animate-bg-move"></div>
       </div>
@@ -84,9 +97,9 @@ function HeroSection() {
           isWaitlistVisible ? 'translate-y-0' : '-translate-y-full'
         } transition-transform duration-500 ease-in-out`}
         style={{
-          backgroundColor: '#19072cd1', // Adjusted for better transparency control
-          backdropFilter: 'blur(10px)', // Adjust the value for more or less blur
-          WebkitBackdropFilter: 'blur(10px)', // For Safari support
+          backgroundColor: '#19072cd1',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
         }}
       >
         {isWaitlistVisible && <WaitlistPortal setIsWaitlistVisible={setIsWaitlistVisible} />}
@@ -100,8 +113,8 @@ function HeroSection() {
         .hero-button {
           font-family: 'Orbitron', sans-serif;
         }
-        
-        .hero-subtext{
+
+        .hero-subtext {
           color: gray;
         }
 
@@ -140,13 +153,36 @@ function HeroSection() {
           }
         }
 
-        @keyframes hero-moveGradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          100% {
-            background-position: 100% 50%;
-          }
+        .social-icons-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 1rem;
+        }
+
+        .social-icon {
+          font-size: 2rem !important; /* Force larger size for FontAwesome icons */
+          transition: color 0.3s ease;
+        }
+        
+        .x-icon {
+          width: 55px !important; /* Force larger size */
+          height: 40px !important; /* Force larger size */
+          margin-bottom: 0.6rem;
+          border-radius: 50%;
+          filter: invert(1);
+        }
+
+
+        .social-icon:hover {
+          color: #b617a1;
+        }
+
+        .x-icon {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          filter: invert(1);
         }
 
         .hero-animate-bg-move {
@@ -154,36 +190,13 @@ function HeroSection() {
           animation: hero-moveGradient 15s ease infinite;
         }
 
-        @keyframes hero-levitate {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-
-        .hero-logo-levitate {
-          animation: hero-levitate 3s ease-in-out infinite;
-        }
-
-        .hero-button {
-          background-size: 200% 200%;
-          animation: hero-button-gradient 2s linear infinite;
-        }
-
-        @keyframes hero-button-gradient {
+        @keyframes hero-moveGradient {
           0% {
             background-position: 0% 50%;
           }
-          100% {
+          50% {
             background-position: 100% 50%;
           }
-        }
-
-        .waitlist-slide-in {
-          animation: slide-in 0.5s ease-out forwards;
         }
       `}</style>
     </>
