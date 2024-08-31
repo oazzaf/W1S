@@ -82,7 +82,7 @@ function HeroSection() {
             <a href="https://x.com/wesafar?s=21&t=gR3jEokFOR3jTIpLFScRUg" className="mx-1">
               <img src={xIcon} alt="X" className="x-icon" />
             </a>
-            <a href="https://www.instagram.com/wesafar.app?igsh=dThzbmNhbGI3Yml6" className="social-icon mx-2">
+            <a href="https://www.instagram.com/wesafar.app?igsh=dThzbmNhbGI3Yml6" className="social-icon mx-6">
               <FontAwesomeIcon icon={faInstagram} />
             </a>
             <a href="https://www.tiktok.com/@wesafar?_t=8ngvcvXQJdd&_r=1" className="social-icon mx-2">

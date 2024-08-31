@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import tiktokIcon from '../img/tiktokpng.png'; // Ensure this path is correct
+import { faInstagram, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import xIcon from '../img/x.png'; // Add this line for the new X logo
 
 const Footer = () => {
@@ -140,8 +139,8 @@ const Footer = () => {
                         <div className="social-icons-container">
                             <a href="https://www.youtube.com/@Wesafar" className="social-icon mx-2"><FontAwesomeIcon icon={faYoutube} /></a>
                             <a href="https://x.com/wesafar?s=21&t=gR3jEokFOR3jTIpLFScRUg" className="mx-2"><img src={xIcon} alt="X" className="x-icon" /></a>
-                            <a href="https://www.instagram.com/wesafar.app?igsh=dThzbmNhbGI3Yml6" className="social-icon mx-2"><FontAwesomeIcon icon={faInstagram} /></a>
-                            <a href="https://www.tiktok.com/@wesafar?_t=8ngvcvXQJdd&_r=1" className="mx-2"><img src={tiktokIcon} alt="TikTok" className="tiktok-icon" /></a>
+                            <a href="https://www.instagram.com/wesafar.app?igsh=dThzbmNhbGI3Yml6" className="social-icon mx-6"><FontAwesomeIcon icon={faInstagram} /></a>
+                            <a href="https://www.tiktok.com/@wesafar?_t=8ngvcvXQJdd&_r=1" className="social-icon mx-2"><FontAwesomeIcon icon={faTiktok} /></a>
                         </div>
                     </div>
                 </div>
