@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import xIcon from '../img/x.png'; // Ensure this path is correct
 import WaitlistPortal from './WaitlistPortal';
-import bgHero from '../img/bgHero.MP4'; // Import the video file
+import bgHeroVideo from '../video/bgHero.MP4'; // Import the video
 
 function HeroSection() {
   const { ref: iconRef, inView: iconInView } = useInView({
@@ -40,17 +40,17 @@ function HeroSection() {
   return (
     <>
       <div className="hero-section relative flex items-center justify-center min-h-screen bg-transparent">
-        {/* Background Video */}
+        {/* Video Background */}
         <video
-          className="hero-video absolute inset-0 w-full h-full object-cover"
-          src={bgHero}  // Use the imported video here
-          type="video/mp4"
+          className="hero-video absolute inset-0 w-full h-full object-cover z-0"
+          src={bgHeroVideo}
           autoPlay
           loop
           muted
           playsInline
-        ></video>
+        />
 
+        {/* Hero Content */}
         <div className="hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
           <p className="hero-text font-bold mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             <span className="hero-typewriter-wrapper">
@@ -127,12 +127,17 @@ function HeroSection() {
         }
 
         .hero-video {
-          z-index: -1;
+          object-fit: cover;
         }
 
         .hero-subtext {
-          color: gray;
+          background: linear-gradient(to right, #593582, #cf2351);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
         }
+
 
         .hero-typewriter-wrapper {
           display: inline-block;
@@ -188,6 +193,7 @@ function HeroSection() {
           border-radius: 50%;
           filter: invert(1);
         }
+
 
         .social-icon:hover {
           color: #b617a1;
