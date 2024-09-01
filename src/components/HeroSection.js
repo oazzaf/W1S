@@ -54,7 +54,7 @@ function HeroSection() {
             </span>
           </p>
           <p className="hero-subtext text-base sm:text-lg md:text-xl lg:text-2xl mb-6 px-2 sm:px-0">
-            Explore, connect, and support local communities with Wesafar.
+            Explore, connect, and support local communities with Wesafar and every connection is rewarded.
           </p>
           <div
             className={`flex justify-center ${
