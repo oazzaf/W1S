@@ -62,28 +62,31 @@ const FAQs = () => {
   };
 
   return (
-    <div className="p-8 bg-transparent">
-      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775] mb-8 " 
-          style={{ 
-            fontWeight: '300', 
-            textShadow: '0px 0px 8px #d93775', 
-          }}>
-        Frequently <span >Asked</span> Questions
-      </h1>
-      <div className="faq-container flex flex-wrap">
+    <div className="p-8 bg-transparent flex flex-col items-center justify-center min-h-screen" id='faq'>
+      <div className="w-full flex justify-center items-center flex-grow">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775] text-center"
+            style={{ 
+              fontWeight: '300', 
+              textShadow: '0px 0px 8px #d93775', 
+            }}>
+          Frequently <span>Asked</span> Questions
+        </h1>
+      </div>
+      <div className="faq-container flex flex-wrap justify-center items-center w-full">
         {faqs.map((faq, index) => (
-          <div key={index} className="faq-category w-full lg:w-1/2 p-4">
+          <div key={index} className="faq-category w-full lg:w-1/2 p-4 flex flex-col items-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4"
                 style={{
                   background: getCategoryGradient(faq.category),
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  backgroundClip: 'text',
+                  textAlign: 'center', // Center the text within the h2 element
                 }}>
               {faq.category}
             </h2>
             {faq.questions.map((q, idx) => (
-              <div key={idx} className="mb-4">
+              <div key={idx} className="mb-4 w-full">
                 <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleQuestion(q.question)}>
                   <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-100">{q.question}</p>
                   <span className="text-gray-100">{openQuestion === q.question ? '▲' : '▼'}</span>

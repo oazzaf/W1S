@@ -102,7 +102,7 @@ function Tokenomics() {
 
                 {/* Overlay Layer */}
                 <div
-                    className="absolute inset-0 bg-[#222222] opacity-95 z-1"
+                    className="absolute h-full inset-0 bg-[#222222] opacity-95 z-1"
                 ></div>
 
                 <h1 className="text-4xl md:text-7xl lg:text-8xl font-extrabold leading-tight mx-auto reveal-top text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]"

@@ -252,7 +252,7 @@ const ImageGallery = () => {
     borderRadius: '12px', // Slightly more rounded corners
     marginTop: '16px',
     width: '90%',
-    color: '#fff', // Ensure text is white for contrast
+    color: 'gray', // Ensure text is white for contrast
     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)', // Add shadow for depth
     zIndex: 5, // Ensure the cards are above the video and overlay
   };
@@ -265,6 +265,7 @@ const ImageGallery = () => {
     fontFamily: 'Orbitron',
     textAlign: 'center',
     zIndex: 5, // Ensure the title is above the video and overlay
+    color: colors[selectedIndex],
   };
 
   const detailStyle = {

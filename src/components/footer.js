@@ -3,6 +3,7 @@ import ScrollReveal from 'scrollreveal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import xIcon from '../img/x.png'; // Add this line for the new X logo
+import faqBgVideo from '../video/faqBg.mp4'; // Import the video
 
 const Footer = () => {
 
@@ -56,6 +57,8 @@ const Footer = () => {
                     align-items: center;
                     justify-content: center;
                     text-align: center; /* Center text content */
+                    position: relative;
+                    z-index: 2; /* Ensure content is above the video and overlay */
                 }
 
                 .footer-heading {
@@ -103,13 +106,47 @@ const Footer = () => {
                     border-radius: 50%;
                     filter: invert(1); /* Optional: to match the white color */
                 }
+
+                .footer-video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    z-index: 0; /* Behind the content and overlay */
+                }
+
+                .footer-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #222222;
+                    opacity: 0.85; /* 30% opacity */
+                    z-index: 1; /* On top of the video, behind the content */
+                }
                 `}
             </style>
             <div className="content">
                 {/* Other content of your app */}
             </div>
             <footer className="footer-container text-white" id="footer">
-                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-center">
+                {/* Video Background */}
+                <video
+                    className="footer-video"
+                    src={faqBgVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                />
+
+                {/* Overlay Layer */}
+                <div className="footer-overlay"></div>
+
+                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-center" style={{ zIndex: 2 }}>
                     <div className="space-y-4 reveal-bottom">
                         <h2 className="footer-heading">About Wesafar</h2>
                         <p className="footer-text">
@@ -144,7 +181,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="footer-bottom footer-text">
+                <div className="footer-bottom footer-text" style={{ zIndex: 2 }}>
                     <p>© {new Date().getFullYear()} Wesafar. All rights reserved.</p>
                 </div>
             </footer>
