@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ScrollReveal from 'scrollreveal';
 import CircleToke from '../components/CircleToke';
 import WaitlistPortal from './WaitlistPortal';
+import roadMapVideo from '../video/roadMap.mp4'; // Import the video
 
 function Tokenomics() {
     const [isWaitlistVisible, setIsWaitlistVisible] = useState(false);
@@ -41,6 +42,8 @@ function Tokenomics() {
                         color: white;
                         flex-direction: row;
                         font-family: 'Orbitron', sans-serif;
+                        z-index: 3; /* Ensure it's above other elements */
+                        position: relative; /* Relative to its parent container */
                     }
                     .call-to-action-text {
                         font-size: 2.5rem;
@@ -86,15 +89,31 @@ function Tokenomics() {
                     }
                 `}
             </style>
-            <div className="text-white text-center px-12 py-16 bg-transparent" id="tokenomics">
+            <div className="relative text-white text-center px-4 py-16 bg-transparent" id="tokenomics">
+                {/* Video Background */}
+                <video
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    src={roadMapVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                />
+
+                {/* Overlay Layer */}
+                <div
+                    className="absolute inset-0 bg-[#222222] opacity-95 z-1"
+                ></div>
+
                 <h1 className="text-4xl md:text-7xl lg:text-8xl font-extrabold leading-tight mx-auto reveal-top text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]"
                     style={{ 
                         fontWeight: '300', 
                         textShadow: '0px 0px 8px #d93775', 
+                        zIndex: 2, // Ensures the title is above the overlay
                     }}>
                     Tokenomics
                 </h1>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center justify-items-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center justify-items-center" style={{ zIndex: 2 }}>
                     <div className="space-y-3 hover:scale-115 transition transform duration-300 ease-in-out reveal-top">
                         <h2 className="text-lg md:text-xl lg:text-2xl xl:text-6xl font-bold uppercase tracking-widest "
                             style={{
@@ -126,7 +145,7 @@ function Tokenomics() {
                         </div>
                     </div>
                 </div>
-                <div className="call-to-action-container">
+                <div className="call-to-action-container" style={{ zIndex: 3 }}>
                     <div className="call-to-action-text">
                         Be part of the revolution. Join our exclusive waitlist now!
                     </div>

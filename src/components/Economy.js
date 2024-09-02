@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
 import Eco from '../img/Eco.png';
+import travellerVideo from '../video/traveller.mp4'; // Import the video
 
 const Economy = () => {
   useEffect(() => {
@@ -9,7 +10,7 @@ const Economy = () => {
       distance: '100px',
       duration: 1000,
       easing: 'ease-in-out',
-      reset: true
+      reset: true,
     });
 
     ScrollReveal().reveal('.economy-text-container', {
@@ -17,7 +18,7 @@ const Economy = () => {
       distance: '100px',
       duration: 1000,
       easing: 'ease-in-out',
-      reset: true
+      reset: true,
     });
   }, []);
 
@@ -71,11 +72,50 @@ const Economy = () => {
             border: 2px solid #d8307c87; /* Light red border */
             border-radius: 8px; /* Rounded corners */
             padding: 50px;
+            position: relative;
+            z-index: 2; /* Ensure this content is above the video */
+          }
+
+          .economy-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1; /* Behind the content */
+          }
+
+          .economy-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #222222;
+            opacity: 0.7; /* 30% opacity */
+            z-index: 2; /* On top of the video */
           }
         `}
       </style>
-      <section className="economy-section  bg-transparent text-white p-8" id="economy">
-        <div className="economy-section-container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left" style={{ marginBottom: '100px' }}>
+      <section className="economy-section relative bg-transparent text-white p-8" id="economy">
+        {/* Video Background */}
+        <video
+          className="economy-video"
+          src={travellerVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+
+        {/* Overlay Layer */}
+        <div className="economy-overlay"></div>
+
+        <div
+          className="economy-section-container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left"
+          style={{ marginBottom: '100px' }}
+        >
           <div className="economy-img-container w-full md:w-1/2 mt-8 md:mt-0">
             <img
               src={Eco}
@@ -84,14 +124,26 @@ const Economy = () => {
               style={{
                 width: '80%',
                 maxWidth: '800px',
-                height: 'auto'
+                height: 'auto',
               }}
             />
           </div>
           <div className="economy-text-container w-full md:w-1/2 mt-4 md:mt-8">
-            <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]' style={{fontSize: '3rem', textShadow: '0px 0px 8px #d93775',}}> Travel Innovation</h1>
-            <p style={{fontFamily: 'Poppins', color: 'gray'}}>
-            As tourism transforms into a powerful force for change, Wesafar is pioneering a travel economy that fosters responsible tourism. By connecting trippers with local businesses and promoting sustainable practices, Wesafar aims to create a thriving community where every journey counts and every participant benefits.
+            <h1
+              className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]"
+              style={{
+                fontSize: '3rem',
+                textShadow: '0px 0px 8px #d93775',
+              }}
+            >
+              Travel Innovation
+            </h1>
+            <p style={{ fontFamily: 'Poppins', color: 'gray' }}>
+              As tourism transforms into a powerful force for change, Wesafar is
+              pioneering a travel economy that fosters responsible tourism. By
+              connecting trippers with local businesses and promoting
+              sustainable practices, Wesafar aims to create a thriving community
+              where every journey counts and every participant benefits.
             </p>
           </div>
         </div>

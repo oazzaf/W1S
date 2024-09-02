@@ -50,6 +50,9 @@ function HeroSection() {
           playsInline
         />
 
+        {/* Overlay Layer */}
+        <div className="absolute inset-0 bg-[#222222] opacity-70 z-1"></div>
+
         {/* Hero Content */}
         <div className="hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
           <p className="hero-text font-bold mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
@@ -131,13 +134,12 @@ function HeroSection() {
         }
 
         .hero-subtext {
-          background: linear-gradient(to right, #593582, #cf2351);
+          background: linear-gradient(to right, #ffffff, #ffffff);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           color: transparent;
         }
-
 
         .hero-typewriter-wrapper {
           display: inline-block;
@@ -193,7 +195,6 @@ function HeroSection() {
           border-radius: 50%;
           filter: invert(1);
         }
-
 
         .social-icon:hover {
           color: #b617a1;
