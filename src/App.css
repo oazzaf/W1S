@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: white; 
 }
 
 .App-link {
@@ -40,15 +40,15 @@
 }
 
 .piko {
- color: #31b2fd,rgb(0, 0, 0), rgb(18, 6, 42), #5723f5, #e03791, #000000, rgb(26, 165, 215),#f7b338, darkgoldenrod
+ color: #31b2fd,rgb(0, 0, 0), rgb(18, 6, 42), #dddddd, deeppink, #000000, rgb(26, 165, 215),#f7b338, darkgoldenrod
   #f47e37,
   #e6433e,
   #cf2351,
   #b01a62,
   #872871,
   #9450a8,
-  #593582,
-  #3c3f8f, rgb(255, 255, 255);
+  #7238b4,
+  #3c3f8f, #ff8a7a #ff6a5c #d93775 rgb(255, 255, 255);
 
 }
 

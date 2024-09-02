@@ -20,6 +20,18 @@ const Economy = () => {
       easing: 'ease-in-out',
       reset: true,
     });
+
+    // Play video manually if autoplay is blocked
+    const video = document.querySelector('.economy-video');
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.log('Autoplay blocked, playing manually on user interaction.');
+        video.muted = true; // Mute the video
+        video.play(); // Try playing again
+      });
+    }
   }, []);
 
   return (
@@ -132,7 +144,7 @@ const Economy = () => {
             <h1
               className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]"
               style={{
-                fontSize: '3rem',
+                fontSize: '2rem',
                 textShadow: '0px 0px 8px #d93775',
               }}
             >

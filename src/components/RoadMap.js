@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import dmRoadmapImage from '../img/rm/dmRoadmap.png';
+import roadBgVideo from '../video/roadBg.mp4'; // Import the video
 
 const points = [
   { left: '7.7%', top: '60%' },
@@ -236,6 +237,7 @@ const ImageGallery = () => {
       boxShadow: `0 0 10px 2px ${colors[index]}`,
       transform: isHoveredOrSelected ? 'scale(1.5)' : 'scale(1)',
       cursor: 'pointer',
+      zIndex: 5, // Ensure the points are above the video and overlay
     };
   };
 
@@ -245,21 +247,24 @@ const ImageGallery = () => {
     alignItems: 'center',
     justifyContent: 'center',
     borderTop: `7px solid ${colors[selectedIndex]}`,
-    background: 'linear-gradient(to top, rgb(0, 0, 0,0), rgba(0, 0, 0,0.9))',
-    padding: '16px',
-    borderRadius: '8px',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)', // More opaque background for better visibility
+    padding: '24px', // Increased padding
+    borderRadius: '12px', // Slightly more rounded corners
     marginTop: '16px',
     width: '90%',
-    color: colors[selectedIndex],
+    color: '#fff', // Ensure text is white for contrast
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)', // Add shadow for depth
+    zIndex: 5, // Ensure the cards are above the video and overlay
   };
 
   const titleStyle = {
-    fontSize: '1.5em',
+    fontSize: '1.8em',
     fontWeight: 'bold',
     marginBottom: '0.5em',
     textTransform: 'uppercase',
     fontFamily: 'Orbitron',
     textAlign: 'center',
+    zIndex: 5, // Ensure the title is above the video and overlay
   };
 
   const detailStyle = {
@@ -289,21 +294,25 @@ const ImageGallery = () => {
     marginRight: '8px', // Space between bullet and text
   };
 
+  // Check if the selectedIndex is within the bounds of the phases array
+  const currentPhase = phases[selectedIndex] || phases[0];
+
   return (
-    <div className="relative w-full h-auto flex flex-col items-center justify-center bg-transparent" id="roadmap">
-      <h1 
-        style={{
-          fontSize: '3rem',
-          color: '#fff',
-          textShadow: '0px 0px 8px #b64aa8',
-          background: 'linear-gradient(90deg, #f47e37, #e6433e, #cf2351, #b01a62)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent'
-        }}
-      >
-        ROADMAP
-      </h1>
-      <div className="relative w-full h-auto">
+    <div className="relative w-full h-auto flex flex-col items-center justify-center bg-transparent" id="roadmap" style={{ zIndex: 4 }}>
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src={roadBgVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      {/* Overlay Layer */}
+      <div className="absolute inset-0 bg-[#222222] opacity-90 z-1"></div>
+
+      <div className="relative w-full h-auto" style={{ zIndex: 5 }}>
         <img
           src={dmRoadmapImage}
           alt="dmRoadmap"
@@ -321,9 +330,9 @@ const ImageGallery = () => {
         ))}
       </div>
       <div style={cardStyle}>
-        <h3 style={titleStyle}>{phases[selectedIndex].title}</h3>
+        <h3 style={titleStyle}>{currentPhase.title}</h3>
         <ul style={{ textAlign: 'center', padding: 0, listStyle: 'none' }}>
-          {phases[selectedIndex].details.map((detail, index) => (
+          {currentPhase.details.map((detail, index) => (
             <li
               key={index}
               style={index === 0 || detail.endsWith(':') ? boldDetailStyle : detailStyle}
