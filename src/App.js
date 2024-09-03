@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomeLander from './pages/HomeLander';
 
 // Tripper Pages
+import TripperHome from './pages/tripper/TripperHome';
 import TripperExplore from './pages/tripper/TripperExplore';
 import TripperProfile from './pages/tripper/TripperProfile';
 import TripperQuests from './pages/tripper/TripperQuests';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<HomeLander />} />
         
         {/* Tripper Routes */}
+        <Route path="/tripper/home" element={<TripperHome />} />
         <Route path="/tripper/explore" element={<TripperExplore />} />
         <Route path="/tripper/profile" element={<TripperProfile />} />
         <Route path="/tripper/quests" element={<TripperQuests />} />

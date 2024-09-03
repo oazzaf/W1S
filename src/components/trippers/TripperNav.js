@@ -79,6 +79,25 @@ const TripperNav = () => {
         </div>
       </nav>
 
+      {/* Mobile Top Navigation Bar */}
+      <nav className="bg-[#222222] py-2 w-full fixed top-0 left-0 z-50 flex justify-between items-center px-4 lg:hidden">
+        {/* Left Section (Menu) */}
+        <button className="text-gray-500">
+          <FontAwesomeIcon icon={faBars} size="lg" />
+        </button>
+
+        {/* Right Section (Notification and Search) */}
+        <div className="flex items-center space-x-4">
+          <button className="text-gray-500 relative">
+            <FontAwesomeIcon icon={faBell} size="lg" />
+            <span className="absolute top-0 right-0 h-2 w-2 bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775] rounded-full"></span>
+          </button>
+          <button className="text-gray-500">
+            <FontAwesomeIcon icon={faSearch} size="lg" />
+          </button>
+        </div>
+      </nav>
+
       {/* Mobile Bottom Navigation Bar */}
       <nav className="bg-[#222222] fixed bottom-0 left-0 w-full flex justify-around items-center py-2 lg:hidden">
         {navItems.map((item) => (
