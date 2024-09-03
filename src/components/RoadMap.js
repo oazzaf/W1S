@@ -15,16 +15,17 @@ const points = [
 ];
 
 const colors = [
-  '#f7b338',
-  '#f47e37',
-  '#e6433e',
   '#cf2351',
-  '#b01a62',
-  '#872871',
-  '#6a307b',
-  '#593582',
+  '#c2255b',
+  '#b62865',
+  '#aa2b70',
+  '#9e2d7b',
+  '#933186',
+  '#873491',
+  '#7a379c',
   '#3c3f8f',
 ];
+
 
 const phases = [
   {
@@ -224,6 +225,7 @@ const ImageGallery = () => {
     const adjustedTop = window.innerWidth === 1024 ? adjustPosition(top, -2) : top;
 
     const isHoveredOrSelected = hoveredIndex === index || selectedIndex === index;
+    const isSelected = selectedIndex === index;
 
     return {
       position: 'absolute',
@@ -232,12 +234,17 @@ const ImageGallery = () => {
       width: isMobile ? '20px' : '40px',
       height: isMobile ? '20px' : '40px',
       borderRadius: '50%',
-      backgroundColor: colors[index],
-      transition: 'transform 0.3s, box-shadow 0.3s',
-      boxShadow: `0 0 10px 2px ${colors[index]}`,
+      background: isSelected
+        ? `radial-gradient(circle at center, ${colors[index]}, #000000)`
+        : colors[index],
+      transition: 'transform 0.3s, box-shadow 0.3s, background 0.3s',
+      boxShadow: isSelected
+        ? `0 0 20px 10px ${colors[index]}, 0 0 40px 20px rgba(0, 0, 0, 0.5)`
+        : `0 0 10px 2px ${colors[index]}`,
       transform: isHoveredOrSelected ? 'scale(1.5)' : 'scale(1)',
+      animation: isSelected ? 'pulse 1.5s infinite' : 'none',
       cursor: 'pointer',
-      zIndex: 5, // Ensure the points are above the video and overlay
+      zIndex: 5,
     };
   };
 
@@ -347,9 +354,26 @@ const ImageGallery = () => {
   );
 };
 
+// Add CSS for pulse animation
 const App = () => {
   return (
     <div className="App">
+      <style>{`
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+          }
+          50% {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+          }
+          100% {
+            transform: scale(1);
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+          }
+        }
+      `}</style>
       <ImageGallery />
     </div>
   );
