@@ -30,6 +30,7 @@ function Tokenomics() {
                     h1, h2, p {
                         font-family: 'Orbitron', sans-serif;
                     }
+
                     .call-to-action-container {
                         background-color: #000;
                         border-radius: 12px;
@@ -42,8 +43,8 @@ function Tokenomics() {
                         color: white;
                         flex-direction: row;
                         font-family: 'Orbitron', sans-serif;
-                        z-index: 3; /* Ensure it's above other elements */
-                        position: relative; /* Relative to its parent container */
+                        z-index: 3;
+                        position: relative;
                     }
                     .call-to-action-text {
                         font-size: 2.5rem;
@@ -69,14 +70,31 @@ function Tokenomics() {
                         }
                         .call-to-action-text {
                             margin: 0 0 10px 0;
-                            font-size: 1.2rem; /* Adjust font size for smaller screens */
+                            font-size: 1.2rem;
                         }
                         .call-to-action-button {
                             width: 100%;
                             padding: 12px;
-                            font-size: 1rem; /* Adjust font size for smaller screens */
+                            font-size: 1rem;
                         }
                     }
+
+                    /* Ensure CircleToke scales responsively */
+                    .circle-toke-container {
+                        width: 100%;
+                        max-width: 300px; /* Max size for larger screens */
+                        height: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    @media (max-width: 768px) {
+                        .circle-toke-container {
+                            max-width: 150px; /* Adjust size for smaller screens */
+                        }
+                    }
+
                     .waitlist-slide-in {
                         transform: translateY(-100%);
                         opacity: 0;
@@ -89,8 +107,8 @@ function Tokenomics() {
                     }
                 `}
             </style>
+
             <div className="relative text-white text-center px-4 py-16 bg-transparent" id="tokenomics">
-                {/* Video Background */}
                 <video
                     className="absolute inset-0 w-full h-full object-cover z-0"
                     src={roadMapVideo}
@@ -100,7 +118,6 @@ function Tokenomics() {
                     playsInline
                 />
 
-                {/* Overlay Layer */}
                 <div
                     className="absolute h-full inset-0 bg-[#222222] opacity-95 z-1"
                 ></div>
@@ -109,7 +126,7 @@ function Tokenomics() {
                     style={{ 
                         fontWeight: '300', 
                         textShadow: '0px 0px 8px #d93775', 
-                        zIndex: 2, // Ensures the title is above the overlay
+                        zIndex: 2,
                     }}>
                     Tokenomics
                 </h1>
@@ -140,7 +157,7 @@ function Tokenomics() {
                     </div>
                     <div className="space-y-3 hover:scale-115 transition transform duration-300 ease-in-out reveal-top">
                         <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold uppercase tracking-widest" style={{ marginBottom: '-12rem', color:'transparent' }}>.</h2>
-                        <div className="flex justify-center items-center">
+                        <div className="circle-toke-container">
                             <CircleToke />
                         </div>
                     </div>
@@ -157,9 +174,9 @@ function Tokenomics() {
             <div
                 className={`fixed inset-0 z-20 waitlist-slide-in ${isWaitlistVisible ? 'visible' : ''}`}
                 style={{
-                    backgroundColor: '#19072cd1', // Adjusted for better transparency control
-                    backdropFilter: 'blur(10px)', // Adjust the value for more or less blur
-                    WebkitBackdropFilter: 'blur(10px)', // For Safari support
+                    backgroundColor: '#19072cd1',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
                 }}
             >
                 {isWaitlistVisible && <WaitlistPortal setIsWaitlistVisible={setIsWaitlistVisible} />}
