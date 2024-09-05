@@ -17,8 +17,8 @@ const TripperNav = () => {
 
   return (
     <>
-      {/* Desktop Navigation Bar */}
-      <nav className="bg-[#222222] py-10 relative hidden lg:block">
+      {/* Desktop Navigation Bar - Hidden on iPads and smaller */}
+      <nav className="bg-[#222222] px-9 py-9 sticky top-0 left-0 w-full z-50 hidden xl:block">
         <div className="container mx-auto flex justify-between items-center relative">
           {/* Left Section (Menu) */}
           <div className="flex items-center space-x-4">
@@ -79,8 +79,8 @@ const TripperNav = () => {
         </div>
       </nav>
 
-      {/* Mobile Top Navigation Bar */}
-      <nav className="bg-[#222222] py-2 w-full fixed top-0 left-0 z-50 flex justify-between items-center px-4 lg:hidden">
+      {/* Mobile Top Navigation Bar - Shown on iPads and smaller */}
+      <nav className="bg-[#222222] py-4 w-full fixed top-0 left-0 z-50 flex justify-between items-center px-4 xl:hidden">
         {/* Left Section (Menu) */}
         <button className="text-gray-500">
           <FontAwesomeIcon icon={faBars} size="lg" />
@@ -98,8 +98,8 @@ const TripperNav = () => {
         </div>
       </nav>
 
-      {/* Mobile Bottom Navigation Bar */}
-      <nav className="bg-[#222222] fixed bottom-0 left-0 w-full flex justify-around items-center py-2 lg:hidden">
+      {/* Mobile Bottom Navigation Bar - Shown on iPads and smaller */}
+      <nav className="bg-[#222222] fixed bottom-0 left-0 w-full flex justify-around items-center py-5 px-1 xl:hidden z-10">
         {navItems.map((item) => (
           <button
             key={item.name}
