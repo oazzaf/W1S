@@ -76,7 +76,7 @@ const FuturisticCarousel = () => {
   return (
     <div className={`relative bg-[#222222] p-8 text-white flex flex-col justify-center items-center ${containerHeight}`}>
       {/* Margin Top and Bottom for phones */}
-      <div className="mt-[52rem] mb-[10rem] sm:mt-[-7rem] sm:mb-0">
+      <div className="mt-[50rem] mb-[20rem] sm:mt-[-7rem] sm:mb-0">
         {/* H2 with gradient */}
         <h2 className="text-4xl text-center mb-8 bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">Discover Your Next Adventure</h2>
         
@@ -95,7 +95,7 @@ const FuturisticCarousel = () => {
 
           {/* Button with arrow and hover effect */}
           <button className="flex items-center gap-2 text-white px-5 py-2 rounded-full border-2 border-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 transition duration-300 ease-in-out">
-            See All Adventures
+            See All 
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>

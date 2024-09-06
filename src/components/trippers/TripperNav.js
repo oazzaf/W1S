@@ -75,7 +75,7 @@ const TripperNav = () => {
 
         {/* Centered Gray Border */}
         <div className="flex justify-center mt-10 relative">
-          <div className="border-b border-gray-700 w-4/6"></div>
+          <div className="border-b border-gray-700 w-full"></div>
         </div>
       </nav>
 
