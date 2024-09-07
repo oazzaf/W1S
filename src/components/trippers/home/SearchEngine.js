@@ -7,7 +7,7 @@ import casablancaImage from './casablanca.jpg';
 import marrakechImage from './marrakech.png';
 import rabatImage from './rabat.jpg';
 
-const FuturisticCarousel = () => {
+const SearchEngine = () => {
   const [category, setCategory] = useState('Cities');
   const [containerHeight, setContainerHeight] = useState('h-[calc(100vh-5vh)]');
 
@@ -32,13 +32,10 @@ const FuturisticCarousel = () => {
 
   const handleResize = useCallback(() => {
     if (window.innerWidth <= 768) {
-      // Scrollable on smaller devices like phones
       setContainerHeight('h-[calc(100vh-8vh)] overflow-auto');
     } else if (window.innerWidth <= 1024) {
-      // Slightly adjust for iPads in landscape
       setContainerHeight('h-[calc(100vh-1vh)] overflow-hidden');
     } else {
-      // Larger screens
       setContainerHeight('h-[calc(100vh-9vh)] overflow-hidden');
     }
   }, []);
@@ -59,10 +56,8 @@ const FuturisticCarousel = () => {
     <div className="bg-gray-800 rounded-xl w-full sm:w-[14rem] lg:w-[18rem] transition-transform transform hover:scale-105 shadow-md">
       <img src={imageUrl} alt={title} className="w-full h-36 sm:h-40 lg:h-48 object-cover rounded-t-xl" />
       <div className="p-4 text-white">
-        {/* Applying gradient to the title */}
         <h3 className="text-xl font-bold bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">{title}</h3>
         <p className="text-gray-400">{location} • {distance} Km away</p>
-        {/* Applying gradient to the price */}
         <p className="text-lg font-bold bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">{price}</p>
         <div className="flex justify-between text-gray-400 text-sm">
           <span>{weather}</span>
@@ -75,13 +70,10 @@ const FuturisticCarousel = () => {
 
   return (
     <div className={`relative bg-[#222222] p-8 text-white flex flex-col justify-center items-center ${containerHeight}`}>
-      {/* Margin Top and Bottom for phones */}
       <div className="mt-[50rem] mb-[20rem] sm:mt-[-7rem] sm:mb-0">
-        {/* H2 with gradient */}
         <h2 className="text-4xl text-center mb-8 bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">Discover Your Next Adventure</h2>
         
         <div className="flex justify-between mb-10 w-full z-10">
-          {/* Select dropdown with underline */}
           <select
             value={category}
             onChange={handleCategoryChange}
@@ -93,7 +85,6 @@ const FuturisticCarousel = () => {
             <option value="Activities">Activities</option>
           </select>
 
-          {/* Button with arrow and hover effect */}
           <button className="flex items-center gap-2 text-white px-5 py-2 rounded-full border-2 border-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 transition duration-300 ease-in-out">
             See All 
             <FontAwesomeIcon icon={faArrowRight} />
@@ -102,7 +93,7 @@ const FuturisticCarousel = () => {
         
         <h3 className="text-xl mb-4 text-center uppercase tracking-wider">Featured</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-1 w-full">
-          {locationsData[category].map((location, index) => (
+          {locationsData[category]?.map((location, index) => (
             <AdventureCard key={index} {...location} />
           ))}
         </div>
@@ -111,4 +102,4 @@ const FuturisticCarousel = () => {
   );
 };
 
-export default FuturisticCarousel;
+export default SearchEngine;
