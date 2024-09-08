@@ -1,21 +1,25 @@
+// src/components/trippers/home/SearchEngine.js
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Import arrow icon
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import casablancaImage from './cities/casablanca.jpg';
+import marrakechImage from './cities/marrakech.png';
+import rabatImage from './cities/rabat.jpg';
+import Majorelle from './popular/majorel.png';
+import mosquesH2 from './popular/mosquesH2.jpg';
+import desertSafari from './activities/desertSafari.jpg';
+import safariDesert from './activities/safariDesert.png';
 
-// Import the images
-import casablancaImage from './casablanca.jpg';
-import marrakechImage from './marrakech.png';
-import rabatImage from './rabat.jpg';
 
-const SearchEngine = () => {
-  const [category, setCategory] = useState('Cities');
+const SearchEngine = ({ onSeeAllClick }) => { // Receive onSeeAllClick as prop
+  const [category, setCategory] = useState('Popular');
   const [containerHeight, setContainerHeight] = useState('h-[calc(100vh-5vh)]');
 
   const locationsData = useMemo(
     () => ({
       Popular: [
-        { title: "Hassan II Mosque", imageUrl: casablancaImage, location: "Casablanca", distance: 257, price: "Free", weather: "25° Sunny", likes: "10k", comments: "1.2k", supportLocal: true },
-        { title: "Majorelle Garden", imageUrl: marrakechImage, location: "Marrakech", distance: 300, price: "70 WER", weather: "30° Sunny", likes: "8k", comments: "900", supportLocal: true },
+        { title: "Hassan II Mosque", imageUrl: mosquesH2, location: "Casablanca", distance: 257, price: "Free", weather: "25° Sunny", likes: "10k", comments: "1.2k", supportLocal: true },
+        { title: "Majorelle Garden", imageUrl: Majorelle, location: "Marrakech", distance: 300, price: "70 WER", weather: "30° Sunny", likes: "8k", comments: "900", supportLocal: true },
       ],
       Cities: [
         { title: "Casablanca", imageUrl: casablancaImage, location: "Morocco", distance: 500, price: "550 WER", weather: "22° Sunny", likes: "2k", comments: "300", supportLocal: true },
@@ -23,8 +27,8 @@ const SearchEngine = () => {
         { title: "Rabat", imageUrl: rabatImage, location: "France", distance: 1500, price: "1200 WER", weather: "18° Cloudy", likes: "10k", comments: "1.5k", supportLocal: false },
       ],
       Activities: [
-        { title: "Desert Safari", imageUrl: casablancaImage, location: "Merzouga", distance: 800, price: "1200 WER", weather: "35° Sunny", likes: "4k", comments: "500", supportLocal: true },
-        { title: "Camel Ride in Sahara", imageUrl: marrakechImage, location: "Zagora", distance: 950, price: "900 WER", weather: "33° Sunny", likes: "3.5k", comments: "450", supportLocal: true },
+        { title: "Desert Safari", imageUrl: safariDesert, location: "Merzouga", distance: 800, price: "1200 WER", weather: "35° Sunny", likes: "4k", comments: "500", supportLocal: true },
+        { title: "Camel Ride in Sahara", imageUrl: desertSafari, location: "Zagora", distance: 950, price: "900 WER", weather: "33° Sunny", likes: "3.5k", comments: "450", supportLocal: true },
       ],
     }),
     []
@@ -51,6 +55,10 @@ const SearchEngine = () => {
   const handleCategoryChange = useCallback((event) => {
     setCategory(event.target.value);
   }, []);
+
+  const handleSeeAllClick = () => {
+    onSeeAllClick(category); // Call the function passed via props to show Featured
+  };
 
   const AdventureCard = ({ title, location, distance, price, weather, likes, comments, imageUrl }) => (
     <div className="bg-gray-800 rounded-xl w-full sm:w-[14rem] lg:w-[18rem] transition-transform transform hover:scale-105 shadow-md">
@@ -85,8 +93,12 @@ const SearchEngine = () => {
             <option value="Activities">Activities</option>
           </select>
 
-          <button className="flex items-center gap-2 text-white px-5 py-2 rounded-full border-2 border-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 transition duration-300 ease-in-out">
-            See All 
+          {/* See All button that triggers the switch to Featured */}
+          <button
+            onClick={handleSeeAllClick}
+            className="flex items-center gap-2 text-white px-5 py-2 rounded-full border-2 border-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 transition duration-300 ease-in-out"
+          >
+            See All
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
