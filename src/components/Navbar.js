@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaGoogle, FaApple, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; // <-- Import useNavigate
 import welogo from '../img/transwesafa.png';
 import navbarStarsGif from '../img/navbarStars.gif';
 
@@ -10,7 +11,6 @@ function Navbar() {
   const [isTripper, setIsTripper] = useState(true);
   const [navbarStyle, setNavbarStyle] = useState({});
   const [passwordVisible, setPasswordVisible] = useState(false);
-
   const [formData, setFormData] = useState({
     name: '',
     firstname: '',
@@ -19,6 +19,8 @@ function Navbar() {
     password: '',
     businessName: '',
   });
+
+  const navigate = useNavigate(); // <-- Initialize useNavigate
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +61,10 @@ function Navbar() {
       console.log('Sign Up data:', formData);
     } else {
       console.log('Login data:', formData);
+      // Navigate to TripperHome.jsx after successful login
+      navigate('/tripper/home'); // <-- This will navigate to the TripperHome page
     }
+
     setFormData({
       name: '',
       firstname: '',
