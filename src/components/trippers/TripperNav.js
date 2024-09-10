@@ -1,23 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faBell, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faComments, faUser, faCompass } from '@fortawesome/free-regular-svg-icons';
 import { faHome, faFlag } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const TripperNav = () => {
-  const [selected, setSelected] = useState('Home');
+  const [selected, setSelected] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const navItems = [
-    { name: 'Home', icon: faHome },
-    { name: 'Explore', icon: faCompass },
-    { name: 'Quest', icon: faFlag },
-    { name: 'Chat', icon: faComments },
-    { name: 'Profile', icon: faUser },
-  ];
+  // Memoize navItems to prevent recreation on each render
+  const navItems = useMemo(() => [
+    { name: 'Home', icon: faHome, path: '/tripper/home' },
+    { name: 'Explore', icon: faCompass, path: '/tripper/explore' },
+    { name: 'Quest', icon: faFlag, path: '/tripper/quests' },
+    { name: 'Chat', icon: faComments, path: '/tripper/messages' },
+    { name: 'Profile', icon: faUser, path: '/tripper/profile' },
+  ], []);
+
+  // Sync selected state with the current URL path
+  useEffect(() => {
+    const currentItem = navItems.find(item => location.pathname.startsWith(item.path));
+    if (currentItem) {
+      setSelected(currentItem.name);
+    } else {
+      setSelected('');
+    }
+  }, [location.pathname, navItems]);  // Now navItems is memoized and doesn't change
+
+  const handleNavClick = (name, path) => {
+    setSelected(name); // Update selected state manually
+    navigate(path); // Navigate to the selected path
+  };
 
   return (
     <>
-      {/* Desktop Navigation Bar - Hidden on iPads and smaller */}
+      {/* Desktop Navigation Bar */}
       <nav className="bg-[#222222] px-9 py-9 sticky top-0 left-0 w-full z-50 hidden xl:block">
         <div className="container mx-auto flex justify-between items-center relative">
           {/* Left Section (Menu) */}
@@ -33,7 +52,7 @@ const TripperNav = () => {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => setSelected(item.name)}
+                onClick={() => handleNavClick(item.name, item.path)}
                 className={`flex flex-col items-center relative ${
                   selected === item.name ? 'text-gray-900' : 'text-gray-500'
                 }`}
@@ -79,31 +98,12 @@ const TripperNav = () => {
         </div>
       </nav>
 
-      {/* Mobile Top Navigation Bar - Shown on iPads and smaller */}
-      <nav className="bg-[#222222] py-4 w-full fixed top-0 left-0 z-50 flex justify-between items-center px-4 xl:hidden">
-        {/* Left Section (Menu) */}
-        <button className="text-gray-500">
-          <FontAwesomeIcon icon={faBars} size="lg" />
-        </button>
-
-        {/* Right Section (Notification and Search) */}
-        <div className="flex items-center space-x-4">
-          <button className="text-gray-500 relative">
-            <FontAwesomeIcon icon={faBell} size="lg" />
-            <span className="absolute top-0 right-0 h-2 w-2 bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775] rounded-full"></span>
-          </button>
-          <button className="text-gray-500">
-            <FontAwesomeIcon icon={faSearch} size="lg" />
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Bottom Navigation Bar - Shown on iPads and smaller */}
+      {/* Mobile Bottom Navigation Bar */}
       <nav className="bg-[#222222] fixed bottom-0 left-0 w-full flex justify-around items-center py-5 px-1 xl:hidden z-10">
         {navItems.map((item) => (
           <button
             key={item.name}
-            onClick={() => setSelected(item.name)}
+            onClick={() => handleNavClick(item.name, item.path)}
             className={`flex flex-col items-center ${
               selected === item.name ? 'text-white' : 'text-gray-500'
             }`}
