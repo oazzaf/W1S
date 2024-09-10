@@ -5,7 +5,7 @@ const TripperMessages = () => {
   return (
     <div>
       <TripperNav />
-      {/* Other components and content specific to TripperExplore */}
+      {/* Other componentss and content specific to TripperExplore */}
     </div>
   );
 };
