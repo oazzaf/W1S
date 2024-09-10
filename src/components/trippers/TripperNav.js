@@ -27,11 +27,11 @@ const TripperNav = () => {
     } else {
       setSelected('');
     }
-  }, [location.pathname, navItems]);  // Now navItems is memoized and doesn't change
+  }, [location.pathname, navItems]);
 
   const handleNavClick = (name, path) => {
-    setSelected(name); // Update selected state manually
-    navigate(path); // Navigate to the selected path
+    setSelected(name);
+    navigate(path);
   };
 
   return (
@@ -98,8 +98,27 @@ const TripperNav = () => {
         </div>
       </nav>
 
-      {/* Mobile Bottom Navigation Bar */}
-      <nav className="bg-[#222222] fixed bottom-0 left-0 w-full flex justify-around items-center py-5 px-1 xl:hidden z-10">
+      {/* Mobile Top Navigation Bar (Menu, Notification, Search) */}
+      <nav className="bg-[#222222] fixed top-0 left-0 w-full flex justify-between items-center py-5 px-4 xl:hidden z-50">
+        {/* Left Section (Menu) */}
+        <button className="text-gray-500">
+          <FontAwesomeIcon icon={faBars} size="lg" />
+        </button>
+
+        {/* Right Section (Notifications & Search) */}
+        <div className="flex items-center space-x-4">
+          <button className="text-gray-500 relative">
+            <FontAwesomeIcon icon={faBell} size="lg" />
+            <span className="absolute top-0 right-0 h-2 w-2 bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775] rounded-full"></span>
+          </button>
+          <button className="text-gray-500">
+            <FontAwesomeIcon icon={faSearch} size="lg" />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Bottom Navigation Bar (Main Navigation) */}
+      <nav className="bg-[#222222] fixed bottom-0 left-0 w-full flex justify-around items-center py-5 px-1 xl:hidden z-50">
         {navItems.map((item) => (
           <button
             key={item.name}
