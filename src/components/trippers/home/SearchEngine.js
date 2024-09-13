@@ -61,7 +61,7 @@ const SearchEngine = ({ onSeeAllClick }) => { // Receive onSeeAllClick as prop
   };
 
   const AdventureCard = ({ title, location, distance, price, weather, likes, comments, imageUrl }) => (
-    <div className="bg-gray-800 rounded-xl w-full sm:w-[14rem] lg:w-[18rem] transition-transform transform hover:scale-105 shadow-md">
+    <div className="bg-[#504e4e] rounded-xl w-full sm:w-[14rem] lg:w-[18rem] transition-transform transform hover:scale-105 shadow-md">
       <img src={imageUrl} alt={title} className="w-full h-36 sm:h-40 lg:h-48 object-cover rounded-t-xl" />
       <div className="p-4 text-white">
         <h3 className="text-xl font-bold bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">{title}</h3>

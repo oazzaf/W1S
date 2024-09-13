@@ -52,7 +52,7 @@ const Featured = ({ category, onBackClick }) => {
         {/* Back Button */}
         <button
           onClick={onBackClick}
-          className="mb-6 sm:mb-9 flex items-center gap-2 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full border-2 border-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 transition duration-300 ease-in-out"
+          className="mb-6 sm:mb-9 flex items-center gap-2 text-gray-300 px-4 py-2 sm:px-5 sm:py-2 rounded-full border-2 border-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 transition duration-300 ease-in-out"
         >
           <FontAwesomeIcon icon={faArrowLeft} />
           Back
@@ -61,12 +61,12 @@ const Featured = ({ category, onBackClick }) => {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-1 w-full">
           {locationsData[category]?.map((location, index) => (
-            <div key={index} className="bg-gray-100 rounded-lg overflow-hidden w-full flex flex-col sm:flex-row transition-transform transform hover:scale-105 shadow-md">
+            <div key={index} className="bg-[#504e4e] rounded-lg overflow-hidden w-full flex flex-col sm:flex-row transition-transform transform hover:scale-105 shadow-md">
               {/* Image Section */}
               <img src={location.imageUrl} alt={location.title} className="w-full sm:w-40 h-40 object-cover rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" />
    
               {/* Card Content */}
-              <div className="p-4 text-gray-900 flex-1">
+              <div className="p-4 text-white flex-1">
                 {/* Title and Price */}
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="text-lg font-semibold">{location.title}</h3>
