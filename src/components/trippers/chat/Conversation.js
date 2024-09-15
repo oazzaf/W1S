@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaArrowLeft } from 'react-icons/fa'; // For back button on mobile
+import { FaArrowLeft } from 'react-icons/fa';
 
 const Conversation = ({ conversation, onBackToList }) => {
   const [newMessage, setNewMessage] = useState('');
@@ -16,7 +16,6 @@ const Conversation = ({ conversation, onBackToList }) => {
     setNewMessage('');
   };
 
-  // Function to determine the style of the status text
   const getStatusText = (status) => {
     switch (status) {
       case 'active':
@@ -31,8 +30,7 @@ const Conversation = ({ conversation, onBackToList }) => {
   };
 
   return (
-    <div className="p-4 flex flex-col justify-center h-[70vh]">
-      {/* Header with Back Button for Mobile */}
+    <div className="p-4 flex flex-col h-full justify-between">
       <div className="flex items-center mb-4 bg-[#1f1f23] p-4 rounded-lg shadow-md">
         <button
           onClick={onBackToList}
@@ -47,13 +45,12 @@ const Conversation = ({ conversation, onBackToList }) => {
         />
         <div className="display-block">
           <h2 className="text-xl font-bold text-gray-100">{conversation.name}</h2>
-          {/* Status as text next to the name */}
           {getStatusText(conversation.status)}
         </div>
       </div>
 
-      {/* Messages */}
-      <div className="mb-20 max-h-[65vh] overflow-auto bg-[#1f1f23] p-4 rounded-lg shadow-md">
+      {/* Messages Section */}
+      <div className="flex-grow mb-4 max-h-[65vh] overflow-y-auto bg-[#1f1f23] p-4 rounded-lg shadow-md">
         {conversation.messages.map((message) => (
           <div
             key={message.id}
@@ -61,7 +58,9 @@ const Conversation = ({ conversation, onBackToList }) => {
           >
             <div
               className={`rounded-lg p-3 text-sm ${
-                message.sent ? 'bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775] text-white' : 'bg-gray-200 text-gray-900'
+                message.sent
+                  ? 'bg-gradient-to-r from-[#ff6a5c] to-[#d93775] text-white'
+                  : 'bg-gray-200 text-gray-900'
               } max-w-xs shadow-sm`}
             >
               <p>{message.text}</p>
@@ -82,7 +81,7 @@ const Conversation = ({ conversation, onBackToList }) => {
         />
         <button
           onClick={handleSendMessage}
-          className="bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775] p-3 rounded-full text-white shadow-md"
+          className="bg-gradient-to-r from-[#ff6a5c] to-[#d93775] p-3 rounded-full text-white shadow-md"
         >
           ➤
         </button>

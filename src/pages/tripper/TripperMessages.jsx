@@ -102,17 +102,15 @@ const conversationsData = [
 ];
 
 const TripperMessages = () => {
-  const [selectedConvo, setSelectedConvo] = useState(null); // No default conversation selected
-  const [isConvoView, setIsConvoView] = useState(false); // Track if conversation view is active (for small screens)
+  const [selectedConvo, setSelectedConvo] = useState(null); 
+  const [isConvoView, setIsConvoView] = useState(false);
 
-  // Function to handle selection of a conversation from ListConvo
   const handleSelectConversation = (id) => {
     const conversation = conversationsData.find((convo) => convo.id === id);
     setSelectedConvo(conversation);
-    setIsConvoView(true); // Show conversation on mobile view
+    setIsConvoView(true); 
   };
 
-  // Function to go back to the list of conversations (used on mobile view)
   const handleBackToList = () => {
     setIsConvoView(false);
   };
@@ -122,9 +120,13 @@ const TripperMessages = () => {
       {/* Navigation */}
       <TripperNav />
 
-      {/* Main layout for Messages with 10vh margin */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-[90vh] mt-[6vh] lg:mt-[0vh] md:mt-[150vh] p-4 gap-16">
-        {/* Left Side - List of Conversations */}
+      {/* Centered Messages Header */}
+      <div className="flex justify-center mt-16 lg:mt-[-0.3rem] mb-[-2rem] lg:mb-[-1.4rem]">
+        <h2 className="text-xl font-bold text-white">Messages</h2>
+      </div>
+
+      {/* Main layout for Messages */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 h-[90vh] mt-6 p-4 gap-10">
         <div className={`bg-[#222222] text-white h-[80vh] rounded-lg shadow-lg lg:block ${isConvoView ? 'hidden' : 'block'}`}>
           <ListConvo 
             conversations={conversationsData} 
@@ -132,12 +134,11 @@ const TripperMessages = () => {
           />
         </div>
 
-        {/* Right Side - Selected Conversation */}
-        <div className={`bg-[#2c2c2e] text-white h-[73.5vh] rounded-lg shadow-lg lg:block ${isConvoView ? 'block' : 'hidden'}`}>
+        <div className={`bg-[#2c2c2e] text-white h-[80vh] rounded-lg shadow-lg lg:block ${isConvoView ? 'block' : 'hidden'}`}>
           {selectedConvo ? (
             <Conversation 
               conversation={selectedConvo}
-              onBackToList={handleBackToList} // Passing the function to go back to list
+              onBackToList={handleBackToList}
             />
           ) : (
             <div className="flex justify-center items-center h-full">
