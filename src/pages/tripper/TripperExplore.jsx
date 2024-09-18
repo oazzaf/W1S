@@ -7,7 +7,7 @@ const TripperExplore = () => {
   const [activeTab, setActiveTab] = useState('activities'); // Default is Activities
 
   return (
-    <div className="bg-[#222222] h-[260vh]">
+    <div className="bg-[#222222] h-[300vh]">
       <TripperNav />
 
       {/* Navigation Tabs */}

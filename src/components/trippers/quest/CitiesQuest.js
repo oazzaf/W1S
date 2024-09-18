@@ -4,28 +4,105 @@ import HyattRegencyImage from './expimg/Hyatt.jpg';
 import RicksCafeImage from './expimg/Ricks.jpg';
 import LaSqalaImage from './expimg/Sqala.jpg';
 import LeCabestanImage from './expimg/Cabestan.jpg';
+import JardinMajorelleImage from './expimg/JardinMajorelle.jpg';
+import KoutoubiaMosqueImage from './expimg/KoutoubiaMosque.jpg';
+import PalaisBahiaImage from './expimg/PalaisBahia.jpg';
+import HassanTowerImage from './expimg/HassanTower.jpg';
+import KasbahUdayasImage from './expimg/KasbahUdayas.jpg';
+import MausoleumMohammedVImage from './expimg/MausoleumMohammedV.jpg';
+import ChellahImage from './expimg/Chellah.jpg';
+import CapSpartelImage from './expimg/CapSpartel.jpg';
+import HerculesCavesImage from './expimg/HerculesCaves.jpg';
+import KasbahMuseumImage from './expimg/KasbahMuseum.jpg';
+import DakhlaLagoonImage from './expimg/DakhlaLagoon.jpg';
+import WhiteDuneImage from './expimg/WhiteDune.jpg';
+import AgadirOufellaImage from './expimg/AgadirOufella.jpg';
+import TaghazoutBeachImage from './expimg/TaghazoutBeach.jpg';
 
-const placesToVisit = [
-  { title: 'Four Seasons Hotel Casablanca', description: 'A luxurious hotel with breathtaking ocean views and world-class amenities.', reward: '350 WER', image: FourSeasonsImage },
-  { title: 'Hyatt Regency Casablanca', description: 'A luxury hotel in the heart of Casablanca, offering modern comfort and fine dining.', reward: '200 WER', image: HyattRegencyImage },
-  { title: "Rick's Café", description: 'A famous restaurant modeled after the café in the movie "Casablanca," serving Moroccan and international dishes.', reward: '770 WER', image: RicksCafeImage },
-  { title: 'La Sqala', description: 'A charming restaurant offering traditional Moroccan cuisine in a historical setting.', reward: '550 WER', image: LaSqalaImage },
-  { title: 'Le Cabestan', description: 'A seaside restaurant known for its upscale seafood dishes and stunning ocean views.', reward: '200 WER', image: LeCabestanImage },
-];
+const placesByCity = {
+  Casablanca: [
+    { title: 'Four Seasons Hotel Casablanca', description: 'A luxurious hotel with breathtaking ocean views and world-class amenities.', reward: '350 WER', image: FourSeasonsImage },
+    { title: 'Hyatt Regency Casablanca', description: 'A luxury hotel in the heart of Casablanca, offering modern comfort and fine dining.', reward: '200 WER', image: HyattRegencyImage },
+    { title: "Rick's Café", description: 'A famous restaurant modeled after the café in the movie "Casablanca," serving Moroccan and international dishes.', reward: '770 WER', image: RicksCafeImage },
+    { title: 'La Sqala', description: 'A charming restaurant offering traditional Moroccan cuisine in a historical setting.', reward: '550 WER', image: LaSqalaImage },
+    { title: 'Le Cabestan', description: 'A seaside restaurant known for its upscale seafood dishes and stunning ocean views.', reward: '200 WER', image: LeCabestanImage },
+    { title: 'Hotel Kenzi Tower', description: 'A luxurious hotel located in one of the tallest buildings in Casablanca.', reward: '300 WER', image: './expimg/KenziTower.jpg' },
+    { title: 'Le Casablanca Hotel', description: 'An elegant hotel offering an oasis of comfort and tranquility in the heart of Casablanca.', reward: '450 WER', image: './expimg/LeCasablancaHotel.jpg' },
+    { title: 'La Corniche', description: 'A vibrant beachside area filled with restaurants and cafes, perfect for a casual evening.', reward: '250 WER', image: './expimg/LaCorniche.jpg' },
+    { title: 'Casa José', description: 'A popular Spanish restaurant offering Mediterranean cuisine and tapas.', reward: '320 WER', image: './expimg/CasaJose.jpg' },
+  ],
+  Marrakech: [
+    { title: 'Jardin Majorelle', description: 'A beautiful garden designed by Jacques Majorelle and later restored by Yves Saint Laurent.', reward: '400 WER', image: JardinMajorelleImage },
+    { title: 'Koutoubia Mosque', description: 'The largest mosque in Marrakech, known for its stunning minaret.', reward: '250 WER', image: KoutoubiaMosqueImage },
+    { title: 'Palais Bahia', description: 'A grand palace showcasing stunning Moroccan architecture.', reward: '500 WER', image: PalaisBahiaImage },
+    { title: 'Royal Mansour Marrakech', description: 'A palatial hotel offering luxury beyond measure, with exquisite design and exclusive services.', reward: '600 WER', image: './expimg/RoyalMansour.jpg' },
+    { title: 'La Mamounia', description: 'A historic and luxurious palace hotel with lush gardens and world-class service.', reward: '700 WER', image: './expimg/LaMamounia.jpg' },
+    { title: 'Dar Moha', description: 'A famous restaurant serving modern Moroccan cuisine in a beautiful traditional riad.', reward: '350 WER', image: './expimg/DarMoha.jpg' },
+    { title: 'Al Fassia', description: 'An upscale restaurant known for its authentic Moroccan cuisine, run by an all-female team.', reward: '300 WER', image: './expimg/AlFassia.jpg' },
+    { title: 'Nomad', description: 'A modern restaurant offering a fusion of traditional Moroccan and international flavors with stunning rooftop views.', reward: '450 WER', image: './expimg/Nomad.jpg' },
+  ],
+  Rabat: [
+    { title: 'Hassan Tower', description: 'A landmark minaret of an incomplete mosque, standing as a symbol of Rabat\'s rich history.', reward: '200 WER', image: HassanTowerImage },
+    { title: 'Kasbah of the Udayas', description: 'A picturesque fortress with gardens, old city walls, and stunning views over the Atlantic.', reward: '400 WER', image: KasbahUdayasImage },
+    { title: 'Mausoleum of Mohammed V', description: 'A magnificent mausoleum dedicated to the late king Mohammed V and his sons.', reward: '300 WER', image: MausoleumMohammedVImage },
+    { title: 'Chellah', description: 'An ancient Roman and medieval fortified city located on the outskirts of Rabat.', reward: '450 WER', image: ChellahImage },
+    { title: 'Sofitel Rabat Jardin des Roses', description: 'A luxurious hotel surrounded by a magnificent garden, offering first-class amenities.', reward: '500 WER', image: './expimg/SofitelRabat.jpg' },
+    { title: 'The View Hotel Rabat', description: 'A contemporary hotel known for its panoramic views and luxury accommodations.', reward: '550 WER', image: './expimg/TheViewHotel.jpg' },
+    { title: 'Le Dhow', description: 'A unique floating restaurant on a traditional boat, offering Moroccan and international cuisine.', reward: '350 WER', image: './expimg/LeDhow.jpg' },
+    { title: 'Golden Fish', description: 'An upscale seafood restaurant located in the Sofitel, known for fresh seafood and Mediterranean dishes.', reward: '400 WER', image: './expimg/GoldenFish.jpg' },
+  ],
+  Tanger: [
+    { title: 'Cap Spartel', description: 'A scenic spot where the Mediterranean Sea meets the Atlantic Ocean, offering breathtaking views.', reward: '300 WER', image: CapSpartelImage },
+    { title: 'Hercules Caves', description: 'A fascinating cave complex with a legendary history, offering a view shaped like the map of Africa.', reward: '250 WER', image: HerculesCavesImage },
+    { title: 'Kasbah Museum', description: 'A museum located in the old Kasbah, showcasing artifacts from Tanger\'s diverse cultural history.', reward: '200 WER', image: KasbahMuseumImage },
+    { title: 'El Minzah Hotel', description: 'A luxurious hotel with Andalusian style, located in the heart of the city, offering world-class amenities.', reward: '500 WER', image: './expimg/ElMinzah.jpg' },
+    { title: 'Hilton Garden Inn Tanger City Center', description: 'A modern hotel offering comfort and convenience for both leisure and business travelers.', reward: '400 WER', image: './expimg/HiltonTanger.jpg' },
+    { title: 'Le Saveur du Poisson', description: 'A cozy seafood restaurant known for its fresh dishes and intimate atmosphere.', reward: '300 WER', image: './expimg/LeSaveurDuPoisson.jpg' },
+    { title: 'El Morocco Club', description: 'A chic restaurant in the Kasbah offering a fusion of Moroccan and international cuisine.', reward: '350 WER', image: './expimg/ElMoroccoClub.jpg' },
+    { title: 'Le Mirage', description: 'An elegant restaurant with an amazing view over the beach and Atlantic Ocean, specializing in seafood.', reward: '420 WER', image: './expimg/LeMirage.jpg' },
+  ],
+  Dakhla: [
+    { title: 'Dakhla Lagoon', description: 'A stunning lagoon known for its pristine waters, ideal for kitesurfing and water sports.', reward: '500 WER', image: DakhlaLagoonImage },
+    { title: 'White Dune', description: 'A unique natural formation in the desert, offering panoramic views of the Atlantic Ocean.', reward: '300 WER', image: WhiteDuneImage },
+    { title: 'PK25 Dakhla Hotel', description: 'A beachfront hotel offering incredible views of the lagoon and access to water sports.', reward: '550 WER', image: './expimg/PK25Hotel.jpg' },
+    { title: 'Dakhla Attitude Hotel', description: 'A top destination for kitesurfers, offering accommodation with direct access to the lagoon.', reward: '600 WER', image: './expimg/DakhlaAttitude.jpg' },
+    { title: 'Talhamar', description: 'A restaurant offering fresh seafood and local dishes with a view of the lagoon.', reward: '300 WER', image: './expimg/Talhamar.jpg' },
+    { title: 'Ostraco', description: 'A fine dining restaurant known for its creative Moroccan fusion dishes and stunning ambiance.', reward: '400 WER', image: './expimg/Ostraco.jpg' },
+  ],
+  Agadir: [
+    { title: 'Agadir Oufella Ruins', description: 'The ruins of an ancient hilltop fortress offering panoramic views of Agadir and the coastline.', reward: '250 WER', image: AgadirOufellaImage },
+    { title: 'Taghazout Beach', description: 'A popular surf destination with golden sands and perfect waves.', reward: '350 WER', image: TaghazoutBeachImage },
+    { title: 'Sofitel Agadir Royal Bay Resort', description: 'A luxury beachfront hotel offering elegant accommodations and a private beach.', reward: '550 WER', image: './expimg/SofitelAgadir.jpg' },
+    { title: 'Hyatt Place Taghazout Bay', description: 'A modern hotel located near Taghazout Beach, offering comfort and spectacular views.', reward: '500 WER', image: './expimg/HyattTaghazout.jpg' },
+    { title: 'Pure Passion Restaurant', description: 'An upscale restaurant serving international cuisine with a focus on seafood, located by the marina.', reward: '350 WER', image: './expimg/PurePassion.jpg' },
+    { title: 'La Villa Blanche', description: 'A fine dining restaurant offering French and Moroccan fusion cuisine in a romantic setting.', reward: '400 WER', image: './expimg/LaVillaBlanche.jpg' },
+  ],
+};
 
-const CitiesQuest = () => {
+const CitiesQuest = ({ selectedCity }) => {
+  // If no city is selected, show a default message
+  if (!selectedCity) {
+    return <p className="text-white text-center">Select a city to view places to visit!</p>;
+  }
+
+  const placesToVisit = placesByCity[selectedCity] || [];
+
   return (
     <div>
-      {placesToVisit.map((place, index) => (
-        <div key={index} className="bg-gray-900 rounded-lg p-4 mb-4 flex items-center">
-          <img src={place.image} alt={place.title} className="w-24 h-24 rounded-lg object-cover mr-4" />
-          <div className="flex-1">
-            <h3 className="text-white text-xl font-semibold">{place.title}</h3>
-            <p className="text-gray-400">{place.description}</p>
-            <p className="text-gray-400">Reward: {place.reward}</p>
+      {placesToVisit.length > 0 ? (
+        placesToVisit.map((place, index) => (
+          <div key={index} className="bg-gray-900 rounded-lg p-4 mb-4 flex items-center">
+            <img src={place.image} alt={place.title} className="w-24 h-24 rounded-lg object-cover mr-4" />
+            <div className="flex-1">
+              <h3 className="text-white text-xl font-semibold">{place.title}</h3>
+              <p className="text-gray-400">{place.description}</p>
+              <p className="text-gray-400">Reward: {place.reward}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <p className="text-white text-center">No places available for {selectedCity}.</p>
+      )}
     </div>
   );
 };

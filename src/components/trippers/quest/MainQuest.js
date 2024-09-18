@@ -15,7 +15,7 @@ const cities = [
   { title: "Agadir", imageUrl: agadirImage, location: "Morocco", distance: 1500, Reward: "20200 WER", weather: "18° Cloudy", likes: "10k", comments: "1.5k", supportLocal: false },
 ];
 
-const MainQuest = () => {
+const MainQuest = ({ onSelectCity }) => {
   return (
     <div className='bg-[#222222]'>
       {cities.map((city, index) => (
@@ -32,7 +32,10 @@ const MainQuest = () => {
               <span className="text-green-400 font-semibold">Supports Local</span>
             )}
           </div>
-          <button className="text-white bg-red-500 rounded-lg px-4 py-2">View</button>
+          {/* On click, pass the selected city title to the parent */}
+          <button className="text-white bg-red-500 rounded-lg px-4 py-2" onClick={() => onSelectCity(city.title)}>
+            View
+          </button>
         </div>
       ))}
     </div>
