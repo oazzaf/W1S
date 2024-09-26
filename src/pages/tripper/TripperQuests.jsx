@@ -21,7 +21,7 @@ const TripperQuests = () => {
   };
 
   return (
-    <div className='bg-#222222'>
+    <div className='bg-#222222 h-[]'>
       <TripperNav />
       {!showCitiesQuest ? (
         // Show MainQuest if not viewing CitiesQuest
