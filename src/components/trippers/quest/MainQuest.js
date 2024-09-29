@@ -1,70 +1,103 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaMedal } from 'react-icons/fa'; // Medal icon for rewards
 import casablancaImage from './cities/casablanca.jpg';
 import marrakechImage from './cities/marrakech.png';
 import rabatImage from './cities/rabat.jpg';
 import tangerImage from './cities/tanger.jpg';
 import dakhlaImage from './cities/dakhla.jpeg';
 import agadirImage from './cities/agadir.jpg';
+import MarocMap from './cities/MarocMap1.png'; // Import the MarocMap image
+import welogo from './cities/transwesafa.png'; // Import the Wesafar logo
 
-// City data
+// Import Google Fonts for each city
+import '@fontsource/playfair-display'; // For Casablanca
+import '@fontsource/dancing-script'; // For Marrakech
+import '@fontsource/roboto-slab'; // For Rabat
+import '@fontsource/cinzel'; // For Tanger
+import '@fontsource/lobster'; // For Dakhla
+import '@fontsource/abril-fatface'; // For Agadir
+
+// City data with gradientColor and custom fonts
 const cities = [
-  { title: "Casablanca", imageUrl: casablancaImage, Reward: "33,550 WER", description: "A vibrant city with rich history and modern energy." },
-  { title: "Marrakech", imageUrl: marrakechImage, Reward: "29,400 WER", description: "Experience the wonders of Marrakech, where tradition meets modernity." },
-  { title: "Rabat", imageUrl: rabatImage, Reward: "10,200 WER", description: "A cultural hub and Morocco's capital with ancient charm." },
-  { title: "Tanger", imageUrl: tangerImage, Reward: "11,000 WER", description: "Explore the fusion of European and Moroccan cultures in this port city." },
-  { title: "Dakhla", imageUrl: dakhlaImage, Reward: "12,500 WER", description: "An adventurer’s paradise with beautiful beaches and desert landscapes." },
-  { title: "Agadir", imageUrl: agadirImage, Reward: "20,200 WER", description: "A coastal gem with relaxing beaches and exciting city life." },
+  { title: "Casablanca", imageUrl: casablancaImage, reward: "33,550", description: "A vibrant city with rich history and modern energy.", gradientColor: "#4682B4", fontFamily: "'Playfair Display', serif" },
+  { title: "Marrakech", imageUrl: marrakechImage, reward: "29,400", description: "Experience the wonders of Marrakech, where tradition meets modernity.", gradientColor: "#C1440E", fontFamily: "'Dancing Script', cursive" },
+  { title: "Rabat", imageUrl: rabatImage, reward: "10,200", description: "A cultural hub and Morocco's capital with ancient charm.", gradientColor: "#4169E1", fontFamily: "'Roboto Slab', serif" },
+  { title: "Tanger", imageUrl: tangerImage, reward: "11,000", description: "Explore the fusion of European and Moroccan cultures in this port city.", gradientColor: "#2E8B57", fontFamily: "'Cinzel', serif" },
+  { title: "Dakhla", imageUrl: dakhlaImage, reward: "12,500", description: "An adventurer’s paradise with beautiful beaches and desert landscapes.", gradientColor: "#D2B48C", fontFamily: "'Lobster', cursive" },
+  { title: "Agadir", imageUrl: agadirImage, reward: "20,200", description: "A coastal gem with relaxing beaches and exciting city life.", gradientColor: "#FF7F50", fontFamily: "'Abril Fatface', cursive" },
 ];
 
 const MainQuest = ({ onSelectCity }) => {
   const [selectedCity, setSelectedCity] = useState(null);
 
-  // Handle city selection
   const handleCitySelect = (city) => {
     setSelectedCity(city);
   };
 
   return (
-    <div className="min-h-screen bg-[#222222] relative overflow-hidden">
+    <div className="min-h-screen bg-[#222222] relative overflow-hidden text-white flex flex-col items-center justify-start px-4 lg:px-40 py-20 lg:py-40">
+      {/* MarocMap Image at the Top */}
+      <div className="w-full flex justify-center mb-10">
+        <img
+          src={MarocMap}
+          alt="Map of Morocco"
+          className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] max-h-[400px] object-contain"
+        />
+      </div>
+
       {/* Expanded City View */}
       {selectedCity ? (
         <motion.div
-          className="absolute inset-0 flex flex-col justify-center items-center bg-[#222222] text-white p-10"
+          className="absolute inset-0 flex flex-col items-center justify-center bg-[#222222] p-6 sm:p-10 lg:p-20 rounded-3xl shadow-2xl text-center transition-all duration-700 ease-in-out"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.6, ease: 'easeInOut' }}
         >
           <motion.div
-            className="relative w-full h-80 bg-cover bg-center rounded-xl"
+            className="relative w-full h-60 sm:h-80 md:h-96 bg-cover bg-center rounded-2xl overflow-hidden"
             style={{ backgroundImage: `url(${selectedCity.imageUrl})` }}
             whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.4 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80 rounded-xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70 rounded-2xl"></div>
           </motion.div>
-          <h1 className="text-5xl font-extrabold neon-text mt-6">{selectedCity.title}</h1>
-          <p className="text-lg text-gray-300 max-w-xl text-center mt-6 mb-8">{selectedCity.description}</p>
-          <p className="text-2xl text-[#ff6a5c] font-semibold mb-6">Reward: {selectedCity.Reward}</p>
+          <h1
+            className="mt-8 text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight"
+            style={{ fontFamily: selectedCity.fontFamily }}
+          >
+            {selectedCity.title}
+          </h1>
+          <p className="mt-4 text-sm sm:text-lg lg:text-xl max-w-2xl">
+            {selectedCity.description}
+          </p>
+          {/* Reward Badge with Medal Icon and Logo */}
+          <div className="mt-6 flex items-center justify-center space-x-2 bg-gradient-to-r from-[#3b82f6] to-[#ec4899] px-4 py-2 rounded-full shadow-lg">
+            <FaMedal className="text-yellow-400 text-3xl" />
+            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+              {selectedCity.reward} <img src={welogo} alt="WER Logo" className="inline w-6 h-6" />
+            </p>
+          </div>
+          {/* Explore Button with Medal Icon Inside */}
           <motion.button
-            className="px-6 py-3 bg-gradient-to-r from-[#ff6a5c] via-[#ff6a5c] to-[#d93775] rounded-full text-lg font-bold text-white"
+            className="mt-6 px-8 py-3 sm:py-4 lg:px-12 lg:py-5 bg-gradient-to-r from-[#ff6a5c] to-[#d93775] rounded-full text-sm sm:text-lg lg:text-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-4 ring-[#ff6a5c] flex items-center justify-center space-x-2"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => onSelectCity(selectedCity.title)}
           >
-            Explore {selectedCity.title}
+            <span>Explore {selectedCity.title}</span>
           </motion.button>
           <button
-            className="mt-10 text-gray-400 underline"
+            className="mt-8 text-gray-400 hover:text-gray-300 underline"
             onClick={() => setSelectedCity(null)}
           >
             Back to Cities
           </button>
         </motion.div>
       ) : (
-        <div className="flex justify-center items-center h-screen w-screen">
+        <div className="flex justify-center items-center w-full max-w-screen-xl mx-auto py-8 lg:py-20">
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 w-full max-w-7xl"
+            className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4 md:p-8 w-[120%]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.7, ease: 'easeOut' }}
@@ -72,8 +105,8 @@ const MainQuest = ({ onSelectCity }) => {
             {cities.map((city, index) => (
               <motion.div
                 key={index}
-                className="relative bg-cover bg-center rounded-xl overflow-hidden shadow-lg hover:shadow-xl cursor-pointer transition-all"
-                onClick={() => handleCitySelect(city)}
+                className="group relative w-full sm:w-[100%] md:w-[95%] lg:w-[90%] xl:w-[85%] bg-cover bg-center rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl cursor-pointer transition-all mx-auto"
+                onClick={() => handleCitySelect(city)} 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -82,29 +115,27 @@ const MainQuest = ({ onSelectCity }) => {
                   backgroundSize: 'cover',
                 }}
               >
-                {/* Holographic overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-60 hover:opacity-80 transition-opacity"></div>
+                {/* Dynamic Holographic Overlay Color */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-transparent opacity-50 group-hover:opacity-75 transition-opacity rounded-2xl"
+                  style={{ backgroundColor: city.gradientColor }}
+                ></div>
 
-                <div className="relative z-10 p-6 flex flex-col justify-center items-center text-center">
+                <div className="relative z-10 p-4 sm:p-6 md:p-8 flex flex-col justify-center items-center text-center transition-all duration-300 transform group-hover:scale-105">
                   <motion.h2
-                    className="text-4xl font-bold text-white mb-4"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-4"
+                    style={{ fontFamily: city.fontFamily }}
                     whileHover={{ scale: 1.05 }}
                   >
                     {city.title}
                   </motion.h2>
-                  <p className="text-lg text-gray-400 mb-4">{city.Reward}</p>
-
-                  {/* Explore button appears on hover */}
-                  <motion.div
-                    className="opacity-0 group-hover:opacity-100 transition-opacity"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <button className="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full text-white font-semibold">
-                      Explore
-                    </button>
-                  </motion.div>
+                  {/* Enhanced Reward Text in City Card with Logo */}
+                  <div className="flex items-center justify-center space-x-2 mb-4">
+                    <FaMedal className="text-yellow-400 text-2xl" />
+                    <p className="text-lg sm:text-xl font-extrabold text-white bg-gradient-to-r from-[#222222] to-[#222222] px-3 py-1 rounded-full shadow-lg">
+                      {city.reward} <img src={welogo} alt="WER Logo" className="inline w-5 h-5" />
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}

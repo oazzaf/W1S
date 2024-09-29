@@ -1,4 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion'; // For animations
+
+// Import images
 import FourSeasonsImage from './expimg/FourSeason.jpg';
 import HyattRegencyImage from './expimg/Hyatt.jpg';
 import RicksCafeImage from './expimg/Ricks.jpg';
@@ -43,6 +46,7 @@ import HyattTaghazoutImage from './expimg/HyattTaghazout.jpg';
 import PurePassionImage from './expimg/PurePassion.jpg';
 import LaVillaBlancheImage from './expimg/LaVillaBlanche.jpg';
 
+// City data structure
 const placesByCity = {
   Casablanca: [
     { title: 'Four Seasons Hotel Casablanca', description: 'A luxurious hotel with breathtaking ocean views and world-class amenities.', reward: '350 WER', image: FourSeasonsImage },
@@ -106,28 +110,45 @@ const CitiesQuest = ({ selectedCity, onBack }) => {
     return <p className="text-white text-center">Select a city to view places to visit!</p>;
   }
 
-
   const placesToVisit = placesByCity[selectedCity] || [];
 
   return (
-    <div>
-      <button className="text-white bg-blue-500 rounded-lg px-4 py-2 mb-4" onClick={onBack}>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-10 px-4 md:px-20 lg:px-40">
+      <button
+        className="mb-8 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold rounded-lg hover:scale-105 transform transition-all duration-300"
+        onClick={onBack}
+      >
         Back
       </button>
-      {placesToVisit.length > 0 ? (
-        placesToVisit.map((place, index) => (
-          <div key={index} className="bg-gray-900 rounded-lg p-4 mb-4 flex items-center">
-            <img src={place.image} alt={place.title} className="w-24 h-24 rounded-lg object-cover mr-4" />
-            <div className="flex-1">
-              <h3 className="text-white text-xl font-semibold">{place.title}</h3>
-              <p className="text-gray-400">{place.description}</p>
-              <p className="text-gray-400">Reward: {place.reward}</p>
-            </div>
-          </div>
-        ))
-      ) : (
-        <p className="text-white text-center">No places available for {selectedCity}.</p>
-      )}
+      <h2 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold text-center mb-10">
+        Best Places to Visit in {selectedCity}
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {placesToVisit.length > 0 ? (
+          placesToVisit.map((place, index) => (
+            <motion.div
+              key={index}
+              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <img
+                src={place.image}
+                alt={place.title}
+                className="w-full h-48 md:h-56 lg:h-64 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">{place.title}</h3>
+                <p className="text-gray-300 mb-4">{place.description}</p>
+                <p className="text-indigo-400 text-lg font-semibold">Reward: {place.reward}</p>
+              </div>
+            </motion.div>
+          ))
+        ) : (
+          <p className="text-white text-center">No places available for {selectedCity}.</p>
+        )}
+      </div>
     </div>
   );
 };
