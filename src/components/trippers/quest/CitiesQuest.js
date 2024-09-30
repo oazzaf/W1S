@@ -7,7 +7,7 @@ import HyattRegencyImage from './expimg/Hyatt.jpg';
 import RicksCafeImage from './expimg/Ricks.jpg';
 import LaSqalaImage from './expimg/Sqala.jpg';
 import LeCabestanImage from './expimg/Cabestan.jpg';
-import JardinMajorelleImage from './expimg/Majorel.png';
+import JardinMajorelleImage from './expimg/Majorel.jpg';
 import KoutoubiaMosqueImage from './expimg/KoutoubiaKesh.jpeg';
 import PalaisBahiaImage from './expimg/BahiaPalaceKesh.jpg';
 import HassanTowerImage from './expimg/HassanTower.jpg';
