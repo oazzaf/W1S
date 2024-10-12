@@ -57,7 +57,7 @@ const placesByCity = {
     { title: 'Hotel Kenzi Tower', description: 'A luxurious hotel located in one of the tallest buildings in Casablanca.', reward: '300 WER', image: KenziTowerImage },
     { title: 'Le Casablanca Hotel', description: 'An elegant hotel offering an oasis of comfort and tranquility in the heart of Casablanca.', reward: '450 WER', image: LeCasablancaHotelImage },
     { title: 'La Corniche', description: 'A vibrant beachside area filled with restaurants and cafes, perfect for a casual evening.', reward: '250 WER', image: LaCornicheImage },
-    { title: 'Casa José', description: 'A popular Spanish restaurant offering Mediterranean cuisine and tapas.', reward: '320 WER', image: CasaJoseImage },
+    { title: 'Casa Jose', description: 'A popular Spanish restaurant offering Mediterranean cuisine and tapas.', reward: '320 WER', image: CasaJoseImage },
   ],
   Marrakech: [
     { title: 'Jardin Majorelle', description: 'A beautiful garden designed by Jacques Majorelle and later restored by Yves Saint Laurent.', reward: '400 WER', image: JardinMajorelleImage },
@@ -113,14 +113,14 @@ const CitiesQuest = ({ selectedCity, onBack }) => {
   const placesToVisit = placesByCity[selectedCity] || [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-10 px-4 md:px-20 lg:px-40">
+    <div className="h-[fitcontent] bg-gradient-to-b from-[#222222] lg:mb-O md:mb-0 mb-[3.7rem] mt-[2rem] to-black py-10 px-4 md:px-20 lg:px-40">
       <button
-        className="mb-8 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold rounded-lg hover:scale-105 transform transition-all duration-300"
+        className="flex items-center gap-2 text-white px-5 py-2 rounded-full border-2 border-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 transition duration-300 ease-in-out"
         onClick={onBack}
       >
         Back
       </button>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold text-center mb-10">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold text-center mb-10 mt-10">
         Best Places to Visit in {selectedCity}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -141,7 +141,7 @@ const CitiesQuest = ({ selectedCity, onBack }) => {
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-white mb-2">{place.title}</h3>
                 <p className="text-gray-300 mb-4">{place.description}</p>
-                <p className="text-indigo-400 text-lg font-semibold">Reward: {place.reward}</p>
+                <p className="text-orange-400 text-lg font-semibold">Reward: {place.reward}</p>
               </div>
             </motion.div>
           ))
