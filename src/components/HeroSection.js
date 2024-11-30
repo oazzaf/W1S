@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import xIcon from '../img/x.png'; // Ensure this path is correct
 import WaitlistPortal from './WaitlistPortal';
-import bgHeroVideo from '../video/bgHero.MP4'; // Import the video
 
 function HeroSection() {
   const { ref: iconRef, inView: iconInView } = useInView({
@@ -40,18 +39,8 @@ function HeroSection() {
   return (
     <>
       <div className="hero-section relative flex items-center justify-center min-h-screen bg-transparent">
-        {/* Video Background */}
-        <video
-          className="hero-video absolute inset-0 w-full h-full object-cover z-0"
-          src={bgHeroVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-
-        {/* Overlay Layer */}
-        <div className="absolute inset-0 bg-[#222222] opacity-70 z-1"></div>
+        {/* Transparent Background */}
+        <div className="absolute inset-0 bg-transparent z-1"></div>
 
         {/* Hero Content */}
         <div className="hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
@@ -129,10 +118,6 @@ function HeroSection() {
           font-family: 'Orbitron', sans-serif;
         }
 
-        .hero-video {
-          object-fit: cover;
-        }
-
         .hero-subtext {
           background: linear-gradient(to right, #ffffff, #ffffff);
           -webkit-background-clip: text;
@@ -187,7 +172,7 @@ function HeroSection() {
           font-size: 2rem !important; /* Force larger size for FontAwesome icons */
           transition: color 0.3s ease;
         }
-        
+
         .x-icon {
           width: 55px !important; /* Force larger size */
           height: 40px !important; /* Force larger size */
