@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import xIcon from '../img/x.png'; // Ensure this path is correct
 import WaitlistPortal from './WaitlistPortal';
+import SiphonImage from '../img/Siphon.png'; // Import the background image
 
 function HeroSection() {
   const { ref: iconRef, inView: iconInView } = useInView({
@@ -38,9 +39,14 @@ function HeroSection() {
 
   return (
     <>
-      <div className="hero-section relative flex items-center justify-center min-h-screen bg-transparent">
-        {/* Transparent Background */}
-        <div className="absolute inset-0 bg-transparent z-1"></div>
+      <div
+        className="hero-section relative flex items-center justify-center min-h-screen bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${SiphonImage})`,
+        }}
+      >
+        {/* Transparent Overlay */}
+        <div className="absolute inset-0 bg-[#222222] opacity-70 z-1"></div>
 
         {/* Hero Content */}
         <div className="hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
@@ -94,7 +100,6 @@ function HeroSection() {
             </a>
           </div>
         </div>
-        <div className="hero-bg absolute inset-0 bg-transparent opacity-10 hero-animate-bg-move"></div>
       </div>
       <div
         className={`fixed inset-0 z-20 transform ${
@@ -190,20 +195,6 @@ function HeroSection() {
           height: 20px;
           border-radius: 50%;
           filter: invert(1);
-        }
-
-        .hero-animate-bg-move {
-          background-size: 300% 200%;
-          animation: hero-moveGradient 15s ease infinite;
-        }
-
-        @keyframes hero-moveGradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
         }
       `}</style>
     </>
