@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
-import Eco from '../img/Eco.png';
-import travellerVideo from '../video/traveller.mp4'; // Import the video
+import Eco from '../img/Siphon3.png';
 
 const Economy = () => {
   useEffect(() => {
     ScrollReveal().reveal('.economy-img-container', {
-      origin: 'top',
+      origin: 'left',
       distance: '100px',
       duration: 1000,
       easing: 'ease-in-out',
@@ -14,148 +13,101 @@ const Economy = () => {
     });
 
     ScrollReveal().reveal('.economy-text-container', {
-      origin: 'bottom',
+      origin: 'right',
       distance: '100px',
       duration: 1000,
       easing: 'ease-in-out',
       reset: true,
     });
-
-    // Play video manually if autoplay is blocked
-    const video = document.querySelector('.economy-video');
-    const playPromise = video.play();
-
-    if (playPromise !== undefined) {
-      playPromise.catch(error => {
-        console.log('Autoplay blocked, playing manually on user interaction.');
-        video.muted = true; // Mute the video
-        video.play(); // Try playing again
-      });
-    }
   }, []);
 
   return (
     <>
       <style>
         {`
-          .economy-custom-button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: white;
-            border: 4px solid white;
-            border-radius: 25px;
-            cursor: pointer;
-            background: transparent;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-          }
-
-          .economy-custom-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300%;
-            height: 300%;
-            background: radial-gradient(circle, transparent, #6e3bbc, #ff4f8b);
-            transition: all 0.5s ease;
-            display: block;
-            opacity: 0;
-            z-index: -1;
-          }
-
-          .economy-custom-button:hover::before {
-            opacity: 1;
-            width: 0;
-            height: 0;
-          }
-
-          .economy-custom-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-          }
-
+          /* General layout for the section */
           .economy-section-container {
-            border: 2px solid #d8307c87; /* Light red border */
-            border-radius: 8px; /* Rounded corners */
-            padding: 50px;
-            position: relative;
-            z-index: 2; /* Ensure this content is above the video */
+            display: flex;
+            flex-direction: column; /* Default: stack vertically */
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            gap: 30px;
+            text-align: center;
+            background: transparent;
           }
 
-          .economy-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1; /* Behind the content */
+          @media (min-width: 768px) {
+            .economy-section-container {
+              flex-direction: row; /* Side-by-side on larger screens */
+              text-align: left;
+              gap: 50px; /* Larger spacing */
+            }
           }
 
-          .economy-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #222222;
-            opacity: 0.7; /* 30% opacity */
-            z-index: 2; /* On top of the video */
+          /* Image container styling */
+          .economy-img-container img {
+            width: 100%; /* Full width by default */
+            max-width: 800px; /* Very large for impact */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 20px; /* Rounded corners for a modern look */
+            margin: 0 auto;
+          }
+
+          @media (min-width: 768px) {
+            .economy-img-container {
+              flex: 1; /* Allow image to take up half the space */
+            }
+          }
+
+          /* Text container styling */
+          .economy-text-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .economy-text-container h1 {
+            font-size: 3rem; /* Large title size */
+            color: #ff5cdc; /* Eye-catching color */
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 92, 220, 0.8); /* Glow effect */
+          }
+
+          .economy-text-container p {
+            font-size: 1.25rem; /* Readable size */
+            line-height: 1.8;
+            color: #ddd; /* Softer white */
+          }
+
+          @media (max-width: 480px) {
+            .economy-img-container img {
+              max-width: 100%; /* Take full screen width on mobile */
+            }
+
+            .economy-text-container h1 {
+              font-size: 2.5rem; /* Slightly smaller for small screens */
+            }
+
+            .economy-text-container p {
+              font-size: 1rem; /* Adjust text for readability */
+            }
           }
         `}
       </style>
-      <section className="economy-section relative bg-transparent text-white p-8" id="economy">
-        {/* Video Background */}
-        <video
-          className="economy-video"
-          src={travellerVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-
-        {/* Overlay Layer */}
-        <div className="economy-overlay"></div>
-
-        <div
-          className="economy-section-container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left"
-          style={{ marginBottom: '100px' }}
-        >
-          <div className="economy-img-container w-full md:w-1/2 mt-8 md:mt-0">
-            <img
-              src={Eco}
-              alt="Tripper 2 Business"
-              className="grow-on-hover mx-auto md:justify-end"
-              style={{
-                width: '80%',
-                maxWidth: '800px',
-                height: 'auto',
-              }}
-            />
+      <section className="economy-section relative text-white" id="economy">
+        <div className="economy-section-container max-w-7xl mx-auto">
+          {/* Image Container */}
+          <div className="economy-img-container">
+            <img src={Eco} alt="Eco Innovation" />
           </div>
-          <div className="economy-text-container w-full md:w-1/2 mt-4 md:mt-8">
-            <h1
-              className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]"
-              style={{
-                fontSize: '2rem',
-                textShadow: '0px 0px 8px #d93775',
-              }}
-            >
-              Travel Innovation
-            </h1>
-            <p style={{ fontFamily: 'Poppins', color: 'gray' }}>
-              As tourism transforms into a powerful force for change, Wesafar is
-              pioneering a travel economy that fosters responsible tourism. By
-              connecting trippers with local businesses and promoting
-              sustainable practices, Wesafar aims to create a thriving community
-              where every journey counts and every participant benefits.
+
+          {/* Text Container */}
+          <div className="economy-text-container">
+            <h1>Travel Innovation</h1>
+            <p>
+              As tourism transforms into a powerful force for change, Wesafar is pioneering a travel economy that fosters responsible tourism. By connecting trippers with local businesses and promoting sustainable practices, Wesafar aims to create a thriving community where every journey counts and every participant benefits.
             </p>
           </div>
         </div>
