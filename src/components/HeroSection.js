@@ -114,13 +114,13 @@ function HeroSection() {
         {isWaitlistVisible && <WaitlistPortal setIsWaitlistVisible={setIsWaitlistVisible} />}
       </div>
       <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
         .hero-section,
         .hero-text,
         .hero-subtext,
         .hero-button {
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Montserrat', sans-serif;
         }
 
         .hero-subtext {
@@ -176,14 +176,6 @@ function HeroSection() {
         .social-icon {
           font-size: 2rem !important; /* Force larger size for FontAwesome icons */
           transition: color 0.3s ease;
-        }
-
-        .x-icon {
-          width: 55px !important; /* Force larger size */
-          height: 40px !important; /* Force larger size */
-          margin-bottom: 0.6rem;
-          border-radius: 50%;
-          filter: invert(1);
         }
 
         .social-icon:hover {

@@ -5,7 +5,7 @@ import Eco from '../img/Siphon3.png';
 const Economy = () => {
   useEffect(() => {
     ScrollReveal().reveal('.economy-img-container', {
-      origin: 'left',
+      origin: 'bottom',
       distance: '100px',
       duration: 1000,
       easing: 'ease-in-out',
@@ -13,7 +13,7 @@ const Economy = () => {
     });
 
     ScrollReveal().reveal('.economy-text-container', {
-      origin: 'right',
+      origin: 'top',
       distance: '100px',
       duration: 1000,
       easing: 'ease-in-out',
@@ -23,6 +23,11 @@ const Economy = () => {
 
   return (
     <>
+      {/* Import Google Fonts */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet"
+      />
       <style>
         {`
           /* General layout for the section */
@@ -69,14 +74,18 @@ const Economy = () => {
           }
 
           .economy-text-container h1 {
+            font-family: 'Poppins', sans-serif; /* Custom font */
             font-size: 3rem; /* Large title size */
+            font-weight: 700; /* Bold weight for h1 */
             color: #ff5cdc; /* Eye-catching color */
             margin-bottom: 20px;
             text-shadow: 0 0 15px rgba(255, 92, 220, 0.8); /* Glow effect */
           }
 
           .economy-text-container p {
+            font-family: 'Poppins', sans-serif; /* Custom font */
             font-size: 1.25rem; /* Readable size */
+            font-weight: 400; /* Normal weight for paragraphs */
             line-height: 1.8;
             color: #ddd; /* Softer white */
           }
@@ -96,8 +105,11 @@ const Economy = () => {
           }
         `}
       </style>
-      <section className="economy-section relative text-white" id="economy">
-        <div className="economy-section-container max-w-7xl mx-auto">
+      <section
+        className="economy-section relative bg-transparent text-white"
+        id="economy"
+      >
+        <div className="economy-section-container bg-transparent max-w-7xl mx-auto">
           {/* Image Container */}
           <div className="economy-img-container">
             <img src={Eco} alt="Eco Innovation" />
@@ -107,7 +119,10 @@ const Economy = () => {
           <div className="economy-text-container">
             <h1>Travel Innovation</h1>
             <p>
-              As tourism transforms into a powerful force for change, Wesafar is pioneering a travel economy that fosters responsible tourism. By connecting trippers with local businesses and promoting sustainable practices, Wesafar aims to create a thriving community where every journey counts and every participant benefits.
+              As tourism transforms into a powerful force for change, Wesafar is pioneering a
+              travel economy that fosters responsible tourism. By connecting trippers with local
+              businesses and promoting sustainable practices, Wesafar aims to create a thriving
+              community where every journey counts and every participant benefits.
             </p>
           </div>
         </div>
