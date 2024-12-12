@@ -26,9 +26,10 @@ function HomeLander() {
     <div
       className="HomeLander"
       style={{
-        backgroundColor: '#222222',
-        minHeight: '100vh',
-        backgroundRepeat: 'repeat-y',
+        background: `#222222`,
+        backgroundSize: 'cover', // Ensures the gradient covers the viewport
+        backgroundRepeat: 'no-repeat', // Prevents tiling of the gradient
+        minHeight: '120vh', // Full viewport height
       }}
     >
       {isLoading ? (

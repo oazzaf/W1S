@@ -114,7 +114,7 @@ function WaitlistPortal({ setIsWaitlistVisible }) {
           <h1 className={`text-3xl mb-4 ${isTripper ? 'gradient-text' : 'business-gradient-text'}`}>
             {isTripper ? 'Join the Tripper Waitlist' : 'Join the Business Partners Waitlist'}
           </h1>
-          <p className="mb-8 text-center">
+          <p className="mb-8 text-center ">
             {isTripper
               ? 'Be the first to experience the revolution in responsible and engaged tourism. Sign up for early access and stay updated!'
               : 'Partner with us to revolutionize responsible and engaged tourism. Sign up now to offer your services and attract new customers!'}
@@ -175,12 +175,12 @@ function WaitlistPortal({ setIsWaitlistVisible }) {
       </div>
 
       <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
         .gradient-text {
           background: linear-gradient(90deg, #ff8a00, #e52e71);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: glow 0.5s ease-in-out infinite alternate;
+          animation: glow 0.02s ease-in-out infinite alternate;
         }
         @keyframes glow {
           0% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(182, 2, 2, 0.5), 0 0 40px rgba(129, 24, 174, 0.5); }
@@ -197,7 +197,7 @@ function WaitlistPortal({ setIsWaitlistVisible }) {
           100% { text-shadow: 0 0 20px rgba(0, 0, 0, 0.843), 0 0 30px rgba(0, 0, 0, 0.843), 0 0 40px rgba(0, 0, 0, 0.843); }
         }
         .btn-orbitron {
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Muli', sans-serif;
         }
         .call-to-action-button1 {
           background: linear-gradient(to right, #cf2351, #3c3f8f);

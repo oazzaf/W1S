@@ -1,56 +1,87 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { FaMapSigns } from 'react-icons/fa';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
-import xIcon from '../img/x.png'; // Ensure this path is correct
 import WaitlistPortal from './WaitlistPortal';
 import SiphonImage from '../img/Siphon.png'; // Import the background image
 
 function HeroSection() {
-  const { ref: iconRef, inView: iconInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
   const typewriterRef = useRef(null);
   const caretRef = useRef(null);
+  const heroRef = useRef(null);
   const [isWaitlistVisible, setIsWaitlistVisible] = useState(false);
+  const [animationTriggered, setAnimationTriggered] = useState(false);
 
   useEffect(() => {
+    // Typewriter effect
     const typewriter = typewriterRef.current;
     const text = typewriter.textContent;
     typewriter.textContent = '';
     let i = 0;
-
     function type() {
       if (i < text.length) {
         typewriter.textContent += text.charAt(i);
         i++;
-        setTimeout(type, 150);
+        setTimeout(type, 100); // Speed of typing
       }
     }
-
     type();
+  }, []);
+
+  useEffect(() => {
+    const heroElement = heroRef.current;
+    if (!heroElement) return;
+
+    const observerOptions = {
+      threshold: 0.5, // Adjust to desired visibility. 0.5 means 50% visible.
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Hero section is at least 50% visible
+          setAnimationTriggered(true);
+        } else {
+          // Hero section is less than 50% visible
+          setAnimationTriggered(false);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    observer.observe(heroElement);
+
+    return () => {
+      if (heroElement) observer.unobserve(heroElement);
+    };
   }, []);
 
   const handleJoinClick = () => {
     setIsWaitlistVisible(true);
   };
 
+  const closeWaitlist = () => {
+    setIsWaitlistVisible(false);
+  };
+
   return (
     <>
       <div
-        className="hero-section relative flex items-center justify-center min-h-screen bg-cover bg-center"
+        ref={heroRef}
+        className={`hero-section relative flex items-center justify-center min-h-screen bg-cover bg-center
+        ${animationTriggered ? 'show-hero-background' : 'hide-hero-background'}`}
         style={{
-          backgroundImage: `url(${SiphonImage})`,
+          backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.0), rgba(25, 25, 112, 0.0)), url(${SiphonImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* Transparent Overlay */}
-        <div className="absolute inset-0 bg-[#222222] opacity-70 z-1"></div>
-
         {/* Hero Content */}
         <div className="hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
-          <p className="hero-text font-bold mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+          {/* Hero Text (Typewriter) */}
+          <p
+            className={`hero-text font-bold mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
+            ${animationTriggered ? 'show-hero-text' : 'hide-hero-text'}`}
+          >
             <span className="hero-typewriter-wrapper">
               <span
                 className="hero-typewriter italic text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#d93775] to-[#9450a8]"
@@ -63,15 +94,19 @@ function HeroSection() {
               </span>
             </span>
           </p>
-          <p className="hero-subtext text-base sm:text-lg md:text-xl lg:text-2xl mb-6 px-2 sm:px-0">
+
+          {/* Hero Subtext */}
+          <p
+            className={`hero-subtext text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 px-2 sm:px-0
+            ${animationTriggered ? 'show-subtext' : 'hide-subtext'}`}
+          >
             Explore, connect, and support local communities with Wesafar and every connection is rewarded.
           </p>
+
+          {/* Join Button */}
           <div
-            className={`flex justify-center ${
-              iconInView
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-10'
-            } transition-all duration-1000 ease-in-out transform-gpu`}
+            className={`flex justify-center 
+            ${animationTriggered ? 'show-button' : 'hide-button'}`}
           >
             <button
               className="hero-button flex items-center justify-center px-8 py-4 rounded-[15px] bg-gradient-to-r from-[#ff6a5c] via-[#d93775] to-[#9450a8] text-white font-bold text-lg transition-transform duration-500 ease-in-out transform-gpu hover:scale-110 shadow-lg"
@@ -80,27 +115,10 @@ function HeroSection() {
               <FaMapSigns className="mr-3" /> Join the Adventure
             </button>
           </div>
-          <div
-            ref={iconRef}
-            className={`social-icons-container mt-6 transition-all duration-1000 ease-in-out transform-gpu ${
-              iconInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <a href="https://www.youtube.com/@Wesafar" className="social-icon mx-2">
-              <FontAwesomeIcon icon={faYoutube} />
-            </a>
-            <a href="https://x.com/wesafar?s=21&t=gR3jEokFOR3jTIpLFScRUg" className="mx-1">
-              <img src={xIcon} alt="X" className="x-icon" />
-            </a>
-            <a href="https://www.instagram.com/wesafar.app?igsh=dThzbmNhbGI3Yml6" className="social-icon mx-6">
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a href="https://www.tiktok.com/@wesafar?_t=8ngvcvXQJdd&_r=1" className="social-icon mx-2">
-              <FontAwesomeIcon icon={faTiktok} />
-            </a>
-          </div>
         </div>
       </div>
+
+      {/* Waitlist Modal */}
       <div
         className={`fixed inset-0 z-20 transform ${
           isWaitlistVisible ? 'translate-y-0' : '-translate-y-full'
@@ -111,16 +129,28 @@ function HeroSection() {
           WebkitBackdropFilter: 'blur(10px)',
         }}
       >
-        {isWaitlistVisible && <WaitlistPortal setIsWaitlistVisible={setIsWaitlistVisible} />}
+        {isWaitlistVisible && (
+          <>
+            {/* Close Button */}
+            <button
+              onClick={closeWaitlist}
+              className="absolute top-4 right-4 text-white text-xl bg-red-600 p-3 rounded-full hover:bg-red-500"
+            >
+              &times;
+            </button>
+            <WaitlistPortal setIsWaitlistVisible={setIsWaitlistVisible} />
+          </>
+        )}
       </div>
+
       <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
 
         .hero-section,
         .hero-text,
         .hero-subtext,
         .hero-button {
-          font-family: 'Montserrat', sans-serif;
+          font-family: 'Muli', sans-serif;
         }
 
         .hero-subtext {
@@ -166,27 +196,74 @@ function HeroSection() {
           }
         }
 
-        .social-icons-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: 1rem;
+        /* Initial states */
+        .hide-hero-text {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        .hide-subtext {
+          opacity: 0;
+        }
+        .hide-button {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        .hide-hero-background {
+          opacity: 0;
+          transition: opacity 1.5s ease-in;
         }
 
-        .social-icon {
-          font-size: 2rem !important; /* Force larger size for FontAwesome icons */
-          transition: color 0.3s ease;
+        /* Shown states */
+        .show-hero-background {
+          opacity: 1;
+          transition: opacity 1.5s ease-in;
+        }
+        .show-hero-text {
+          opacity: 1;
+          transform: translateY(0);
+          transition:
+            transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s,
+            opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+        }
+        .show-subtext {
+          opacity: 1;
+          transition: opacity 1.5s ease-in-out 1.8s;
+        }
+        .show-button {
+          opacity: 1;
+          transform: translateY(0);
+          transition:
+            transform 1.5s ease-in-out 0.4s,
+            opacity 1.5s ease-in-out 0.4s;
         }
 
-        .social-icon:hover {
-          color: #b617a1;
+        /* Pulse animation for larger screens */
+        .hero-section {
+          animation: background-pulse 7s ease-in-out infinite;
+        }
+        @keyframes background-pulse {
+          0%,
+          100% {
+            background-size: 100%;
+          }
+          50% {
+            background-size: 107%;
+          }
         }
 
-        .x-icon {
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
-          filter: invert(1);
+        @media (max-width: 640px) {
+          .hero-section {
+            animation: background-pulse-mobile 17s ease-in-out infinite;
+          }
+          @keyframes background-pulse-mobile {
+            0%,
+            100% {
+              background-size: 180%;
+            }
+            50% {
+              background-size: 305%;
+            }
+          }
         }
       `}</style>
     </>

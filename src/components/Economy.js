@@ -1,9 +1,14 @@
+// src/components/Economy.js
+
 import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
 import Eco from '../img/Siphon3.png';
+import Siphon8 from '../img/Siphon8.webp';
+import Siphon9 from '../img/Siphon9.webp';
 
 const Economy = () => {
   useEffect(() => {
+    // Initialize ScrollReveal animations
     ScrollReveal().reveal('.economy-img-container', {
       origin: 'bottom',
       distance: '100px',
@@ -22,112 +27,114 @@ const Economy = () => {
   }, []);
 
   return (
-    <>
-      {/* Import Google Fonts */}
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
-        rel="stylesheet"
-      />
+    <section className="economy-section" id="economy">
       <style>
         {`
-          /* General layout for the section */
-          .economy-section-container {
-            display: flex;
-            flex-direction: column; /* Default: stack vertically */
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-            gap: 30px;
-            text-align: center;
+          @import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+
+          .economy-section {
+            position: relative;
+            padding: 20px;
+            margin: 20px;
+            border: 3px solid #b01a62;
+            border-radius: 10px;
             background: transparent;
+            overflow: hidden;
+            font-family: 'Muli', sans-serif;
+          }
+
+          .economy-section-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            overflow: hidden; /* Ensures background images are clipped */
           }
 
           @media (min-width: 768px) {
             .economy-section-container {
-              flex-direction: row; /* Side-by-side on larger screens */
+              flex-direction: row;
               text-align: left;
-              gap: 50px; /* Larger spacing */
             }
           }
 
-          /* Image container styling */
+          .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: fade 10s infinite;
+            opacity: 0;
+            z-index: -1;
+          }
+
+          .background-image.image1 {
+            background-image: url(${Siphon8});
+            animation-delay: 0s;
+          }
+
+          .background-image.image2 {
+            background-image: url(${Siphon9});
+            animation-delay: 2s;
+          }
+
+          @keyframes fade {
+            0% {
+              opacity: 0;
+            }
+            25% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+
           .economy-img-container img {
-            width: 100%; /* Full width by default */
-            max-width: 800px; /* Very large for impact */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 20px; /* Rounded corners for a modern look */
-            margin: 0 auto;
-          }
-
-          @media (min-width: 768px) {
-            .economy-img-container {
-              flex: 1; /* Allow image to take up half the space */
-            }
-          }
-
-          /* Text container styling */
-          .economy-text-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            max-width: 100%;
+            border-radius: 10px;
           }
 
           .economy-text-container h1 {
-            font-family: 'Poppins', sans-serif; /* Custom font */
-            font-size: 3rem; /* Large title size */
-            font-weight: 700; /* Bold weight for h1 */
-            color: #ff5cdc; /* Eye-catching color */
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(255, 92, 220, 0.8); /* Glow effect */
+            font-size: 2.5rem;
+            color: #b01a62;
+            font-family: 'Muli', sans-serif;
           }
 
           .economy-text-container p {
-            font-family: 'Poppins', sans-serif; /* Custom font */
-            font-size: 1.25rem; /* Readable size */
-            font-weight: 400; /* Normal weight for paragraphs */
-            line-height: 1.8;
-            color: #ddd; /* Softer white */
-          }
-
-          @media (max-width: 480px) {
-            .economy-img-container img {
-              max-width: 100%; /* Take full screen width on mobile */
-            }
-
-            .economy-text-container h1 {
-              font-size: 2.5rem; /* Slightly smaller for small screens */
-            }
-
-            .economy-text-container p {
-              font-size: 1rem; /* Adjust text for readability */
-            }
+            color: white;
+            font-family: 'Muli', sans-serif;
           }
         `}
       </style>
-      <section
-        className="economy-section relative bg-transparent text-white"
-        id="economy"
-      >
-        <div className="economy-section-container bg-transparent max-w-7xl mx-auto">
-          {/* Image Container */}
-          <div className="economy-img-container">
-            <img src={Eco} alt="Eco Innovation" />
-          </div>
 
-          {/* Text Container */}
-          <div className="economy-text-container">
-            <h1>Travel Innovation</h1>
-            <p>
-              As tourism transforms into a powerful force for change, Wesafar is pioneering a
-              travel economy that fosters responsible tourism. By connecting trippers with local
-              businesses and promoting sustainable practices, Wesafar aims to create a thriving
-              community where every journey counts and every participant benefits.
-            </p>
-          </div>
+      {/* Content */}
+      <div className="economy-section-container">
+        {/* Background Images */}
+        <div className="background-image image1"></div>
+        <div className="background-image image2"></div>
+
+        <div className="economy-img-container">
+          <img src={Eco} alt="Eco Innovation" />
         </div>
-      </section>
-    </>
+        <div className="economy-text-container">
+          <h1>Travel Innovation</h1>
+          <p>
+            As tourism transforms into a powerful force for change, Wesafar is pioneering a
+            travel economy that fosters responsible tourism. By connecting trippers with local
+            businesses and promoting sustainable practices, Wesafar aims to create a thriving
+            community where every journey counts and every participant benefits.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 };
 
