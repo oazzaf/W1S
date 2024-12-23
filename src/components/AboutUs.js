@@ -101,7 +101,7 @@ const SocialEngagementSection = () => {
             justify-content: center;
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
-            background-color: #1f1f2e;
+            background-color: transparent;
             position: relative;
             z-index: 1;
             transition: transform 0.5s ease;
@@ -125,7 +125,7 @@ const SocialEngagementSection = () => {
 
           @keyframes background-pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.13); } /* Subtle scaling */
+            50% { transform: scale(1.53); } /* Subtle scaling */
             100% { transform: scale(1); }
           }
 
@@ -141,7 +141,7 @@ const SocialEngagementSection = () => {
           .about-us-image {
             width: 100%;
             height: 100%;
-            object-fit: fit;
+            object-fit: cover; /* Changed from 'fit' to 'cover' for better image scaling */
             transform: scale(1);
             transition: transform 1s ease-in-out;
           }
@@ -178,7 +178,7 @@ const SocialEngagementSection = () => {
               width: 0px;
             }
             50% {
-              width: 250px; /* Full width */
+              width: 320px; /* Full width */
             }
             100% {
               width: 0px;
@@ -339,10 +339,10 @@ const SocialEngagementSection = () => {
           }
         `}
       </style>
-      <div className="about-us-section">
+      <div className="about-us-section" id='about-us'>
         {/* Content Column */}
         <div className="about-us-content slide-in-content" ref={contentRef}>
-          <h2 className="about-us-heading">New Travel Era</h2>
+          <h1 className="about-us-heading">New Travel Era</h1>
           <p className="about-us-paragraph">
             Welcome to Wesafar, the ethical and equitable social network. We’re revolutionizing online interactions with a decentralized, blockchain-secured platform that values and fairly rewards your contributions while ensuring you maintain full control over your data. Join an authentic and supportive community.
           </p>
@@ -350,7 +350,10 @@ const SocialEngagementSection = () => {
             <button className="about-us-button" onClick={handleJoinWaitlist}>
               Join Waitlist
             </button>
-            <button className="about-us-button download-button" onClick={() => window.open('https://wesafar.gitbook.io/whitepaper', '_blank')}>
+            <button
+              className="about-us-button download-button"
+              onClick={() => window.open('https://wesafar.gitbook.io/whitepaper', '_blank')}
+            >
               White Paper <FontAwesomeIcon icon={faDownload} className="download-icon" />
             </button>
           </div>
@@ -366,7 +369,7 @@ const SocialEngagementSection = () => {
       <div
         className={`fixed inset-0 z-20 ${isWaitlistVisible ? 'visible' : 'hidden'}`}
         style={{
-          backgroundColor: '#19072cd1',
+          backgroundColor: '#222222',
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)',
         }}

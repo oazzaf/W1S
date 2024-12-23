@@ -31,7 +31,7 @@ function HeroSection() {
     if (!heroElement) return;
 
     const observerOptions = {
-      threshold: 0.5, // Adjust to desired visibility. 0.5 means 50% visible.
+      threshold: 0.5, // 50% visibility
     };
 
     const observerCallback = (entries) => {
@@ -66,8 +66,8 @@ function HeroSection() {
     <>
       <div
         ref={heroRef}
-        className={`hero-section relative flex items-center justify-center min-h-screen bg-cover bg-center
-        ${animationTriggered ? 'show-hero-background' : 'hide-hero-background'}`}
+        className={`w1s-hero-section relative flex items-center justify-center min-h-screen bg-cover bg-center
+        ${animationTriggered ? 'w1s-show-hero-background' : 'w1s-hide-hero-background'}`}
         style={{
           backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.0), rgba(25, 25, 112, 0.0)), url(${SiphonImage})`,
           backgroundSize: 'cover',
@@ -76,20 +76,20 @@ function HeroSection() {
         }}
       >
         {/* Hero Content */}
-        <div className="hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
+        <div className="w1s-hero-content text-center p-5 lg:p-20 relative z-10 max-w-full">
           {/* Hero Text (Typewriter) */}
           <p
-            className={`hero-text font-bold mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
-            ${animationTriggered ? 'show-hero-text' : 'hide-hero-text'}`}
+            className={`w1s-hero-text font-bold mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
+            ${animationTriggered ? 'w1s-show-hero-text' : 'w1s-hide-hero-text'}`}
           >
-            <span className="hero-typewriter-wrapper">
+            <span className="w1s-hero-typewriter-wrapper">
               <span
-                className="hero-typewriter italic text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#d93775] to-[#9450a8]"
+                className="w1s-hero-typewriter italic text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#d93775] to-[#9450a8]"
                 ref={typewriterRef}
               >
                 Next Adventure
               </span>
-              <span className="hero-caret" ref={caretRef}>
+              <span className="w1s-hero-caret" ref={caretRef}>
                 |
               </span>
             </span>
@@ -97,8 +97,8 @@ function HeroSection() {
 
           {/* Hero Subtext */}
           <p
-            className={`hero-subtext text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 px-2 sm:px-0
-            ${animationTriggered ? 'show-subtext' : 'hide-subtext'}`}
+            className={`w1s-hero-subtext text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 px-2 sm:px-0
+            ${animationTriggered ? 'w1s-show-subtext' : 'w1s-hide-subtext'}`}
           >
             Explore, connect, and support local communities with Wesafar and every connection is rewarded.
           </p>
@@ -106,10 +106,10 @@ function HeroSection() {
           {/* Join Button */}
           <div
             className={`flex justify-center 
-            ${animationTriggered ? 'show-button' : 'hide-button'}`}
+            ${animationTriggered ? 'w1s-show-button' : 'w1s-hide-button'}`}
           >
             <button
-              className="hero-button flex items-center justify-center px-8 py-4 rounded-[15px] bg-gradient-to-r from-[#ff6a5c] via-[#d93775] to-[#9450a8] text-white font-bold text-lg transition-transform duration-500 ease-in-out transform-gpu hover:scale-110 shadow-lg"
+              className="w1s-hero-button flex items-center justify-center px-8 py-4 rounded-[15px] bg-gradient-to-r from-[#ff6a5c] via-[#d93775] to-[#9450a8] text-white font-bold text-lg transition-transform duration-500 ease-in-out transform-gpu hover:scale-110 shadow-lg"
               onClick={handleJoinClick}
             >
               <FaMapSigns className="mr-3" /> Join the Adventure
@@ -121,7 +121,7 @@ function HeroSection() {
       {/* Waitlist Modal */}
       <div
         className={`fixed inset-0 z-20 transform ${
-          isWaitlistVisible ? 'translate-y-0' : '-translate-y-full'
+          isWaitlistVisible ? 'w1s-translate-y-0' : 'w1s--translate-y-full'
         } transition-transform duration-500 ease-in-out`}
         style={{
           backgroundColor: '#19072cd1',
@@ -134,7 +134,7 @@ function HeroSection() {
             {/* Close Button */}
             <button
               onClick={closeWaitlist}
-              className="absolute top-4 right-4 text-white text-xl bg-red-600 p-3 rounded-full hover:bg-red-500"
+              className="w1s-close-button absolute top-4 right-4 text-white text-xl bg-red-600 p-3 rounded-full hover:bg-red-500"
             >
               &times;
             </button>
@@ -146,14 +146,14 @@ function HeroSection() {
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
 
-        .hero-section,
-        .hero-text,
-        .hero-subtext,
-        .hero-button {
+        .w1s-hero-section,
+        .w1s-hero-text,
+        .w1s-hero-subtext,
+        .w1s-hero-button {
           font-family: 'Muli', sans-serif;
         }
 
-        .hero-subtext {
+        .w1s-hero-subtext {
           background: linear-gradient(to right, #ffffff, #ffffff);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -161,7 +161,7 @@ function HeroSection() {
           color: transparent;
         }
 
-        .hero-typewriter-wrapper {
+        .w1s-hero-typewriter-wrapper {
           display: inline-block;
           overflow: hidden;
           white-space: nowrap;
@@ -169,7 +169,7 @@ function HeroSection() {
           max-width: 100%;
         }
 
-        .hero-typewriter {
+        .w1s-hero-typewriter {
           display: inline-block;
           font-size: 1.5em;
           text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.1);
@@ -178,15 +178,15 @@ function HeroSection() {
           word-wrap: break-word;
         }
 
-        .hero-caret {
+        .w1s-hero-caret {
           display: inline-block;
           font-size: 1.5em;
           color: white;
-          animation: hero-blink-caret 0.75s step-end infinite;
+          animation: w1s-hero-blink-caret 0.75s step-end infinite;
           vertical-align: bottom;
         }
 
-        @keyframes hero-blink-caret {
+        @keyframes w1s-hero-blink-caret {
           from,
           to {
             opacity: 1;
@@ -197,51 +197,51 @@ function HeroSection() {
         }
 
         /* Initial states */
-        .hide-hero-text {
+        .w1s-hide-hero-text {
           opacity: 0;
-          transform: translateY(-20px);
+          transform: translateY(-50px); /* Start higher for smoother slide */
         }
-        .hide-subtext {
+        .w1s-hide-hero-subtext {
           opacity: 0;
         }
-        .hide-button {
+        .w1s-hide-button {
           opacity: 0;
-          transform: translateY(20px);
+          transform: translateY(50px); /* Start lower for smoother slide */
         }
-        .hide-hero-background {
+        .w1s-hide-hero-background {
           opacity: 0;
           transition: opacity 1.5s ease-in;
         }
 
         /* Shown states */
-        .show-hero-background {
+        .w1s-show-hero-background {
           opacity: 1;
           transition: opacity 1.5s ease-in;
         }
-        .show-hero-text {
+        .w1s-show-hero-text {
           opacity: 1;
           transform: translateY(0);
           transition:
-            transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s,
-            opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+            transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s,
+            opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
         }
-        .show-subtext {
+        .w1s-show-subtext {
           opacity: 1;
-          transition: opacity 1.5s ease-in-out 1.8s;
+          transition: opacity 2.0s ease-in-out 2.0s; /* Fades in after hero text and button */
         }
-        .show-button {
+        .w1s-show-button {
           opacity: 1;
           transform: translateY(0);
           transition:
-            transform 1.5s ease-in-out 0.4s,
-            opacity 1.5s ease-in-out 0.4s;
+            transform 0.8s ease-in-out 0.4s,
+            opacity 0.8s ease-in-out 0.4s;
         }
 
         /* Pulse animation for larger screens */
-        .hero-section {
-          animation: background-pulse 7s ease-in-out infinite;
+        .w1s-hero-section {
+          animation: w1s-background-pulse 7s ease-in-out infinite;
         }
-        @keyframes background-pulse {
+        @keyframes w1s-background-pulse {
           0%,
           100% {
             background-size: 100%;
@@ -252,10 +252,10 @@ function HeroSection() {
         }
 
         @media (max-width: 640px) {
-          .hero-section {
-            animation: background-pulse-mobile 17s ease-in-out infinite;
+          .w1s-hero-section {
+            animation: w1s-background-pulse-mobile 17s ease-in-out infinite;
           }
-          @keyframes background-pulse-mobile {
+          @keyframes w1s-background-pulse-mobile {
             0%,
             100% {
               background-size: 180%;
@@ -264,6 +264,18 @@ function HeroSection() {
               background-size: 305%;
             }
           }
+        }
+
+        /* Additional class transformations */
+        .w1s-translate-y-0 {
+          transform: translateY(0);
+        }
+        .w1s--translate-y-full {
+          transform: translateY(-100%);
+        }
+
+        .w1s-close-button {
+          /* Add any specific styles for the close button if needed */
         }
       `}</style>
     </>

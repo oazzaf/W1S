@@ -2,180 +2,158 @@ import React, { useEffect, useState } from 'react';
 import ScrollReveal from 'scrollreveal';
 import CircleToke from '../components/CircleToke';
 import WaitlistPortal from './WaitlistPortal';
-//import roadMapVideo from '../video/roadMap.mp4'; // Import the video
+import roadBgVideo from '../video/traveller.mp4';
 
 function Tokenomics() {
     const [isWaitlistVisible, setIsWaitlistVisible] = useState(false);
 
     useEffect(() => {
-        ScrollReveal().reveal('.reveal-top', {
-            origin: 'top',
-            distance: '80px',
-            duration: 1000,
-            easing: 'ease-in-out',
-            reset: true
-        });
+        if (typeof ScrollReveal !== 'undefined') {
+            ScrollReveal().reveal('.reveal-top', {
+                origin: 'top',
+                distance: '60px',
+                duration: 800,
+                easing: 'ease-in-out',
+                reset: true,
+            });
+        }
     }, []);
 
-    const handleJoinWaitlist = () => {
-        setIsWaitlistVisible(true);
-    };
+    const handleJoinWaitlist = () => setIsWaitlistVisible(true);
 
     return (
-        <>
-            <style>
-                {`
-                    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-                    h1, h2, p {
-                        font-family: 'Orbitron', sans-serif;
-                    }
-
-                    .call-to-action-container {
-                        background-color: #000;
-                        border-radius: 12px;
-                        padding: 70px;
-                        margin: 40px 0;
-                        box-shadow: 0 0 20px 10px rgba(20, 107, 174, 0.5);
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        color: white;
-                        flex-direction: row;
-                        font-family: 'Orbitron', sans-serif;
-                        z-index: 3;
-                        position: relative;
-                    }
-                    .call-to-action-text {
-                        font-size: 2.5rem;
-                        margin-right: 20px;
-                    }
-                    .call-to-action-button {
-                        background: linear-gradient(to right, #cf2351, #3c3f8f);
-                        padding: 10px 20px;
-                        border: none;
-                        border-radius: 12px;
-                        color: white;
-                        font-size: 2.2rem;
-                        cursor: pointer;
-                        transition: background 0.3s ease;
-                    }
-                    .call-to-action-button:hover {
-                        background: linear-gradient(to right, #3c3f8f, #cf2351);
-                    }
-                    @media (max-width: 768px) {
-                        .call-to-action-container {
-                            flex-direction: column;
-                            text-align: center;
-                        }
-                        .call-to-action-text {
-                            margin: 0 0 10px 0;
-                            font-size: 1.2rem;
-                        }
-                        .call-to-action-button {
-                            width: 100%;
-                            padding: 12px;
-                            font-size: 1rem;
-                        }
-                    }
-
-                    /* Ensure CircleToke scales responsively */
-                    .circle-toke-container {
-                        width: 100%;
-                        max-width: 300px; /* Max size for larger screens */
-                        height: auto;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-
-                    @media (max-width: 768px) {
-                        .circle-toke-container {
-                            max-width: 150px; /* Adjust size for smaller screens */
-                        }
-                    }
-
-                    .waitlist-slide-in {
-                        transform: translateY(-100%);
-                        opacity: 0;
-                        transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-                    }
-
-                    .waitlist-slide-in.visible {
-                        transform: translateY(0);
-                        opacity: 1;
-                    }
-                `}
-            </style>
-
-            <div className="relative text-white text-center px-4 py-16 bg-transparent" id="tokenomics">
-               
-
-                <div
-                    className="absolute h-full inset-0 bg-transparent opacity-95 z-1"
-                ></div>
-
-                <h1 className="text-4xl md:text-7xl lg:text-8xl font-extrabold leading-tight mx-auto reveal-top text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775]"
-                    style={{ 
-                        fontWeight: '300', 
-                        textShadow: '0px 0px 8px #d93775', 
-                        zIndex: 2,
-                    }}>
-                    Tokenomics
-                </h1>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center justify-items-center" style={{ zIndex: 2 }}>
-                    <div className="space-y-3 hover:scale-115 transition transform duration-300 ease-in-out reveal-top">
-                        <h2 className="text-lg md:text-xl lg:text-2xl xl:text-6xl font-bold uppercase tracking-widest "
-                            style={{
-                                background: 'linear-gradient(to right, #d93775, #ff6a5c)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                textShadow: '0px 0px 4px #ff6a5c'
-                            }}>
-                            Supply
-                        </h2>
-                        <p className="text-xl md:text-2xl lg:text-3xl xl:text-8xl">21B</p>
-                    </div>
-                    <div className="space-y-3 hover:scale-115 transition transform duration-300 ease-in-out reveal-top">
-                        <h2 className="text-lg md:text-xl lg:text-2xl xl:text-6xl font-bold uppercase tracking-widest "
-                            style={{
-                                background: 'linear-gradient(to right, #7928ca, #ff0080)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                textShadow: '0px 0px 4px #b64aa8'
-                            }}>
-                            Symbol
-                        </h2>
-                        <p className="text-xl md:text-2xl lg:text-3xl xl:text-8xl">$WER</p>
-                    </div>
-                    <div className="space-y-3 hover:scale-115 transition transform duration-300 ease-in-out reveal-top">
-                        <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold uppercase tracking-widest" style={{ marginBottom: '-12rem', color:'transparent' }}>.</h2>
-                        <div className="circle-toke-container">
-                            <CircleToke />
-                        </div>
-                    </div>
+        <div id="tokenomics" style={styles.container}>
+            <video
+                      className="absolute inset-0 w-full h-full object-cover z-0"
+                      src={roadBgVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+            <h1 className="reveal-top" style={styles.title}>
+                Tokenomics
+            </h1>
+            <div className="grid-container reveal-top" style={styles.gridContainer}>
+                <div style={styles.gridItem}>
+                    <h2 style={styles.subtitle}>Supply</h2>
+                    <p style={styles.text}>21B</p>
                 </div>
-                <div className="call-to-action-container" style={{ zIndex: 3 }}>
-                    <div className="call-to-action-text">
-                        Be part of the revolution. Join our exclusive waitlist now!
-                    </div>
-                    <button className="call-to-action-button" onClick={handleJoinWaitlist}>
-                        Join the Waitlist
-                    </button>
+                <div style={styles.gridItem}>
+                    <h2 style={styles.subtitle}>Symbol</h2>
+                    <p style={styles.text}>$WER</p>
+                </div>
+                <div className="circle-toke-container" style={styles.circleTokeContainer}>
+                    <CircleToke />
                 </div>
             </div>
-            <div
-                className={`fixed inset-0 z-20 waitlist-slide-in ${isWaitlistVisible ? 'visible' : ''}`}
-                style={{
-                    backgroundColor: '#19072cd1',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
-                }}
-            >
-                {isWaitlistVisible && <WaitlistPortal setIsWaitlistVisible={setIsWaitlistVisible} />}
+            <div className="call-to-action-container reveal-top" style={styles.callToActionContainer}>
+                <div className="call-to-action-text" style={styles.callToActionText}>
+                    Be part of the revolution.
+                </div>
+                <button
+                    className="call-to-action-button"
+                    style={styles.callToActionButton}
+                    onClick={handleJoinWaitlist}
+                >
+                    Join the Waitlist
+                </button>
             </div>
-        </>
+            {isWaitlistVisible && (
+                <div style={styles.waitlistOverlay}>
+                    <WaitlistPortal setIsWaitlistVisible={setIsWaitlistVisible} />
+                </div>
+            )}
+        </div>
     );
 }
+
+const styles = {
+    container: {
+        position: 'relative',
+        overflow: 'hidden',
+        background: 'transparent',
+        color: '#fff',
+        textAlign: 'center',
+        padding: '2px',
+    },
+    title: {
+        fontSize: '3rem',
+        textTransform: 'uppercase',
+        background: 'linear-gradient(to right, #ff44ec, #44ffe7)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        textShadow: '0px 0px 10px rgba(255, 68, 236, 0.7)',
+        animation: 'glow 2s ease-in-out infinite alternate',
+        margin: '0 0 20px',
+    },
+    gridContainer: {
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gap: '20px',
+        margin: '20px auto',
+        maxWidth: '1000px',
+    },
+    gridItem: {
+        marginBottom: '20px',
+    },
+    subtitle: {
+        fontSize: '2.5rem',
+            textAlign: 'center',
+            color: 'transparent',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            backgroundImage: 'linear-gradient(to right, #ff6a5c, #ff5cdc, #d93775)',
+            textShadow: '0px 0px 6px rgba(255, 255, 255, 0.1)',
+    },
+    text: {
+        fontSize: '1.9rem',
+        margin: 0,
+        color: 'transparent',
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        backgroundImage: 'linear-gradient(to right, #ff6a5c, #ff44ec, #ff009d)',
+        textShadow: '0px 0px 6px rgba(255, 255, 255, 0.9)',
+    },
+    circleTokeContainer: {
+        maxWidth: '250px',
+        margin: 'auto',
+        position: 'relative',
+    },
+    callToActionContainer: {
+        background: 'rgba(0, 0, 0, 0.7)',
+        padding: '20px 30px',
+        borderRadius: '12px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '20px',
+        maxWidth: '500px',
+        margin: '4px auto',
+        boxShadow: '0px 0px 20px rgba(147, 46, 255, 0.5)',
+    },
+    callToActionText: {
+        fontSize: '1.8rem',
+        textAlign: 'center',
+    },
+    callToActionButton: {
+        padding: '12px 20px',
+        borderRadius: '12px',
+        border: 'none',
+        fontSize: '1.2rem',
+        cursor: 'pointer',
+        color: '#fff',
+        background: 'linear-gradient(to right, #cf2351, #3c3f8f)',
+        transition: 'background 0.3s ease, transform 0.3s ease',
+    },
+    waitlistOverlay: {
+        position: 'fixed',
+        inset: 0,
+        zIndex: 20,
+        backgroundColor: '#19072cd1',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+    },
+};
 
 export default Tokenomics;

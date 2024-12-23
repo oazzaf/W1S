@@ -29,7 +29,7 @@ function HomeLander() {
         background: `#222222`,
         backgroundSize: 'cover', // Ensures the gradient covers the viewport
         backgroundRepeat: 'no-repeat', // Prevents tiling of the gradient
-        minHeight: '120vh', // Full viewport height
+        minHeight: '100vh', // Full viewport height
       }}
     >
       {isLoading ? (

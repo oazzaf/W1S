@@ -3,7 +3,7 @@ import ScrollReveal from 'scrollreveal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import xIcon from '../img/x.png'; // Add this line for the new X logo
-import faqBgVideo from '../video/faqBg.mp4'; // Import the video
+import faqBgVideo from '../video/Metaverse.mp4'; // Import the video
 
 const Footer = () => {
 
@@ -63,7 +63,7 @@ const Footer = () => {
 
                 .footer-heading {
                     font-size: 2rem;
-                    color: #f0f0f0;
+                    color: white;
                     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
                 }
 
@@ -123,8 +123,8 @@ const Footer = () => {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background-color: #222222;
-                    opacity: 0.85; /* 30% opacity */
+                    background-color: black;
+                    opacity: 0.5; /* 30% opacity */
                     z-index: 1; /* On top of the video, behind the content */
                 }
                 `}

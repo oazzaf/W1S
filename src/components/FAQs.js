@@ -1,4 +1,7 @@
+// src/components/FAQs.js
+
 import React, { useState } from 'react';
+import quantumBgVideo from '../video/Quantum2.mp4'; // Importing the video
 
 const FAQs = () => {
   const faqs = [
@@ -62,42 +65,73 @@ const FAQs = () => {
   };
 
   return (
-    <div className="p-8 bg-transparent flex flex-col items-center justify-center min-h-screen" id='faq'>
-      <div className="w-full flex justify-center items-center flex-grow">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775] text-center"
-            style={{ 
-              fontWeight: '300', 
-              textShadow: '0px 0px 8px #d93775', 
-            }}>
-          Frequently <span>Asked</span> Questions
-        </h1>
-      </div>
-      <div className="faq-container flex flex-wrap justify-center items-center w-full">
-        {faqs.map((faq, index) => (
-          <div key={index} className="faq-category w-full lg:w-1/2 p-4 flex flex-col items-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4"
+    <div className="faq-wrapper relative p-8 flex flex-col items-center justify-center min-h-screen" id='faq'>
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        src={quantumBgVideo} // Using the imported video
+        type="video/mp4"
+        aria-hidden="true"
+      >
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay to darken the video for better readability */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-0"></div>
+
+      {/* FAQ Content */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        <div className="w-full flex justify-center items-center flex-grow">
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a5c] via-[#ff5cdc] to-[#d93775] text-center"
+            style={{
+              fontWeight: '300',
+              textShadow: '0px 0px 8px #d93775',
+            }}
+          >
+            Frequently <span>Asked</span> Questions
+          </h1>
+        </div>
+        <div className="faq-container flex flex-wrap justify-center items-center w-full mt-8">
+          {faqs.map((faq, index) => (
+            <div key={index} className="faq-category w-full lg:w-1/2 p-4 flex flex-col items-center">
+              <h2
+                className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4"
                 style={{
                   background: getCategoryGradient(faq.category),
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  textAlign: 'center', // Center the text within the h2 element
-                }}>
-              {faq.category}
-            </h2>
-            {faq.questions.map((q, idx) => (
-              <div key={idx} className="mb-4 w-full">
-                <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleQuestion(q.question)}>
-                  <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-100">{q.question}</p>
-                  <span className="text-gray-100">{openQuestion === q.question ? '▲' : '▼'}</span>
+                  textAlign: 'center',
+                }}
+              >
+                {faq.category}
+              </h2>
+              {faq.questions.map((q, idx) => (
+                <div key={idx} className="mb-4 w-full">
+                  <div
+                    className="flex justify-between items-center cursor-pointer"
+                    onClick={() => toggleQuestion(q.question)}
+                  >
+                    <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-100">
+                      {q.question}
+                    </p>
+                    <span className="text-gray-100">
+                      {openQuestion === q.question ? '▲' : '▼'}
+                    </span>
+                  </div>
+                  {openQuestion === q.question && (
+                    <p className="text-gray-300 mt-2">{q.answer}</p>
+                  )}
                 </div>
-                {openQuestion === q.question && (
-                  <p className="text-gray-300 mt-2">{q.answer}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        ))}
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

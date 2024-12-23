@@ -8,129 +8,223 @@ import Siphon9 from '../img/Siphon9.webp';
 
 const Economy = () => {
   useEffect(() => {
-    // Initialize ScrollReveal animations
-    ScrollReveal().reveal('.economy-img-container', {
-      origin: 'bottom',
-      distance: '100px',
-      duration: 1000,
-      easing: 'ease-in-out',
-      reset: true,
+    // Initialize ScrollReveal with global settings
+    ScrollReveal({
+      reset: true, // Animations occur every time the element comes into view
+      distance: '150px',
+      duration: 1500,
+      easing: 'ease-out',
+      viewFactor: 0.2, // Percentage of element visible before animation
     });
 
-    ScrollReveal().reveal('.economy-text-container', {
-      origin: 'top',
-      distance: '100px',
-      duration: 1000,
-      easing: 'ease-in-out',
-      reset: true,
+    // Reveal Eco Image Container
+    ScrollReveal().reveal('.eco-img-container', {
+      origin: 'bottom',
+      opacity: 0,
+      scale: 0.9,
+      interval: 100,
+      delay: 200,
+    });
+
+    // Reveal Eco Text Container
+    ScrollReveal().reveal('.eco-text-container', {
+      origin: 'left',
+      opacity: 0,
+      scale: 0.9,
+      interval: 100,
+      delay: 400,
     });
   }, []);
 
   return (
-    <section className="economy-section" id="economy">
+    <section className="eco-section" id="economy">
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;600;800&display=swap');
 
-          .economy-section {
+          /* Root Section Styling */
+          .eco-section {
             position: relative;
-            padding: 20px;
-            margin: 20px;
-            border: 3px solid #b01a62;
-            border-radius: 10px;
-            background: transparent;
+            padding: 60px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 20px;
             overflow: hidden;
-            font-family: 'Muli', sans-serif;
+            font-family: 'Muli', sans-serif; /* Applying Muli Font */
+            background-color: transparent;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
           }
 
-          .economy-section-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            overflow: hidden; /* Ensures background images are clipped */
+          /* Animated Background Images */
+          .eco-section::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: fadeBackgroundEco 7s ease-in-out infinite;
+            opacity: 0.5;
+            z-index: 1;
           }
 
-          @media (min-width: 768px) {
-            .economy-section-container {
-              flex-direction: row;
-              text-align: left;
+          @keyframes fadeBackgroundEco {
+            0% {
+              background-image: url(${Siphon8});
+            }
+            50% {
+              background-image: url(${Siphon9});
+            }
+            100% {
+              background-image: url(${Siphon8});
             }
           }
 
-          .background-image {
+          /* Color Overlay */
+          .eco-section::after {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
-            animation: fade 10s infinite;
-            opacity: 0;
-            z-index: -1;
+            background: linear-gradient(135deg, rgba(31,31,46,0.9) 0%, rgba(31,31,46,0.5) 100%);
+            z-index: -2;
+            border-radius: 20px;
           }
 
-          .background-image.image1 {
-            background-image: url(${Siphon8});
-            animation-delay: 0s;
+          /* Container for Content */
+          .eco-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+            background: transparent;
           }
 
-          .background-image.image2 {
-            background-image: url(${Siphon9});
-            animation-delay: 2s;
-          }
-
-          @keyframes fade {
-            0% {
-              opacity: 0;
+          /* Responsive Layout */
+          @media (min-width: 1024px) {
+            .eco-container {
+              flex-direction: row;
+              text-align: left;
             }
-            25% {
-              opacity: 1;
+          }
+
+          /* Enhanced Eco Image Container */
+          .eco-img-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 30px;
+            perspective: 1000px;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.6s ease;
+            z-index: 2;
+          }
+
+          @media (min-width: 1024px) {
+            .eco-img-container {
+              margin-bottom: 0;
+              margin-right: 40px;
+            }
+          }
+
+          /* 3D Tilt Effect */
+          .eco-img-container:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+          }
+
+          /* Image Styling with Glow and Shadow */
+          .eco-img-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            transition: transform 0.8s ease, box-shadow 0.8s ease;
+            backface-visibility: hidden;
+            background: linear-gradient(
+                 190deg,
+                 rgba(0, 0, 0, 0.8),
+                 rgba(255, 106, 92, 0.1),
+                 rgba(0, 0, 0, 0.8));                 
+          }
+
+          .eco-img-container:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 255, 255, 0.4);
+          }
+
+          /* Text Container Styling */
+          .eco-text-container {
+            max-width: 600px;
+            color: #ffffff;
+            font-family: 'Muli', sans-serif; /* Ensuring Muli Font */
+          }
+
+          /* Heading Styling */
+          .eco-text-container h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            font-family: 'Muli', sans-serif; /* Ensuring Muli Font */
+          }
+
+          /* Underline Animation */
+          .eco-text-container h1::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6a5c, #d93775, #9450a8);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+            animation: underlinePulseEco 3s ease-in-out infinite;
+          }
+
+          @keyframes underlinePulseEco {
+            0%, 100% {
+              width: 50px;
             }
             50% {
-              opacity: 0;
-            }
-            100% {
-              opacity: 0;
+              width: 380px;
             }
           }
 
-          .economy-img-container img {
-            max-width: 100%;
-            border-radius: 10px;
-          }
-
-          .economy-text-container h1 {
-            font-size: 2.5rem;
-            color: #b01a62;
-            font-family: 'Muli', sans-serif;
-          }
-
-          .economy-text-container p {
-            color: white;
-            font-family: 'Muli', sans-serif;
+          /* Paragraph Styling */
+          .eco-text-container p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            font-family: 'Muli', sans-serif; /* Ensuring Muli Font */
           }
         `}
       </style>
 
       {/* Content */}
-      <div className="economy-section-container">
-        {/* Background Images */}
-        <div className="background-image image1"></div>
-        <div className="background-image image2"></div>
-
-        <div className="economy-img-container">
-          <img src={Eco} alt="Eco Innovation" />
+      <div className="eco-container">
+        {/* Eco Image */}
+        <div className="eco-img-container">
+          <img src={Eco} alt="Eco Innovation in Travel Economy" />
         </div>
-        <div className="economy-text-container">
-          <h1>Travel Innovation</h1>
+
+        {/* Text Content */}
+        <div className="eco-text-container">
+          <h1>Innovate Travel Economy</h1>
           <p>
-            As tourism transforms into a powerful force for change, Wesafar is pioneering a
-            travel economy that fosters responsible tourism. By connecting trippers with local
-            businesses and promoting sustainable practices, Wesafar aims to create a thriving
-            community where every journey counts and every participant benefits.
+            In a world where tourism is evolving into a powerful agent for positive change, Wesafar stands at the forefront of this transformation. We're redefining the travel economy by fostering responsible tourism, connecting adventurers with local businesses, and promoting sustainable practices. Our mission is to cultivate a thriving community where every journey not only enriches the traveler but also empowers the destinations they visit.
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaGoogle, FaApple, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'; // <-- Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import welogo from '../img/transwesafa.png';
 import navbarStarsGif from '../img/navbarStars.gif';
 
@@ -20,7 +20,7 @@ function Navbar() {
     businessName: '',
   });
 
-  const navigate = useNavigate(); // <-- Initialize useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,13 +36,17 @@ function Navbar() {
 
   const handleMenuItemClick = (e, id) => {
     e.preventDefault();
+    console.log(`Menu item clicked: ${id}`); // Debugging log
     setIsMenuOpen(false);
     if (id === 'whitepaper') {
       window.location.href = 'https://wesafar.gitbook.io/whitepaper';
     } else {
       const targetElement = document.getElementById(id);
+      console.log('Target Element:', targetElement); // Debugging log
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.warn(`Element with ID "${id}" not found.`);
       }
     }
   };
@@ -62,7 +66,7 @@ function Navbar() {
     } else {
       console.log('Login data:', formData);
       // Navigate to TripperHome.jsx after successful login
-      navigate('/tripper/home'); // <-- This will navigate to the TripperHome page
+      navigate('/tripper/home'); // This will navigate to the TripperHome page
     }
 
     setFormData({
@@ -121,7 +125,7 @@ function Navbar() {
           isMenuOpen ? 'translate-y-0' : 'translate-y-full'
         } transition-transform duration-500 ease-in-out`}
         style={{
-          backgroundColor: '#22222',
+          backgroundColor: '#222222', // Corrected color code
           backgroundImage: `url(${navbarStarsGif})`,
           backdropFilter: 'blur(15px)',
           WebkitBackdropFilter: 'blur(10px)',
@@ -143,10 +147,15 @@ function Navbar() {
                   href={
                     item === 'WHITEPAPER'
                       ? 'https://wesafar.gitbook.io/whitepaper'
-                      : `#${item.toLowerCase().replace(' ', '')}`
+                      : `#${item.toLowerCase().replace(/\s+/g, '-')}` // Replaced all spaces with hyphens
                   }
                   className="text-xl text-white font-light gradient-text"
-                  onClick={(e) => handleMenuItemClick(e, item.toLowerCase().replace(' ', ''))}
+                  onClick={(e) =>
+                    handleMenuItemClick(
+                      e,
+                      item.toLowerCase().replace(/\s+/g, '-') // Ensure consistency with href
+                    )
+                  }
                 >
                   {item}
                 </a>

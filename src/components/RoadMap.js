@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import dmRoadmapImage from '../img/rm/dmRoadmap.png';
-import roadBgVideo from '../video/roadBg.mp4'; // Import the video
+import roadBgVideo from '../video/faqBg.mp4'; // Import the video
+import { 
+  FaRocket, 
+  FaCogs, 
+  FaUsers, 
+  FaGlobe, 
+  FaLightbulb, 
+  FaChartLine, 
+  FaMobileAlt, 
+  FaShieldAlt, 
+  FaStore 
+} from 'react-icons/fa'; // Import all necessary icons
 
 const points = [
   { left: '7.7%', top: '60%' },
@@ -26,176 +37,90 @@ const colors = [
   '#3c3f8f',
 ];
 
-
 const phases = [
   {
     title: 'Phase 1: Launch of Wesafar WebApp (Q3 2024)',
     details: [
-      'User Pre-Registration: Open pre-registration for Wesafar users.',
-      'Finalization of Marketing and Business Plan: Complete and finalize the comprehensive marketing and business strategy.',
-      'Wait List registration for Trippers and Business Partners.',
-      'Core Modules Development:',
-      'Home Page: Design and develop the main interface for user interaction.',
-      'Search Page: Implement the search functionality allowing users to find content and connections.',
-      'Posting Page: Enable users to create and share posts.',
-      'Messaging Page: Develop the messaging system for communication between users.',
-      'Profile Page: Create user profile pages for personalized experiences.',
-      'Testing and Debugging: Perform rigorous testing and fix any bugs.',
-      'Beta Testing: Conduct a closed beta test with selected users to gather feedback.',
-      'Feedback Integration: Integrate beta user feedback into the final product.',
-      'Launch Preparation: Prepare all necessary resources and support for the official launch.',
+      'Open pre-registration for Trippers and Business Partners.',
+      'Launch key features: Home, Search, Posting, Messaging, and Profile pages.',
+      'Conduct beta testing and gather user feedback.',
+      'Official launch preparation.',
     ],
+    icon: <FaRocket />,
   },
   {
     title: 'Phase 2: Development and Marketing (Q4 2024)',
     details: [
-      'Development of Wesafar V.0: Begin the development of the initial version of the Wesafar app.',
-      'Marketing and Commercial Launch: Execute the marketing and commercial plan.',
-      'Pre-Recruitment: Start pre-recruitment of future Wesafar team members.',
-      'Team Formation: Assemble the core development, marketing, and support teams.',
-      'Marketing Campaign: Launch an initial marketing campaign to create awareness and attract early adopters.',
-      'Engage Influencers: Partner with travel influencers to promote Wesafar.',
-      'Local Partnerships: Form partnerships with local businesses and tourism agencies.',
-      'Continuous Development: Continue developing core features and functionalities.',
-      'Monitoring and Analytics Setup: Implement tools for tracking user engagement and performance metrics.',
-      'Community Outreach: Organize events and webinars to engage with potential users and partners.',
-      'Content Creation: Develop content for the platform, including blogs, guides, and promotional materials.',
+      'Develop the initial version of the Wesafar app.',
+      'Execute marketing campaigns to raise awareness.',
+      'Collaborate with travel influencers and local partners.',
+      'Expand the community with outreach events and partnerships.',
     ],
+    icon: <FaCogs />,
   },
   {
-    title: 'Phase 3: Launch of Wesafar V.0 (Q1 2025)',
+    title: 'Phase 3: Wesafar V.0 Launch (Q1 2025)',
     details: [
-      'Release of Wesafar V.0: Launch the initial version with the following features:',
-      'AI-Powered Personalized Recommendations: Integrate AI to suggest personalized travel experiences.',
-      'Content Creation and Sharing for Trippers: Enable users to create and share travel content.',
-      'Authentic Connections with Other Users: Facilitate connections and interactions between users.',
-      'Personalized Profiles for Trippers: Allow users to create and customize their profiles.',
-      'Initial Deployment: Roll out the platform in Paris.',
-      'Data Analytics: Begin processing Wesafar data analytics.',
-      'User Onboarding: Implement an onboarding process to guide new users.',
-      'Support and Helpdesk: Establish a helpdesk to assist users with any issues.',
-      'Marketing Push: Intensify marketing efforts to attract more users.',
-      'Feedback Collection: Gather user feedback to identify areas for improvement.',
-      'Bug Fixes and Updates: Address any issues and release updates as needed.',
-      'Community Building: Encourage user engagement and community building activities.',
+      'Launch AI-powered recommendations, personalized profiles, and content sharing.',
+      'Initial deployment in Paris.',
+      'Encourage community engagement and gather feedback for improvements.',
     ],
+    icon: <FaUsers />,
   },
   {
     title: 'Phase 4: Business Partner Features (Q2 2025)',
     details: [
-      'Release of Wesafar V.0.1: Launch the updated version with features for business partners:',
-      'Creation of Business Profiles: Enable business partners to create and manage their profiles.',
-      'Availability and Rate Management: Implement tools for managing availability and pricing.',
-      'Online Reservation and Payment System: Develop a system for online bookings and payments.',
-      'Real-Time Messaging between Trippers and Business Partners: Enable direct communication.',
-      'Next City Deployment: Deployment in Marrakesh.',
-      'Business Partner Onboarding: Onboard initial business partners and provide training.',
-      'Partnership Promotions: Promote the benefits of joining Wesafar to potential business partners.',
-      'Feedback Integration: Gather and implement feedback from business partners.',
-      'Enhanced Analytics: Provide business partners with tools to track performance metrics.',
-      'Continuous Improvement: Regularly update and improve business partner features.',
-      'Market Research: Conduct market research to identify new business opportunities.',
-      'Business Workshops: Organize workshops and webinars for business partners to maximize their use of the platform.',
-      'Customer Support Training: Train support teams to handle business partner queries and issues efficiently.',
+      'Introduce features for business partners: profiles, booking tools, and messaging.',
+      'Deploy the platform in Marrakesh.',
+      'Promote business opportunities through analytics and tools.',
     ],
+    icon: <FaGlobe />,
   },
   {
     title: 'Phase 5: Enhanced Travel Planning (Q3 2025)',
     details: [
-      'Release of Wesafar V.0.2: Launch the updated version with advanced features:',
-      'Wesafar Events for Business Partners: Enable business partners to organize and promote events.',
-      'Wesafar Club for Premium Content Access: Offer exclusive content and benefits to club members.',
-      'Interactive Travel Planning Tool: Develop tools for users to plan their trips.',
-      'Easy Online Reservations for Activities and Accommodations: Streamline booking processes.',
-      'Interactive Maps and GPS Itineraries: Provide detailed maps and offline GPS functionalities.',
-      'Tripper Reviews and Ratings: Implement a system for users to review and rate services.',
-      'Personalized Notifications for Trippers: Send personalized alerts and updates.',
-      'Next City Deployment: Deployment in Casablanca.',
-      'User Training: Provide tutorials and guides for using new features.',
-      'Marketing and Promotion: Launch campaigns to promote new features.',
-      'Feedback and Iteration: Collect feedback and continuously improve the platform.',
-      'Partnership Expansion: Form new partnerships to enhance service offerings.',
+      'Launch advanced travel planning tools, including reviews, maps, and notifications.',
+      'Expand to Casablanca.',
+      'Enhance user experience with tutorials and promotional campaigns.',
     ],
+    icon: <FaLightbulb />, // Represents innovation and new features
   },
   {
-    title: 'Phase 6: Quest Completion and Business Analytics (Q4 2025)',
+    title: 'Phase 6: Quests and Analytics (Q4 2025)',
     details: [
-      'Release of Wesafar V.0.3: Launch new functionalities:',
-      'Quest Completion for Trippers: Introduce quests that users can complete for rewards.',
-      'Statistics and Analytics for Business Partners: Provide advanced analytics tools.',
-      'Support and Training for Business Partners: Offer training and support resources.',
-      'Sponsored Content by Business Partners: Enable businesses to sponsor content.',
-      'Direct Connection with Trippers for Service Promotion: Facilitate direct promotions.',
-      'Deployment in the United States: Expand to USA.',
-      'User Engagement: Implement strategies to increase user engagement.',
-      'Advanced Analytics: Improve data analytics capabilities.',
-      'Business Partner Support: Enhance support services for business partners.',
-      'Continuous Feedback: Collect and act on feedback from trippers and partners.',
-      'Community Events: Organize events to foster community engagement.',
-      'Market Expansion: Identify and enter new markets.',
+      'Introduce reward-based quests for Trippers.',
+      'Provide advanced analytics tools for business partners.',
+      'Expand to the United States.',
+      'Foster community engagement through events and feedback.',
     ],
+    icon: <FaChartLine />, // Represents analytics and growth
   },
   {
-    title: 'Phase 7: Multimedia Integration and Customer Support (Q1 2026)',
+    title: 'Phase 7: Multimedia & Support (Q1 2026)',
     details: [
-      'Release of Wesafar V.0.4: Introduce additional features:',
-      'Multimedia Content Integration for Business Partners: Allow partners to upload and manage media content.',
-      'Response to Reviews and Feedback from Trippers: Enable businesses to respond to reviews.',
-      '24/7 Customer Support: Provide round-the-clock customer support.',
-      'Travel Guides and Local Tips: Offer comprehensive travel guides and tips.',
-      'Promotion of Local Engagement for Responsible Tourism: Encourage responsible tourism practices.',
-      'Deployment in the Middle east: Expand to Dubai.',
-      'Enhanced User Support: Improve support channels and resources.',
-      'Content Enrichment: Enrich content with multimedia elements.',
-      'Feedback Mechanisms: Implement robust feedback mechanisms.',
-      'Marketing and Outreach: Increase marketing efforts to reach new users.',
-      'Partnership Development: Strengthen existing partnerships and form new ones.',
-      'Community Building: Foster a sense of community among users and partners.',
+      'Enable multimedia content uploads for business partners.',
+      'Deploy 24/7 customer support systems.',
+      'Expand the platform to Dubai.',
     ],
+    icon: <FaMobileAlt />, // Represents mobile support and multimedia
   },
   {
-    title: 'Phase 8: Advanced Planning and Virtual Events (Q2 2026)',
+    title: 'Phase 8: Advanced Planning & Virtual Events (Q2 2026)',
     details: [
-      'Release of Wesafar V.0.5: Launch with enhanced features:',
-      'Integrated Travel Planning Tools for Trippers: Provide advanced tools for trip planning.',
-      'Personalized Notifications: Send targeted notifications to users.',
-      'Participation in Virtual Events in Wesafar Metaverse: Enable users to join virtual events.',
-      'Airdrops for the Most Loyal Trippers: Reward loyal users with token airdrops.',
-      'Advanced Search and Filtering Features: Enhance search capabilities with advanced filters.',
-      'Deployment in Asia.',
-      'Virtual Event Hosting: Develop capabilities for hosting virtual events.',
-      'User Rewards: Implement reward programs for active users.',
-      'Feedback and Improvement: Continuously collect and act on user feedback.',
-      'Community Engagement: Increase efforts to engage the community.',
-      'Feature Enhancements: Regularly update and enhance platform features.',
-      'Partnership Initiatives: Launch initiatives to strengthen partnerships.',
+      'Launch virtual event hosting and advanced search tools.',
+      'Expand to Asia and reward loyal users with token airdrops.',
+      'Enhance community engagement through targeted rewards.',
     ],
+    icon: <FaShieldAlt />, // Represents security and advanced features
   },
   {
-    title: 'Phase 9: Token Launch and Marketplace Enhancements (Q3 2026 - Q4 2026)',
+    title: 'Phase 9: WER Token & Marketplace (Q3-Q4 2026)',
     details: [
-      'Release of Wesafar V.0.6 and V.0.7: Launch significant updates:',
-      'Launch of WER Token',
-      'Use of WER Tokens for Exclusive Purchases and Sponsorships',
-      'Enhancement of the Wesafar Marketplace',
-      'Creation of Virtual Events by Business Partners',
-      'Marketplace for Trading Physical and Digital Assets',
-      'Wesafar Metaverse for Virtual Experiences',
-      'Additional Immersive Experiences in Wesafar Metaverse',
-      'Enhanced Monetization Opportunities for Business Partners',
-      'Development of New Features Based on User Feedback',
-      'Integration of Emerging Travel Technologies',
-      'Optimization of Existing Features',
-      'Deployment in Dakhla and Northern Morocco: Expand to Dakhla and Northern Morocco region.',
-      'Regional Expansion:',
-      'Deployment in Central Morocco and Africa',
-      'Expansion of Wesafar Ecosystem to Other Regions and Countries',
-      'Full Rollout:',
-      'Complete Extension of Wesafar Metaverse',
-      'Continuous User Experience Improvement',
-      'Ongoing Evaluation and Adjustment of Marketing and Partnership Strategies',
-      'Achieve full deployment across the Kingdom of Morocco.',
+      'Launch WER tokens for purchases and sponsorships.',
+      'Expand globally, including Morocco, Central Africa, and Asia.',
+      'Integrate immersive experiences through the Wesafar Metaverse.',
     ],
+    icon: <FaStore />, // Represents marketplace and commerce
   },
 ];
 
@@ -203,6 +128,7 @@ const ImageGallery = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [animationPhase, setAnimationPhase] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -214,38 +140,31 @@ const ImageGallery = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const adjustPosition = (value, offset) => {
-    const numericValue = parseFloat(value);
-    const adjustedValue = numericValue + offset;
-    return `${adjustedValue}%`;
-  };
-
-  const pointStyle = (left, top, index) => {
-    const adjustedLeft = window.innerWidth === 1024 ? adjustPosition(left, -1) : left;
-    const adjustedTop = window.innerWidth === 1024 ? adjustPosition(top, -2) : top;
-
-    const isHoveredOrSelected = hoveredIndex === index || selectedIndex === index;
-    const isSelected = selectedIndex === index;
-
-    return {
-      position: 'absolute',
-      left: isMobile ? adjustPosition(left, -1.4) : adjustedLeft,
-      top: isMobile ? adjustPosition(top, -0.5) : adjustedTop,
-      width: isMobile ? '20px' : '40px',
-      height: isMobile ? '20px' : '40px',
-      borderRadius: '50%',
-      background: isSelected
-        ? `radial-gradient(circle at center, ${colors[index]}, #000000)`
-        : colors[index],
-      transition: 'transform 0.3s, box-shadow 0.3s, background 0.3s',
-      boxShadow: isSelected
-        ? `0 0 20px 10px ${colors[index]}, 0 0 40px 20px rgba(0, 0, 0, 0.5)`
+  const pointStyle = (left, top, index) => ({
+    position: 'absolute',
+    left: isMobile ? `${parseFloat(left) - 1.4}%` : left,
+    top: isMobile ? `${parseFloat(top) - 5}%` : top,
+    width: isMobile ? '20px' : '40px',
+    height: isMobile ? '20px' : '40px',
+    borderRadius: '50%',
+    background: colors[index],
+    transition: 'transform 0.3s, box-shadow 0.3s',
+    boxShadow:
+      selectedIndex === index
+        ? `0 0 20px 4px ${colors[index]}, 0 0 40px 8px ${colors[index]}`
         : `0 0 10px 2px ${colors[index]}`,
-      transform: isHoveredOrSelected ? 'scale(1.5)' : 'scale(1)',
-      animation: isSelected ? 'pulse 1.5s infinite' : 'none',
-      cursor: 'pointer',
-      zIndex: 5,
-    };
+    transform: hoveredIndex === index || selectedIndex === index ? 'scale(1.5)' : 'scale(1)',
+    cursor: 'pointer',
+    zIndex: 5,
+  });
+
+  const handlePointClick = (index) => {
+    if (index === selectedIndex) return;
+    setAnimationPhase(true);
+    setTimeout(() => {
+      setSelectedIndex(index);
+      setAnimationPhase(false);
+    }, 300); // Match duration with CSS animation
   };
 
   const cardStyle = {
@@ -254,129 +173,185 @@ const ImageGallery = () => {
     alignItems: 'center',
     justifyContent: 'center',
     borderTop: `7px solid ${colors[selectedIndex]}`,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)', // More opaque background for better visibility
-    padding: '24px', // Increased padding
-    borderRadius: '12px', // Slightly more rounded corners
-    marginTop: '16px',
-    width: '90%',
-    color: 'gray', // Ensure text is white for contrast
-    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)', // Add shadow for depth
-    zIndex: 5, // Ensure the cards are above the video and overlay
+    background: 'rgba(55, 5, 55, 0.2)', // Enhanced glassmorphism
+    backdropFilter: 'blur(15px)', // Increased blur effect
+    borderRadius: '20px',
+    padding: '20px',
+    margin: '30px',
+    width: isMobile ? '90%' : '85%',
+    color: 'white',
+    fontFamily: '"Exo", sans-serif', // Futuristic font
+    boxShadow: `0 0 25px 6px ${colors[selectedIndex]}`,
+    animation: animationPhase ? 'fadeOut 0.5s ease-in-out' : 'fadeIn 0.5s ease-in-out',
+    transition: 'all 0.5s ease-in-out',
   };
 
   const titleStyle = {
-    fontSize: '1.8em',
+    fontSize: '2.5em',
     fontWeight: 'bold',
-    marginBottom: '0.5em',
     textTransform: 'uppercase',
-    fontFamily: 'Orbitron',
+    fontFamily: '"Muli", sans-serif', // Futuristic font
     textAlign: 'center',
-    zIndex: 5, // Ensure the title is above the video and overlay
     color: colors[selectedIndex],
+    backgroundImage: 'linear-gradient(90deg, #ff00ff, #ff6a5c, #00ffff)',
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    marginBottom: '20px',
+    animation: 'textGradient 3s ease infinite',
   };
 
   const detailStyle = {
     display: 'flex',
     alignItems: 'center',
-    fontSize: '1.1em',
-    marginBottom: '0.5em',
-    lineHeight: '1.5',
-    fontFamily: 'Poppins',
-    justifyContent: 'center',
-  };
-
-  const boldDetailStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    fontWeight: 'bold',
-    marginTop: '1em',
-    fontFamily: 'Orbitron',
-    justifyContent: 'center',
+    fontSize: '1.2em',
+    marginBottom: '1em',
+    lineHeight: '1.6',
+    fontFamily: '"Exo", sans-serif',
+    opacity: 0,
+    animation: 'fadeInDetail 0.5s forwards',
   };
 
   const bulletStyle = {
-    width: '8px',
-    height: '8px',
+    width: '12px',
+    height: '12px',
     borderRadius: '50%',
     backgroundColor: colors[selectedIndex],
-    marginRight: '8px', // Space between bullet and text
+    marginRight: '12px',
+    flexShrink: 0,
   };
 
-  // Check if the selectedIndex is within the bounds of the phases array
   const currentPhase = phases[selectedIndex] || phases[0];
 
   return (
-    <div className="relative w-full h-auto flex flex-col items-center justify-center bg-transparent" id="roadmap" style={{ zIndex: 4 }}>
-      {/* Video Background */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        src={roadBgVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+    <>
+      {/* Add animations inside a <style> tag */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
 
-      {/* Overlay Layer */}
-      <div className="absolute inset-0 bg-[#222222] opacity-90 z-1"></div>
+          @keyframes fadeOut {
+            0% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+            100% {
+              opacity: 0;
+              transform: translateY(-20px);
+            }
+          }
 
-      <div className="relative w-full h-auto" style={{ zIndex: 5 }}>
-        <img
-          src={dmRoadmapImage}
-          alt="dmRoadmap"
-          className="w-full h-auto object-cover"
-          style={{ transform: 'scale(1)', transition: 'transform 0.3s' }}
+          @keyframes textGradient {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+
+          @keyframes fadeInDetail {
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+            from {
+              opacity: 0;
+              transform: translateX(-20px);
+            }
+          }
+
+          .detail-animate:nth-child(1) {
+            animation-delay: 0.1s;
+          }
+
+          .detail-animate:nth-child(2) {
+            animation-delay: 0.2s;
+          }
+
+          .detail-animate:nth-child(3) {
+            animation-delay: 0.3s;
+          }
+
+          .detail-animate:nth-child(4) {
+            animation-delay: 0.4s;
+          }
+        `}
+      </style>
+
+      <div
+        className="relative w-full h-auto flex flex-col items-center justify-center bg-transparent"
+        id="roadmap"
+      >
+        {/* Video Background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          src={roadBgVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
         />
-        {points.map((point, index) => (
-          <div
-            key={index}
-            style={pointStyle(point.left, point.top, index)}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            onClick={() => setSelectedIndex(index)}
+
+        {/* Overlay Layer */}
+        <div className="absolute inset-0 bg-[#000000] opacity-70 z-1"></div>
+        <h2
+          style={{
+            fontSize: isMobile ? '50px' : '70px',
+            fontFamily: '"Orbitron", sans-serif',
+            zIndex: '3',
+            color: 'transparent',
+            backgroundImage: 'linear-gradient(90deg, #f47e37, #e6433e, #cf2351)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            animation: 'textGradient 3s ease infinite',
+          }}
+        >
+          Roadmap
+        </h2>
+        <div className="relative w-full h-auto" style={{ zIndex: 5 }}>
+          <img
+            src={dmRoadmapImage}
+            alt="dmRoadmap"
+            className="w-full h-auto object-cover"
           />
-        ))}
-      </div>
-      <div style={cardStyle}>
-        <h3 style={titleStyle}>{currentPhase.title}</h3>
-        <ul style={{ textAlign: 'center', padding: 0, listStyle: 'none' }}>
-          {currentPhase.details.map((detail, index) => (
-            <li
+          {points.map((point, index) => (
+            <div
               key={index}
-              style={index === 0 || detail.endsWith(':') ? boldDetailStyle : detailStyle}
-            >
-              <span style={bulletStyle}></span> {detail}
-            </li>
+              style={pointStyle(point.left, point.top, index)}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => handlePointClick(index)}
+              title={phases[index]?.title || `Phase ${index + 1}`}
+            />
           ))}
-        </ul>
+        </div>
+        <div style={cardStyle}>
+          <h3 style={titleStyle}>
+            {currentPhase.icon} {currentPhase.title}
+          </h3>
+          <ul style={{ textAlign: 'left', padding: 0, listStyle: 'none', width: '100%' }}>
+            {currentPhase.details.map((detail, index) => (
+              <li key={index} className="detail-animate" style={detailStyle}>
+                <span style={bulletStyle}></span> {detail}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-// Add CSS for pulse animation
-const App = () => {
-  return (
-    <div className="App">
-      <style>{`
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
-          }
-          50% {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
-          }
-          100% {
-            transform: scale(1);
-            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
-          }
-        }
-      `}</style>
-      <ImageGallery />
-    </div>
-  );
-};
-
-export default App;
+export default ImageGallery;
