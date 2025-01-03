@@ -18,10 +18,10 @@ import TripperHelp from './pages/tripper/TripperHelp';
 import BusinessExplore from './pages/partner/BusinessExplore';
 import BusinessProfile from './pages/partner/BusinessProfile';
 import BusinessAnalytics from './pages/partner/BusinessAnalytics';
-import BusinessMarketplace from './pages/partner/BusinessMarketplace';
+import BusinessDash from './pages/partner/BusinessDash';
 import BusinessEvents from './pages/partner/BusinessEvents';
 import BusinessMessages from './pages/partner/BusinessMessages';
-import BusinessOffers from './pages/partner/BusinessOffers';
+import BusinessQuest from './pages/partner/BusinessQuest';
 import BusinessSettings from './pages/partner/BusinessSettings';
 import BusinessHelp from './pages/partner/BusinessHelp';
 
@@ -47,10 +47,10 @@ function App() {
         <Route path="/partner/explore" element={<BusinessExplore />} />
         <Route path="/partner/profile" element={<BusinessProfile />} />
         <Route path="/partner/analytics" element={<BusinessAnalytics />} />
-        <Route path="/partner/marketplace" element={<BusinessMarketplace />} />
+        <Route path="/partner/dash" element={<BusinessDash />} />
         <Route path="/partner/events" element={<BusinessEvents />} />
         <Route path="/partner/messages" element={<BusinessMessages />} />
-        <Route path="/partner/offers" element={<BusinessOffers />} />
+        <Route path="/partner/quest" element={<BusinessQuest />} />
         <Route path="/partner/settings" element={<BusinessSettings />} />
         <Route path="/partner/help" element={<BusinessHelp />} />
         
