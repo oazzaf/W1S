@@ -21,7 +21,7 @@ const PartnerDash = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <div className="bg-[#222222] h-screen text-white">
+    <div className="bg-[#222222] h-[150vh] text-white">
       <PartnerNav />
       <div className="p-6 md:mt-11">
         {/* Responsive Navigation */}

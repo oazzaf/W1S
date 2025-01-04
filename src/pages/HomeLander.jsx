@@ -7,7 +7,7 @@ import Product from '../components/Product';
 import Ecosystem from '../components/Ecosystem';
 import Tokenomics from '../components/Tokenomics';
 import RoadMap from '../components/RoadMap';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import FAQs from '../components/FAQs';
 import Loading from '../components/Loading';
 
