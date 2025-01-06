@@ -200,11 +200,11 @@ const WesafarFeed = () => {
             <div className="flex items-center justify-between border-t border-gray-800 bg-[#181818] px-4 py-3">
               <button className="flex items-center space-x-2 text-gray-400 transition-colors hover:text-cyan-400">
                 <FontAwesomeIcon icon={faHeartOutline} />
-                <span>{item.likes} Likes</span>
+                <span>{item.likes}</span>
               </button>
               <button className="flex items-center space-x-2 text-gray-400 transition-colors hover:text-cyan-400">
                 <FontAwesomeIcon icon={faCommentOutline} />
-                <span>{item.comments} Comments</span>
+                <span>{item.comments}</span>
               </button>
               <button className="flex items-center space-x-2 text-gray-400 transition-colors hover:text-cyan-400">
                 <FontAwesomeIcon icon={faShareOutline} />
