@@ -4,7 +4,6 @@ import HomeLander from './pages/HomeLander';
 
 // Tripper Pages
 import TripperHome from './pages/tripper/TripperHome';
-import TripperExplore from './pages/tripper/TripperExplore';
 import TripperProfile from './pages/tripper/TripperProfile';
 import TripperQuests from './pages/tripper/TripperQuests';
 import TripperMarketplace from './pages/tripper/TripperMarketplace';
@@ -17,7 +16,6 @@ import TripperHelp from './pages/tripper/TripperHelp';
 // Business Pages
 import BusinessExplore from './pages/partner/BusinessExplore';
 import BusinessProfile from './pages/partner/BusinessProfile';
-import BusinessAnalytics from './pages/partner/BusinessAnalytics';
 import BusinessDash from './pages/partner/BusinessDash';
 import BusinessEvents from './pages/partner/BusinessEvents';
 import BusinessMessages from './pages/partner/BusinessMessages';
@@ -33,7 +31,6 @@ function App() {
         
         {/* Tripper Routes */}
         <Route path="/tripper/home" element={<TripperHome />} />
-        <Route path="/tripper/explore" element={<TripperExplore />} />
         <Route path="/tripper/profile" element={<TripperProfile />} />
         <Route path="/tripper/quests" element={<TripperQuests />} />
         <Route path="/tripper/marketplace" element={<TripperMarketplace />} />
@@ -46,7 +43,6 @@ function App() {
         {/* Business Routes */}
         <Route path="/partner/explore" element={<BusinessExplore />} />
         <Route path="/partner/profile" element={<BusinessProfile />} />
-        <Route path="/partner/analytics" element={<BusinessAnalytics />} />
         <Route path="/partner/dash" element={<BusinessDash />} />
         <Route path="/partner/events" element={<BusinessEvents />} />
         <Route path="/partner/messages" element={<BusinessMessages />} />

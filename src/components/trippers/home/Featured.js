@@ -1,107 +1,130 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faHeart, faCommentDots, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-// Importing Images
-import hotAir from './activities/hotAir.jpg';
-import camelRide from './activities/camelRide.png';
-import desertSafari from './activities/safariDesert.png';
-import Majorelle from './popular/majorel.png';
-import mosquesH2 from './popular/mosquesH2.jpg';
-import kasbaUdaya from './popular/kasbaUdaya.jpg';
-import tanger from './cities/tanger.jpg';
-import dakhla from './cities/dakhla.jpeg';
-import agadir from './cities/agadir.jpg';
-import casablancaImage from './cities/casablanca.jpg';
-import marrakechImage from './cities/marrakech.png';
-import rabatImage from './cities/rabat.jpg';
+// Import any required images
+import MarrakechImage from './expimg/MarrakechSouks.jpg'; // Example placeholder image
+import TangerImage from './expimg/TangerMedina.jpg';
+import SaharaImage from './expimg/DakhlaDesert.jpg';
+import CasablancaImage from './expimg/CasablancaCity.jpg';
+import RabatImage from './expimg/RabatTour.jpg';
+import FourSeasonsImage from './expimg/FourSeason.jpg';
+import HyattRegencyImage from './expimg/Hyatt.jpg'; // Updated hotel image
+import RicksCafeImage from './expimg/Ricks.jpg';
+import LaSqalaImage from './expimg/Cabestan.jpg';
+import LeCabestanImage from './expimg/Cabestan.jpg';
 
-// Location Data
-const locationsData = {
-  Popular: [
-    { title: "Hassan II Mosque", imageUrl: mosquesH2, location: "Casablanca", distance: 257, price: "$free", likes: "4k", comments: "766" },
-    { title: "Majorelle Garden", imageUrl: Majorelle, location: "Marrakech", distance: 300, price: "120 WER", likes: "3.5k", comments: "600" },
-    { title: "Kasbah of the Udayas", imageUrl: kasbaUdaya, location: "Rabat", distance: 1500, price: "$free", likes: "2k", comments: "430" },
-  ],
+const Explore = () => {
+  const featuredPlaces = [
+    { title: 'Marrakech Souks', location: 'Marrakech', image: MarrakechImage, weather: '28°C', event: false },
+    { title: 'Rabat Tour', location: 'Rabat', image: RabatImage, weather: '24°C', event: false },
+    { title: 'Sahara Desert Adventure', location: 'Dakhla', image: SaharaImage, weather: '35°C', event: true },
+    { title: 'Tanger Medina Experience', location: 'Tanger', image: TangerImage, weather: '26°C', event: false },
+  ];
 
-  Cities: [
-    { title: "Casablanca", imageUrl: casablancaImage, location: "Morocco", distance: 500, price: "550 WER", weather: "22° Sunny", likes: "2k", comments: "300", supportLocal: true },
-    { title: "Marrakech", imageUrl: marrakechImage, location: "Morocco", distance: 300, price: "400 WER", weather: "28° Sunny", likes: "1.8k", comments: "250", supportLocal: true },
-    { title: "Rabat", imageUrl: rabatImage, location: "Morocco", distance: 1500, price: "1200 WER", weather: "18° Cloudy", likes: "10k", comments: "1.5k", supportLocal: false },
-    { title: "Tanger", imageUrl: tanger, location: "Morocco", distance: 300, price: "400 WER", weather: "28° Sunny", likes: "1.8k", comments: "250", supportLocal: true },
-    { title: "Dakhla", imageUrl: dakhla, location: "Morocco", distance: 1500, price: "1200 WER", weather: "18° Cloudy", likes: "10k", comments: "1.5k", supportLocal: false },
-    { title: "Agadir", imageUrl: agadir, location: "Morocco", distance: 1500, price: "1200 WER", weather: "18° Cloudy", likes: "10k", comments: "1.5k", supportLocal: false },
-  ],
-  
-  Activities: [
-    { title: "Desert Safari", imageUrl: desertSafari, location: "Merzouga", distance: 800, price: "400 WER", likes: "4k", comments: "500" },
-    { title: "Camel Ride in Sahara", imageUrl: camelRide, location: "Zagora", distance: 950, price: "350 WER", likes: "3.5k", comments: "450" },
-    { title: "Hot Air Balloon Ride", imageUrl: hotAir, location: "Marrakech", distance: 300, price: "600 WER", likes: "2k", comments: "300" },
-  ],
-};
+  const placesToVisit = [
+    { title: 'Four Seasons Hotel Casablanca', description: 'A luxurious hotel with breathtaking ocean views and world-class amenities.', reward: '350 WER', image: FourSeasonsImage },
+    { title: 'Hyatt Regency Casablanca', description: 'A luxury hotel in the heart of Casablanca, offering modern comfort and fine dining.', reward: '200 WER', image: HyattRegencyImage }, // Updated hotel description
+    { title: 'Rick\'s Café', description: 'A famous restaurant modeled after the café in the movie "Casablanca," serving Moroccan and international dishes.', reward: '770 WER', image: RicksCafeImage },
+    { title: 'La Sqala', description: 'A charming restaurant offering traditional Moroccan cuisine in a historical setting.', reward: '550 WER', image: LaSqalaImage },
+    { title: 'Le Cabestan', description: 'A seaside restaurant known for its upscale seafood dishes and stunning ocean views.', reward: '200 WER', image: LeCabestanImage },
+  ];
 
-const Featured = ({ category, onBackClick }) => {
   return (
-    <div className="relative bg-[#222222] text-white flex flex-col justify-center items-center min-h-screen">
-      {/* Content Container */}
-      <div className="mb-20 mt-16 sm:mt-24 lg:mt-[-20rem] w-full overflow-y-auto p-4 sm:p-8">  
-        <h2 className="text-2xl sm:text-4xl text-center mb-6 sm:mb-8 bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">
-          Featured {category}
-        </h2>
+    <div className="bg-[#222222] text-white">
+      {/* Hero Section */}
+      <div
+        className="relative h-56 mb-6 rounded-lg overflow-hidden mx-auto w-4/5"
+        style={{ backgroundImage: `url(${SaharaImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-90"></div>
+        <div className="relative z-10 p-4 mt-14">
+          <p className="text-sm text-gray-300">1000 WER Reward • Sahara Adventure</p>
+          <h2 className="text-xl font-bold">A  journey through the dunes of Morocco</h2>
+          <button className="mt-2 bg-white text-black px-3 py-1 rounded-full text-sm">Book Now</button>
+        </div>
+      </div>
 
-        {/* Back Button */}
-        <button
-          onClick={onBackClick}
-          className="mb-6 sm:mb-9 flex items-center gap-2 text-gray-300 px-4 py-2 sm:px-5 sm:py-2 rounded-full border-2 border-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 transition duration-300 ease-in-out"
-        >
-          <FontAwesomeIcon icon={faArrowLeft} />
-          Back
-        </button>  
+      {/* Main Section: Grid layout for Featured Experiences and Places to Visit */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 mx-auto w-4/5">
+        {/* Featured Section on the left */}
+        <div>
+          <div className="flex justify-between mb-4">
+            <h3 className="text-lg font-bold">Featured Experiences</h3>
+            <button className="text-pink-500 text-sm">See all</button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            {featuredPlaces.map((place, index) => (
+              <div key={index} className="relative rounded-lg overflow-hidden bg-[#504e4e]">
+                <img src={place.image} alt={place.title} className="h-32 w-full object-cover" />
+                <div className="p-3">
+                  <h3 className="text-white font-bold">{place.title}</h3>
+                  <p className="text-xs text-gray-300">{place.location}</p>
+                  <p className="text-pink-500 text-sm mt-1">{place.weather}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+           {/* Newsletter Section */}
+          <div className="mt-12 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg p-4">
+            <h3 className="text-lg font-bold mb-1">Stay in the Loop</h3>
+            <p className="text-xs text-white mb-3">Get updates on the latest experiences in Morocco.</p>
+            <div className="flex items-center">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="px-3 py-1 rounded-full bg-white text-black focus:outline-none flex-1 text-sm"
+              />
+              <button className="ml-2 bg-white text-pink-500 p-2 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-1 w-full">
-          {locationsData[category]?.map((location, index) => (
-            <div key={index} className="bg-[#504e4e] rounded-lg overflow-hidden w-full flex flex-col sm:flex-row transition-transform transform hover:scale-105 shadow-md">
-              {/* Image Section */}
-              <img src={location.imageUrl} alt={location.title} className="w-full sm:w-40 h-40 object-cover rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" />
-   
-              {/* Card Content */}
-              <div className="p-4 text-white flex-1">
-                {/* Title and Price */}
-                <div className="flex justify-between items-center mb-2">
-                  <h3 className="text-lg font-semibold">{location.title}</h3>
-                  <div className="text-right">
-                    <p className="text-sm font-bold">{location.price}</p>
-                    {location.oldPrice && (
-                      <p className="text-xs text-gray-700 line-through">{location.oldPrice}</p>
-                    )}
-                  </div>
-                </div>
-   
-                {/* Location */}
-                <div className="flex items-center text-sm text-gray-400 mb-2">
-                  <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-                  <span>{location.location}</span>
-                </div>
-   
-                {/* Likes and Comments */}
-                <div className="flex justify-between text-sm text-gray-400">
-                  <div className="flex items-center">
-                    <FontAwesomeIcon icon={faHeart} className="mr-1" />
-                    <span>{location.likes}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FontAwesomeIcon icon={faCommentDots} className="mr-1" />
-                    <span>{location.comments}</span>
-                  </div>
-                </div>
+        {/* Places to Visit Section on the right */}
+        <div className="space-y-3">
+          {/* Casablanca Section on top */}
+          <div
+            className="relative h-40 rounded-lg overflow-hidden"
+            style={{ backgroundImage: `url(${CasablancaImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            {/* Gradient background as a layer below the image */}
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-500 opacity-50"></div>
+            {/* The background image itself with reduced opacity */}
+            <div className="absolute inset-0 bg-opacity-40" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}></div>
+            <div className="relative z-10 p-4">
+              <h3 className="text-lg font-bold">Casablanca</h3>
+              <p className="mt-1 text-sm">Explore the coastal city with modern flair and rich history.</p>
+              <p className="mt-1 text-yellow-300 text-sm">23°C • Sunny</p>
+            </div>
+          </div>
+
+          {/* Rest of the Places to Visit */}
+          <h3 className="text-lg font-bold mt-4">Places to Visit in Casablanca</h3>
+          {placesToVisit.map((place, index) => (
+            <div key={index} className="flex items-center bg-[#333333] rounded-lg p-3">
+              <img src={place.image} alt={place.title} className="h-14 w-14 rounded-md object-cover mr-3" />
+              <div>
+                <h3 className="text-sm font-bold">{place.title}</h3>
+                <p className="text-xs text-gray-400">{place.description}</p>
+                {place.reward && <p className="text-pink-500 text-sm mt-1">{place.reward}</p>}
               </div>
             </div>
           ))}
+
+          
         </div>
       </div>
     </div>
   );
 };
 
-export default Featured;
+export default Explore;
